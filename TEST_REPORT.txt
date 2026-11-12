@@ -6,6 +6,11 @@ PASS: talent_ui.py compilation and git diff --check.
 Browser: desktop landing, role cards, university review and native dropdown;
 mobile landing at 390x844 without horizontal overflow; role navigation anchor.
 Temporary viewport override reset. Light colors apply to native forms and cards.
+PASS: public Streamlit after PR #3 (main merge commit 4c09782): new landing,
+eight role entries, university review, native status dropdown and exact pilot
+description in About. Desktop 1280x900 and mobile 390x844 inspected; mobile
+document width 390, main scroll width 380, no horizontal overflow. The landing
+CTA scrolls to the role chooser. Temporary viewport reset; screenshot saved.
 Business arithmetic, internal document links and source/assumption boundaries
 reviewed. No buyer interviews, payments or channel agreements were obtained.
 The full 123-test run below belongs to the preceding participant-role revision;

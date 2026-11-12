@@ -8,7 +8,7 @@
 
 **Статус:** демонстрационный прототип на синтетических данных. Подтверждённых интервью, оплат и партнёрств пока нет. Это переработка предыдущего MVP TaskUp: прежний сценарий сохранён в `legacy_app.py`.
 
-Рабочее демо: [taskup-kuskon-ai.streamlit.app](https://taskup-kuskon-ai.streamlit.app/). Streamlit подключён к ветке `main`; восемь кабинетов опубликованы через [PR №2](https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy/pull/2). Главный экран, кабинет вуза, родителя и школы проверены на публичном сайте. Результаты 123 автоматических тестов и границы браузерной проверки — в [TEST_REPORT.txt](TEST_REPORT.txt).
+Рабочее демо: [taskup-kuskon-ai.streamlit.app](https://taskup-kuskon-ai.streamlit.app/). Streamlit подключён к ветке `main`; восемь кабинетов опубликованы через [PR №2](https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy/pull/2), светлый дизайн и уточнённая бизнес-модель — через [PR №3](https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy/pull/3). Новый главный экран, кабинет вуза, описание пилота и мобильная навигация проверены на публичном сайте. Базовые 123 теста, 12 повторных UI-сценариев после смены оформления и границы браузерной проверки — в [TEST_REPORT.txt](TEST_REPORT.txt).
 
 ## Участники рынка
 
