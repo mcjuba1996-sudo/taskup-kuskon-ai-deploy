@@ -57,7 +57,7 @@ def navigate(page):
 
 def landing():
     brand()
-    st.caption(t('Kuskon AI · HackHub 2026 · Талант до вуза'))
+    st.caption(t('SANA Team · HackHub 2026 · Талант до вуза'))
     left, right = st.columns([1.4, 1], gap='large')
     with left:
         html(t('<div class="tt-kicker tt-hero-kicker">РЕАЛЬНАЯ РАБОТА → ДОВЕРИЕ</div><h1 class="tt-hero-title">Твой талант.<br><em>Твои доказательства.</em></h1><p class="tt-lead">Сделай небольшой IT-проект. Получи разбор от вуза или другой организации. Покажи, что умеешь, через результат работы.</p>'))
