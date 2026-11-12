@@ -1,0 +1,474 @@
+{
+  "{label}: от {minimum} до {maximum} символов.": {
+    "en": "{label}: enter between {minimum} and {maximum} characters.",
+    "kk": "{label}: {minimum}–{maximum} таңба енгізіңіз."
+  },
+  "{label}: нужно не менее 20 символов перед отправкой.": {
+    "en": "{label}: at least 20 characters are required before submission.",
+    "kk": "{label}: жіберу үшін кемінде 20 таңба қажет."
+  },
+  "Добавьте корректную http/https-ссылку на результат.": {
+    "en": "Add a valid http/https link to the result.",
+    "kk": "Нәтижеге жарамды http/https сілтемесін қосыңыз."
+  },
+  "Активное приглашение этому участнику уже существует.": {
+    "en": "An active invitation for this participant already exists.",
+    "kk": "Бұл қатысушыға белсенді шақыру бұрын жіберілген."
+  },
+  "Выберите демопрофиль школьника.": {
+    "en": "Select a student's demo profile.",
+    "kk": "Оқушының демо профилін таңдаңыз."
+  },
+  "Выберите допустимый тип организации-покупателя.": {
+    "en": "Select a valid buyer organization type.",
+    "kk": "Сатып алушы ұйымның жарамды түрін таңдаңыз."
+  },
+  "Выберите существующее задание для отправки.": {
+    "en": "Select an existing challenge to submit to.",
+    "kk": "Жұмысты жіберу үшін бар тапсырманы таңдаңыз."
+  },
+  "Выберите только известные пункты самопроверки без повторов.": {
+    "en": "Select only available self-check items, without duplicates.",
+    "kk": "Өзін-өзі тексерудің тек бар тармақтарын қайталамай таңдаңыз."
+  },
+  "Действие недоступно для этого демопрофиля.": {
+    "en": "This action is not available for this demo profile.",
+    "kk": "Бұл әрекет осы демо профильге қолжетімсіз."
+  },
+  "Демонстрационные роли ещё не инициализированы.": {
+    "en": "Demo roles have not been initialized yet.",
+    "kk": "Демо рөлдер әлі дайындалмаған."
+  },
+  "Демопрофиль не найден.": {
+    "en": "Demo profile not found.",
+    "kk": "Демо профиль табылмады."
+  },
+  "Для зачёта нужны минимум 70 баллов и минимум 2 по каждому критерию.": {
+    "en": "Acceptance requires at least 70 points overall and at least 2 for each criterion.",
+    "kk": "Қабылдау үшін жалпы кемінде 70 балл және әр критерий бойынша кемінде 2 балл қажет."
+  },
+  "Для нового проекта версия не указывается.": {
+    "en": "Do not specify a version for a new project.",
+    "kk": "Жаңа жоба үшін нұсқа көрсетілмейді."
+  },
+  "Для оценки нужен ещё не оценённый ответ участника.": {
+    "en": "Assessment requires a participant response that has not yet been assessed.",
+    "kk": "Бағалау үшін қатысушының әлі бағаланбаған жауабы қажет."
+  },
+  "Завершите запрос защиты и оцените наблюдения до принятия результата.": {
+    "en": "Complete the defense request and assess your observations before accepting the result.",
+    "kk": "Нәтижені қабылдамас бұрын қорғау сұрауын аяқтап, бақылауларыңызды бағалаңыз."
+  },
+  "Задание не найдено.": {
+    "en": "Challenge not found.",
+    "kk": "Тапсырма табылмады."
+  },
+  "Запись уже обработана или отозвана; обновите страницу.": {
+    "en": "This record has already been processed or revoked; refresh the page.",
+    "kk": "Жазба бұрын өңделген немесе кері қайтарылған; бетті жаңартыңыз."
+  },
+  "Запрашивать защиту может только заказчик задания.": {
+    "en": "Only the challenge owner can request a defense.",
+    "kk": "Қорғауды тек тапсырманы берген ұйым сұрай алады."
+  },
+  "Запрос защиты не найден.": {
+    "en": "Defense request not found.",
+    "kk": "Қорғау сұрауы табылмады."
+  },
+  "Запрос защиты уже изменён. Обновите страницу.": {
+    "en": "The defense request has changed. Refresh the page.",
+    "kk": "Қорғау сұрауы өзгерген. Бетті жаңартыңыз."
+  },
+  "Защита запрашивается только для ожидающей проверки работы.": {
+    "en": "A defense can only be requested for a submission awaiting review.",
+    "kk": "Қорғауды тек тексеруді күтіп тұрған жұмыс үшін сұрауға болады."
+  },
+  "Защита относится к завершённой или предыдущей версии работы.": {
+    "en": "This defense belongs to a completed or previous submission version.",
+    "kk": "Бұл қорғау жұмыстың аяқталған немесе алдыңғы нұсқасына қатысты."
+  },
+  "История и защита этой работы недоступны для профиля.": {
+    "en": "This profile cannot access the submission's history or defense.",
+    "kk": "Бұл профильге жұмыстың тарихы мен қорғауы қолжетімсіз."
+  },
+  "Источник может работать только со своим демонстрационным списком участников.": {
+    "en": "An issuer can only work with its own demo participant roster.",
+    "kk": "Дереккөз тек өзінің демо қатысушылар тізімімен жұмыс істей алады."
+  },
+  "Критерии должны содержать название, рубрику и веса 40, 35 и 25%.": {
+    "en": "Criteria must include a title, a rubric, and weights of 40, 35, and 25%.",
+    "kk": "Критерийлерде атау, бағалау рубрикасы және 40, 35, 25% салмақтары болуы керек."
+  },
+  "Личный проект доступен только его владельцу.": {
+    "en": "Only the owner can access this personal project.",
+    "kk": "Жеке жобаға тек оның иесі қол жеткізе алады."
+  },
+  "Личный проект не найден.": {
+    "en": "Personal project not found.",
+    "kk": "Жеке жоба табылмады."
+  },
+  "На это задание уже есть работа. Ожидайте проверки или запроса доработки.": {
+    "en": "You have already submitted to this challenge. Wait for a review or a revision request.",
+    "kk": "Бұл тапсырмаға жұмыс жіберілген. Тексеруді немесе толықтыру сұрауын күтіңіз."
+  },
+  "Названия трёх критериев должны различаться.": {
+    "en": "The three criteria must have different titles.",
+    "kk": "Үш критерийдің атауы әртүрлі болуы керек."
+  },
+  "Неизвестная роль.": {
+    "en": "Unknown role.",
+    "kk": "Белгісіз рөл."
+  },
+  "Неизвестный тип участника.": {
+    "en": "Unknown participant type.",
+    "kk": "Қатысушының белгісіз түрі."
+  },
+  "Некорректная версия работы.": {
+    "en": "Invalid submission version.",
+    "kk": "Жұмыс нұсқасы жарамсыз."
+  },
+  "Некорректная версия раунда защиты.": {
+    "en": "Invalid defense round version.",
+    "kk": "Қорғау кезеңінің нұсқасы жарамсыз."
+  },
+  "Некорректное состояние списка кандидатов.": {
+    "en": "Invalid candidate list state.",
+    "kk": "Үміткерлер тізімінің күйі жарамсыз."
+  },
+  "Некорректные параметры проверки.": {
+    "en": "Invalid review parameters.",
+    "kk": "Тексеру параметрлері жарамсыз."
+  },
+  "Некорректный идентификатор демопрофиля.": {
+    "en": "Invalid demo profile ID.",
+    "kk": "Демо профиль идентификаторы жарамсыз."
+  },
+  "Некорректный ответ на приглашение.": {
+    "en": "Invalid invitation response.",
+    "kk": "Шақыруға берілген жауап жарамсыз."
+  },
+  "Нельзя сдавать собственное задание.": {
+    "en": "You cannot submit to your own challenge.",
+    "kk": "Өз тапсырмаңызға жұмыс жіберуге болмайды."
+  },
+  "Нужна корректная http/https-ссылка на основание записи.": {
+    "en": "Provide a valid http/https link to evidence supporting the record.",
+    "kk": "Жазбаның негіздемесіне жарамды http/https сілтемесін көрсетіңіз."
+  },
+  "Нужна корректная http/https-ссылка на результат защиты.": {
+    "en": "Provide a valid http/https link to the defense result.",
+    "kk": "Қорғау нәтижесіне жарамды http/https сілтемесін көрсетіңіз."
+  },
+  "Нужна корректная http/https-ссылка на результат.": {
+    "en": "Provide a valid http/https link to the result.",
+    "kk": "Нәтижеге жарамды http/https сілтемесін көрсетіңіз."
+  },
+  "Нужна карточка личного проекта.": {
+    "en": "A personal project record is required.",
+    "kk": "Жеке жоба карточкасы қажет."
+  },
+  "Нужны ровно три критерия с весами 40, 35 и 25%.": {
+    "en": "Exactly three criteria are required, with weights of 40, 35, and 25%.",
+    "kk": "Салмақтары 40, 35, 25% болатын дәл үш критерий қажет."
+  },
+  "Ответ уже зафиксирован; нужен новый запрос для уточнения.": {
+    "en": "The response has already been recorded; clarification requires a new request.",
+    "kk": "Жауап тіркелген; нақтылау үшін жаңа сұрау қажет."
+  },
+  "Ответить может только приглашённый участник.": {
+    "en": "Only the invited participant can respond.",
+    "kk": "Тек шақырылған қатысушы жауап бере алады."
+  },
+  "Ответить может только участник, отправивший работу.": {
+    "en": "Only the participant who submitted the work can respond.",
+    "kk": "Тек жұмысты жіберген қатысушы жауап бере алады."
+  },
+  "Ответить на запись может только её получатель.": {
+    "en": "Only the recipient can respond to this record.",
+    "kk": "Жазбаға тек оны алған оқушы жауап бере алады."
+  },
+  "Отозвать запись может только выдавший её источник.": {
+    "en": "Only the issuer of this record can revoke it.",
+    "kk": "Жазбаны тек оны берген дереккөз кері қайтара алады."
+  },
+  "Оцените каждый из трёх критериев целым числом от 0 до 4.": {
+    "en": "Rate each of the three criteria with a whole number from 0 to 4.",
+    "kk": "Үш критерийдің әрқайсысын 0-ден 4-ке дейінгі бүтін санмен бағалаңыз."
+  },
+  "Оценить защиту может только заказчик этого задания.": {
+    "en": "Only the challenge owner can assess the defense.",
+    "kk": "Қорғауды тек осы тапсырманы берген ұйым бағалай алады."
+  },
+  "Повторная сдача доступна только после запроса доработки.": {
+    "en": "Resubmission is only available after a revision request.",
+    "kk": "Жұмысты қайта жіберу тек толықтыру сұрауынан кейін қолжетімді."
+  },
+  "Предыдущий запрос защиты ещё не завершён.": {
+    "en": "The previous defense request is still open.",
+    "kk": "Алдыңғы қорғау сұрауы әлі аяқталмаған."
+  },
+  "Приглашение доступно только для открытого профиля с подтверждённой работой.": {
+    "en": "Invitations are only available for shared profiles with an accepted submission.",
+    "kk": "Шақыруды тек қабылданған жұмысы бар ашық профильге жіберуге болады."
+  },
+  "Приглашение недоступно после отзыва согласия.": {
+    "en": "This invitation is unavailable after consent was withdrawn.",
+    "kk": "Келісім кері қайтарылғаннан кейін шақыру қолжетімсіз."
+  },
+  "Приглашение уже закрыто.": {
+    "en": "This invitation is already closed.",
+    "kk": "Бұл шақыру жабылған."
+  },
+  "Примите или отклоните предложенную запись явно.": {
+    "en": "Explicitly accept or decline the offered record.",
+    "kk": "Ұсынылған жазбаны қабылдауды немесе одан бас тартуды нақты таңдаңыз."
+  },
+  "Проверять работу может только заказчик этого задания.": {
+    "en": "Only the challenge owner can review this submission.",
+    "kk": "Жұмысты тек осы тапсырманы берген ұйым тексере алады."
+  },
+  "Проект уже изменён или версия не указана. Обновите страницу.": {
+    "en": "The project has changed or its version was not specified. Refresh the page.",
+    "kk": "Жоба өзгерген немесе нұсқасы көрсетілмеген. Бетті жаңартыңыз."
+  },
+  "Профиль не открыт для поиска с подтверждёнными работами.": {
+    "en": "This profile is not available in the directory of accepted submissions.",
+    "kk": "Бұл профиль қабылданған жұмыстары бар қатысушыларды іздеу үшін ашылмаған."
+  },
+  "Работа не найдена.": {
+    "en": "Submission not found.",
+    "kk": "Жұмыс табылмады."
+  },
+  "Работа уже изменена. Обновите страницу перед проверкой.": {
+    "en": "The submission has changed. Refresh the page before reviewing it.",
+    "kk": "Жұмыс өзгерген. Тексеруді бастамас бұрын бетті жаңартыңыз."
+  },
+  "Работа уже изменена. Обновите страницу.": {
+    "en": "The submission has changed. Refresh the page.",
+    "kk": "Жұмыс өзгерген. Бетті жаңартыңыз."
+  },
+  "Родителю доступен только связанный с ним демопрофиль ребёнка.": {
+    "en": "A parent can only access the child's demo profile linked to them.",
+    "kk": "Ата-анаға тек өзіне байланыстырылған баланың демо профилі қолжетімді."
+  },
+  "Сначала инициализируйте демонстрационную экосистему.": {
+    "en": "Initialize the demo ecosystem first.",
+    "kk": "Алдымен демо экожүйені дайындаңыз."
+  },
+  "Согласие законного представителя должно быть явно включено или выключено.": {
+    "en": "Legal guardian consent must be explicitly enabled or disabled.",
+    "kk": "Заңды өкілдің келісімін беру немесе қайтарып алу нақты көрсетілуі керек."
+  },
+  "Согласие законного представителя меняется только в связанном родительском демопрофиле.": {
+    "en": "Legal guardian consent can only be changed in the linked parent's demo profile.",
+    "kk": "Заңды өкілдің келісімін тек байланыстырылған ата-ананың демо профилінде өзгертуге болады."
+  },
+  "Согласия должны быть явно включены или выключены.": {
+    "en": "Each consent must be explicitly enabled or disabled.",
+    "kk": "Әр келісімді беру немесе қайтарып алу нақты көрсетілуі керек."
+  },
+  "Укажите корректную http/https-ссылку или оставьте черновик без ссылки.": {
+    "en": "Enter a valid http/https link or leave the draft without a link.",
+    "kk": "Жарамды http/https сілтемесін енгізіңіз немесе нобайды сілтемесіз қалдырыңыз."
+  },
+  "Укажите наблюдаемые свидетельства по каждому из трёх критериев.": {
+    "en": "Provide observable evidence for each of the three criteria.",
+    "kk": "Үш критерийдің әрқайсысы бойынша байқалған дәлелдерді көрсетіңіз."
+  },
+  "Укажите решение по пониманию конкретной работы.": {
+    "en": "Indicate whether the participant demonstrated understanding of this specific submission.",
+    "kk": "Қатысушының осы нақты жұмысты түсінгені туралы шешімді көрсетіңіз."
+  },
+  "Эта версия работы уже проверена.": {
+    "en": "This submission version has already been reviewed.",
+    "kk": "Жұмыстың бұл нұсқасы тексерілген."
+  },
+  "Эта запись уже отклонена или отозвана.": {
+    "en": "This record has already been declined or revoked.",
+    "kk": "Бұл жазбадан бас тартылған немесе ол кері қайтарылған."
+  },
+  "Версия исходников": {
+    "en": "Source version",
+    "kk": "Бастапқы файлдар нұсқасы"
+  },
+  "Версия исходников защиты": {
+    "en": "Defense source version",
+    "kk": "Қорғаудың бастапқы файлдар нұсқасы"
+  },
+  "Версия исходного результата": {
+    "en": "Original result version",
+    "kk": "Бастапқы нәтиже нұсқасы"
+  },
+  "Вопрос по работе": {
+    "en": "Question about the submission",
+    "kk": "Жұмыс бойынша сұрақ"
+  },
+  "Имя демопроверяющего": {
+    "en": "Demo reviewer name",
+    "kk": "Демо тексерушінің аты"
+  },
+  "Инструменты и помощь": {
+    "en": "Tools and assistance",
+    "kk": "Құралдар мен көмек"
+  },
+  "Конкретные наблюдения проверяющего": {
+    "en": "Reviewer's specific observations",
+    "kk": "Тексерушінің нақты бақылаулары"
+  },
+  "Личный вклад": {
+    "en": "Personal contribution",
+    "kk": "Жеке үлес"
+  },
+  "Навык": {
+    "en": "Skill",
+    "kk": "Дағды"
+  },
+  "Название": {
+    "en": "Title",
+    "kk": "Атауы"
+  },
+  "Название записи": {
+    "en": "Record title",
+    "kk": "Жазба атауы"
+  },
+  "Название критерия": {
+    "en": "Criterion title",
+    "kk": "Критерий атауы"
+  },
+  "Название проекта": {
+    "en": "Project title",
+    "kk": "Жоба атауы"
+  },
+  "Небольшое проверяемое изменение": {
+    "en": "Small, testable change",
+    "kk": "Шағын тексерілетін өзгеріс"
+  },
+  "Обратная связь": {
+    "en": "Feedback",
+    "kk": "Кері байланыс"
+  },
+  "Ограничения": {
+    "en": "Limitations",
+    "kk": "Шектеулер"
+  },
+  "Ограничения проверки": {
+    "en": "Review limitations",
+    "kk": "Тексеру шектеулері"
+  },
+  "Ожидаемый результат": {
+    "en": "Expected result",
+    "kk": "Күтілетін нәтиже"
+  },
+  "Описание задачи": {
+    "en": "Challenge description",
+    "kk": "Тапсырма сипаттамасы"
+  },
+  "Описание проекта": {
+    "en": "Project description",
+    "kk": "Жоба сипаттамасы"
+  },
+  "Описание результата": {
+    "en": "Result description",
+    "kk": "Нәтиже сипаттамасы"
+  },
+  "Ответ на вопрос": {
+    "en": "Answer to the question",
+    "kk": "Сұраққа жауап"
+  },
+  "Приглашение": {
+    "en": "Invitation",
+    "kk": "Шақыру"
+  },
+  "Причина отзыва": {
+    "en": "Reason for revocation",
+    "kk": "Кері қайтару себебі"
+  },
+  "Регион": {
+    "en": "Region",
+    "kk": "Өңір"
+  },
+  "Результат": {
+    "en": "Result",
+    "kk": "Нәтиже"
+  },
+  "Рефлексия": {
+    "en": "Reflection",
+    "kk": "Рефлексия"
+  },
+  "Роль проверяющего": {
+    "en": "Reviewer role",
+    "kk": "Тексерушінің рөлі"
+  },
+  "Рубрика критерия": {
+    "en": "Criterion rubric",
+    "kk": "Критерийдің бағалау рубрикасы"
+  },
+  "Свидетельство по критерию": {
+    "en": "Evidence for the criterion",
+    "kk": "Критерий бойынша дәлел"
+  },
+  "Событие": {
+    "en": "Event",
+    "kk": "Іс-шара"
+  },
+  "Способ проверки источником": {
+    "en": "Issuer's verification method",
+    "kk": "Дереккөздің тексеру тәсілі"
+  },
+  "Срок": {
+    "en": "Time frame",
+    "kk": "Мерзім"
+  },
+  "Ссылка на изменённый результат": {
+    "en": "Link to the revised result",
+    "kk": "Өзгертілген нәтижеге сілтеме"
+  },
+  "Ссылка на основание": {
+    "en": "Link to supporting evidence",
+    "kk": "Негіздемеге сілтеме"
+  },
+  "Ссылка на результат": {
+    "en": "Link to the result",
+    "kk": "Нәтижеге сілтеме"
+  },
+  "Что изменено и как проверить": {
+    "en": "What changed and how to check it",
+    "kk": "Не өзгерді және оны қалай тексеруге болады"
+  },
+  "Мой вклад": {
+    "en": "My contribution",
+    "kk": "Менің үлесім"
+  },
+  "Инструменты и полученная помощь": {
+    "en": "Tools and assistance received",
+    "kk": "Құралдар мен алынған көмек"
+  },
+  "Я описал, как воспроизвести результат": {
+    "en": "I described how to reproduce the result",
+    "kk": "Мен нәтижені қалай қайталауға болатынын сипаттадым"
+  },
+  "Я отделил личный вклад от полученной помощи": {
+    "en": "I distinguished my own contribution from the assistance received",
+    "kk": "Мен өз үлесімді алынған көмектен ажыраттым"
+  },
+  "Я проверил основной сценарий и записал результат": {
+    "en": "I tested the main scenario and recorded the result",
+    "kk": "Мен негізгі сценарийді тексеріп, нәтижесін жаздым"
+  },
+  "Я описал ограничения и следующий шаг": {
+    "en": "I described the limitations and the next step",
+    "kk": "Мен шектеулер мен келесі қадамды сипаттадым"
+  },
+  "Работоспособность результата": {
+    "en": "Functionality of the result",
+    "kk": "Нәтиженің жұмыс істеуі"
+  },
+  "Обоснование решений": {
+    "en": "Reasoning behind decisions",
+    "kk": "Шешімдерді негіздеу"
+  },
+  "Самостоятельность и рефлексия": {
+    "en": "Independent contribution and reflection",
+    "kk": "Өзіндік үлес және рефлексия"
+  }
+}

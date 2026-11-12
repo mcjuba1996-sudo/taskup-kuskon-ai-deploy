@@ -128,37 +128,40 @@ def completeness(project):
     return missing
 
 
-def _quoted(value):
+def _quoted(value, lang='ru'):
     """Render submitted text as quoted data, never as trusted Markdown/HTML."""
+    from talent_i18n import t
     text = value if isinstance(value, str) else ''
-    text = html.escape(text.strip() or 'Не указано', quote=False)
+    text = html.escape(text.strip() or t('Не указано', _lang=lang), quote=False)
     text = re.sub(r'([\\`*_{}\[\]()#+.!|>-])', r'\\\1', text)
     return '\n'.join('> ' + line for line in text.splitlines())
 
 
-def project_report(project):
+def project_report(project, lang='ru'):
     """Export self-reported text only; ignore status/ratings supplied by callers."""
+    from talent_i18n import t
+    tr = lambda source, **values: t(source, _lang=lang, **values)
     if not isinstance(project, dict):
-        raise ValueError('Нужна карточка личного проекта.')
+        raise ValueError(tr('Нужна карточка личного проекта.'))
     missing = completeness(project)
-    lines = ['# Мой проект', '', f'**{SELF_ASSESSMENT}**', '',
-             'Личный учебный материал. Описания и отметки ниже сообщены автором; '
-             'они не подтверждают авторство, качество или уровень таланта.', '',
-             '**Черновик: поля для отправки заполнены не полностью.**' if missing else
-             'Обязательные поля для отправки заполнены. Это не результат проверки.', '']
+    lines = [tr('# Мой проект'), '', f'**{tr(SELF_ASSESSMENT)}**', '',
+             tr('Личный учебный материал. Описания и отметки ниже сообщены автором; '
+                'они не подтверждают авторство, качество или уровень таланта.'), '',
+             tr('**Черновик: поля для отправки заполнены не полностью.**') if missing else
+             tr('Обязательные поля для отправки заполнены. Это не результат проверки.'), '']
     for key, label in (('title', 'Название'), ('description', 'Описание результата'),
                        ('evidence_url', 'Ссылка на результат'), ('source_version', 'Версия исходного результата'),
                        ('contribution', 'Мой вклад'), ('tools_help', 'Инструменты и полученная помощь')):
-        lines.extend([f'## {label} — со слов автора', '', _quoted(project.get(key, '')), ''])
+        lines.extend([tr('## {label} — со слов автора', label=tr(label)), '', _quoted(project.get(key, ''), lang=lang), ''])
     checks = project.get('checks', [])
     checks = checks if isinstance(checks, list) else []
-    lines.extend(['## Самопроверка автора', '', 'Отметки не проверены третьей стороной.', ''])
+    lines.extend([tr('## Самопроверка автора'), '', tr('Отметки не проверены третьей стороной.'), ''])
     for item in CHECKLIST:
-        lines.append(f"- [{'x' if item['id'] in checks else ' '}] {item['label']}")
+        lines.append(f"- [{'x' if item['id'] in checks else ' '}] {tr(item['label'])}")
     if missing:
-        lines.extend(['', '## Перед отправкой', '', *['- ' + item for item in missing]])
-    lines.extend(['', 'Экспорт не публикует проект и не передаёт его покупателю. '
-                  'Передача на выбранное задание — отдельное действие владельца.', ''])
+        lines.extend(['', tr('## Перед отправкой'), '', *['- ' + tr(item) for item in missing]])
+    lines.extend(['', tr('Экспорт не публикует проект и не передаёт его покупателю. '
+                        'Передача на выбранное задание — отдельное действие владельца.'), ''])
     return '\n'.join(lines)
 
 

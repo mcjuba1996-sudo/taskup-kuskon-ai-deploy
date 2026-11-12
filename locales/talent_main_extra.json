@@ -1,0 +1,510 @@
+{
+  "Отклонено": {
+    "en": "Declined",
+    "kk": "Қабылданбады"
+  },
+  "Отклонить": {
+    "en": "Decline",
+    "kk": "Бас тарту"
+  },
+  "Откройте результат, проверьте критерии и объясните оценку.": {
+    "en": "Open the result, check it against the criteria and explain your rating.",
+    "kk": "Нәтижені ашып, өлшемдер бойынша тексеріңіз және бағаңызды түсіндіріңіз."
+  },
+  "Открыть кабинет агентства →": {
+    "en": "Open agency workspace →",
+    "kk": "Агенттік кабинетін ашу →"
+  },
+  "Открыть кабинет вуза →": {
+    "en": "Open university workspace →",
+    "kk": "ЖОО кабинетін ашу →"
+  },
+  "Открыть кабинет компании →": {
+    "en": "Open company workspace →",
+    "kk": "Компания кабинетін ашу →"
+  },
+  "Открыть кабинет организатора →": {
+    "en": "Open organizer workspace →",
+    "kk": "Ұйымдастырушы кабинетін ашу →"
+  },
+  "Открыть кабинет родителя →": {
+    "en": "Open parent workspace →",
+    "kk": "Ата-ана кабинетін ашу →"
+  },
+  "Открыть кабинет фонда →": {
+    "en": "Open foundation workspace →",
+    "kk": "Қор кабинетін ашу →"
+  },
+  "Открыть кабинет школы →": {
+    "en": "Open school workspace →",
+    "kk": "Мектеп кабинетін ашу →"
+  },
+  "Открыть результат работы №": {
+    "en": "Open work result #",
+    "kk": "Жұмыс нәтижесін ашу №"
+  },
+  "Открыть результат работы №{p0} ↗": {
+    "en": "Open work result #{p0} ↗",
+    "kk": "№{p0} жұмыс нәтижесін ашу ↗"
+  },
+  "Отозвано после закрытия профиля": {
+    "en": "Withdrawn after profile sharing was disabled",
+    "kk": "Профиль жабылғаннан кейін кері қайтарылды"
+  },
+  "Отправить на проверку": {
+    "en": "Submit for review",
+    "kk": "Тексеруге жіберу"
+  },
+  "Отправить приглашение в демо": {
+    "en": "Send demo invitation",
+    "kk": "Демо-шақыру жіберу"
+  },
+  "Отправить работу на проверку": {
+    "en": "Submit work for review",
+    "kk": "Жұмысты тексеруге жіберу"
+  },
+  "Отправляю тестовую работу этой организации для проверки": {
+    "en": "I am sending this test submission to the organization for review",
+    "kk": "Сынақ жұмысын осы ұйымға тексеруге жіберемін"
+  },
+  "Оценивайте наблюдаемый результат. Личность и авторство этой проверкой не удостоверяются.": {
+    "en": "Assess the observable result. This review does not verify identity or authorship.",
+    "kk": "Бақылауға болатын нәтижені бағалаңыз. Бұл тексеру тұлғаның сәйкестігі мен авторлықты растамайды."
+  },
+  "ПОКУПАТЕЛЬ": {
+    "en": "BUYER",
+    "kk": "ТАПСЫРЫС БЕРУШІ"
+  },
+  "ПОРТФОЛИО": {
+    "en": "PORTFOLIO",
+    "kk": "ПОРТФОЛИО"
+  },
+  "ПРАКТИКА": {
+    "en": "PRACTICE",
+    "kk": "ТӘЖІРИБЕ"
+  },
+  "ПРИГЛАШЕНИЯ": {
+    "en": "INVITATIONS",
+    "kk": "ШАҚЫРУЛАР"
+  },
+  "ПРОВЕРКА РАБОТ": {
+    "en": "WORK REVIEWS",
+    "kk": "ЖҰМЫСТАРДЫ ТЕКСЕРУ"
+  },
+  "Паспорт появится после приёмки результата организацией — автором задания.": {
+    "en": "The work passport will appear after the organization that created the task accepts the result.",
+    "kk": "Жұмыс паспорты тапсырманы жасаған ұйым нәтижені қабылдағаннан кейін пайда болады."
+  },
+  "Паспорт: ": {
+    "en": "Work passport: ",
+    "kk": "Жұмыс паспорты: "
+  },
+  "Паспорт: {p0}": {
+    "en": "Work passport: {p0}",
+    "kk": "Жұмыс паспорты: {p0}"
+  },
+  "Паспорта принятых работ": {
+    "en": "Passports for accepted work",
+    "kk": "Қабылданған жұмыстардың паспорттары"
+  },
+  "Первый проверяемый коммерческий сегмент — корпоративная проектная IT-программа для 9–11 классов. Другие кабинеты расширяют сценарии прототипа; спрос и готовность платить у каждого сегмента ещё предстоит проверить.": {
+    "en": "The first commercial segment to validate is a corporate project-based IT programme for grades 9–11. Other workspaces extend the prototype's scenarios; demand and willingness to pay in each segment still need to be tested.",
+    "kk": "Тексерілетін алғашқы коммерциялық сегмент — 9–11 сыныптарға арналған корпоративтік жобалық IT-бағдарлама. Басқа кабинеттер прототип сценарийлерін кеңейтеді; әр сегменттің сұранысы мен төлеуге дайындығын әлі тексеру керек."
+  },
+  "Перейти к доработке": {
+    "en": "Revise the work",
+    "kk": "Жұмысты жетілдіруге өту"
+  },
+  "Подтвердите передачу тестовой работы организации.": {
+    "en": "Confirm that you want to send the test submission to the organization.",
+    "kk": "Сынақ жұмысын ұйымға жіберуді растаңыз."
+  },
+  "Подтвердите проверку результата перед решением.": {
+    "en": "Confirm that you checked the result before making a decision.",
+    "kk": "Шешім қабылдамас бұрын нәтижені тексергеніңізді растаңыз."
+  },
+  "Подтверждение проблемы остаётся открытым: нужны реальные ответы школьников и покупателей, включая случаи, в которых гипотеза не подтверждается.": {
+    "en": "The problem remains unvalidated: real responses from students and buyers are needed, including cases where the hypothesis does not hold.",
+    "kk": "Мәселе әлі расталған жоқ: оқушылар мен тапсырыс берушілердің нақты жауаптары, соның ішінде болжам расталмайтын жағдайлар қажет."
+  },
+  "Подтверждение результатов своих учеников с указанием источника и способа проверки.": {
+    "en": "Confirm your students' results, specifying the source and review method.",
+    "kk": "Өз оқушыларының нәтижелерін дереккөзін және тексеру тәсілін көрсете отырып растау."
+  },
+  "Пока нет приглашений. Компания может пригласить участника из каталога принятых работ.": {
+    "en": "No invitations yet. A company can invite a participant from the accepted work catalog.",
+    "kk": "Әзірге шақырулар жоқ. Компания қатысушыны қабылданған жұмыстар каталогынан шақыра алады."
+  },
+  "Пока нет работ. Выберите задание и отправьте первый результат.": {
+    "en": "No work submitted yet. Choose a task and send your first result.",
+    "kk": "Әзірге жұмыстар жоқ. Тапсырманы таңдап, алғашқы нәтижеңізді жіберіңіз."
+  },
+  "Показать критерии": {
+    "en": "Show criteria",
+    "kk": "Өлшемдерді көрсету"
+  },
+  "Покупатель: пояснения приходят в разных форматах": {
+    "en": "Buyer: explanations arrive in different formats",
+    "kk": "Тапсырыс беруші: түсіндірмелер әртүрлі форматта келеді"
+  },
+  "Покупатель: существующая проверка уже работает": {
+    "en": "Buyer: the current review process already works",
+    "kk": "Тапсырыс беруші: қазіргі тексеру процесі тиімді жұмыс істейді"
+  },
+  "Покупателям доступны профили с принятой работой и двумя согласиями. Школа или организатор работает со своим демонстрационным списком участников и собственными записями. Школьник принимает или отклоняет запись источника. Родитель видит только привязанный профиль и сводку результатов; личные черновики остаются у школьника.": {
+    "en": "Buyers can view profiles with accepted work and both consents. A school or organizer works with its own demo participant roster and records. The student accepts or declines a source record. The parent sees only the linked profile and a summary of results; private drafts remain with the student.",
+    "kk": "Тапсырыс берушілерге қабылданған жұмысы және екі келісімі бар профильдер қолжетімді. Мектеп немесе ұйымдастырушы өзінің демо-қатысушылар тізімімен және жазбаларымен жұмыс істейді. Оқушы дереккөз жазбасын қабылдайды немесе одан бас тартады. Ата-ана тек байланыстырылған профиль мен нәтижелердің қысқаша мазмұнын көреді; жеке нобайлар оқушыда қалады."
+  },
+  "Полный учебный пример ↗": {
+    "en": "Full example (Russian) ↗",
+    "kk": "Толық үлгі (орысша) ↗"
+  },
+  "Польза без покупателя": {
+    "en": "Value before a buyer joins",
+    "kk": "Тапсырыс берушісіз де пайда бар"
+  },
+  "Портфолио мотивированных школьников и приглашения на консультацию.": {
+    "en": "Portfolios of motivated students and invitations to consultations.",
+    "kk": "Ынталы оқушылардың портфолиосы және кеңес алуға шақырулар."
+  },
+  "Посмотреть демонстрационный образец здесь": {
+    "en": "View the demo sample here",
+    "kk": "Демо-үлгіні осы жерден қарау"
+  },
+  "Практика, личные проекты, обратная связь и портфолио. Бесплатно.": {
+    "en": "Practice, personal projects, feedback and a portfolio. Free.",
+    "kk": "Тәжірибе, жеке жобалар, кері байланыс және портфолио. Тегін."
+  },
+  "Практика, поддержка и новые возможности — у каждого участника своя роль.": {
+    "en": "Practice, support and new opportunities — every participant has a role.",
+    "kk": "Тәжірибе, қолдау және жаңа мүмкіндіктер — әр қатысушының өз рөлі бар."
+  },
+  "При конкурсном отборе в IT-программу готовый командный проект может не показывать, что конкретный школьник сделал и понимает самостоятельно. Координатору приходится запрашивать пояснения, а участнику — заново объяснять свой вклад. Проверяем, насколько часто это происходит и мешает ли принять решение.": {
+    "en": "When selecting applicants for an IT programme, a finished team project may not show what an individual student did and understands independently. The coordinator has to request explanations, and the participant has to explain their contribution again. We are testing how often this happens and whether it makes decisions harder.",
+    "kk": "IT-бағдарламаға конкурстық іріктеу кезінде дайын топтық жоба нақты оқушының нені өзі жасағанын және түсінетінін көрсетпеуі мүмкін. Үйлестіруші қосымша түсіндірме сұрайды, ал қатысушы өз үлесін қайта түсіндіреді. Мұның қаншалықты жиі болатынын және шешім қабылдауға кедергі келтіретінін тексереміз."
+  },
+  "Пригласить ": {
+    "en": "Invite ",
+    "kk": "Шақыру: "
+  },
+  "Приглашение отклонено.": {
+    "en": "Invitation declined.",
+    "kk": "Шақыру қабылданбады."
+  },
+  "Приглашение появилось в кабинете школьника.": {
+    "en": "The invitation is now in the student's workspace.",
+    "kk": "Шақыру оқушының кабинетінде пайда болды."
+  },
+  "Приглашение принято внутри демо.": {
+    "en": "Invitation accepted within the demo.",
+    "kk": "Шақыру демо ішінде қабылданды."
+  },
+  "Приглашения": {
+    "en": "Invitations",
+    "kk": "Шақырулар"
+  },
+  "Приглашения остаются внутри демо. Внешние сообщения не отправляются.": {
+    "en": "Invitations stay within the demo. No external messages are sent.",
+    "kk": "Шақырулар демо ішінде қалады. Сыртқы хабарламалар жіберілмейді."
+  },
+  "Принято": {
+    "en": "Accepted",
+    "kk": "Қабылданды"
+  },
+  "Принятые работы": {
+    "en": "Accepted work",
+    "kk": "Қабылданған жұмыстар"
+  },
+  "Принятые результаты и профили с двумя демонстрационными согласиями.": {
+    "en": "Accepted results and profiles with both demo consents.",
+    "kk": "Қабылданған нәтижелер және екі демо-келісімі бар профильдер."
+  },
+  "Принять приглашение": {
+    "en": "Accept invitation",
+    "kk": "Шақыруды қабылдау"
+  },
+  "Принять работу": {
+    "en": "Accept work",
+    "kk": "Жұмысты қабылдау"
+  },
+  "Проблема и исследование": {
+    "en": "Problem and research",
+    "kk": "Мәселе және зерттеу"
+  },
+  "Проверил: ": {
+    "en": "Reviewed by: ",
+    "kk": "Тексерген: "
+  },
+  "Проверил: {p0} · {p1} · Демо-проверка": {
+    "en": "Reviewed by: {p0} · {p1} · Demo review",
+    "kk": "Тексерген: {p0} · {p1} · Демо-тексеру"
+  },
+  "Проверка работ": {
+    "en": "Work reviews",
+    "kk": "Жұмыстарды тексеру"
+  },
+  "Проектные задания, знакомство с абитуриентами и приглашения в программы.": {
+    "en": "Project tasks, getting to know prospective students and programme invitations.",
+    "kk": "Жобалық тапсырмалар, талапкерлермен танысу және бағдарламаларға шақыру."
+  },
+  "Профилей найдено: ": {
+    "en": "Profiles found: ",
+    "kk": "Табылған профильдер: "
+  },
+  "Профилей найдено: {p0}. Общего рейтинга школьников нет: оценка относится к отдельной работе.": {
+    "en": "Profiles found: {p0}. There is no overall student ranking: each rating applies to an individual work.",
+    "kk": "Табылған профильдер: {p0}. Оқушылардың жалпы рейтингі жоқ: баға жеке жұмысқа қатысты."
+  },
+  "Работа отправлена. Статус можно посмотреть в «Мои работы».": {
+    "en": "Work submitted. You can check its status under “My work”.",
+    "kk": "Жұмыс жіберілді. Күйін «Менің жұмыстарым» бөлімінен көруге болады."
+  },
+  "Работу увидит организация — автор задания, даже если портфолио закрыто. Не добавляйте реальные ФИО, контакты или данные других школьников.": {
+    "en": "The organization that created the task will see the work even if the portfolio is private. Do not include real full names, contact details or other students' data.",
+    "kk": "Портфолио жабық болса да, жұмысты тапсырманы жасаған ұйым көреді. Нақты аты-жөнді, байланыс мәліметтерін немесе басқа оқушылардың деректерін қоспаңыз."
+  },
+  "Работы говорят за вас": {
+    "en": "Let your work speak for you",
+    "kk": "Жұмысыңыз сізді танытсын"
+  },
+  "Ребёнок и согласие": {
+    "en": "Child and consent",
+    "kk": "Бала және келісім"
+  },
+  "Регион": {
+    "en": "Region",
+    "kk": "Өңір"
+  },
+  "Реестр результатов": {
+    "en": "Results register",
+    "kk": "Нәтижелер тізілімі"
+  },
+  "Результат и обратная связь — в разделе «Мои работы».": {
+    "en": "Your result and feedback are under “My work”.",
+    "kk": "Нәтиже мен кері байланыс «Менің жұмыстарым» бөлімінде."
+  },
+  "Результат принят": {
+    "en": "Result accepted",
+    "kk": "Нәтиже қабылданды"
+  },
+  "Результат принят. Паспорт доступен школьнику.": {
+    "en": "Result accepted. The work passport is available to the student.",
+    "kk": "Нәтиже қабылданды. Жұмыс паспорты оқушыға қолжетімді."
+  },
+  "Результаты ребёнка, следующий шаг и согласие на показ профиля.": {
+    "en": "Your child's results, next steps and consent to share the profile.",
+    "kk": "Баланың нәтижелері, келесі қадамы және профильді көрсетуге келісім."
+  },
+  "Результаты учеников": {
+    "en": "Student results",
+    "kk": "Оқушылардың нәтижелері"
+  },
+  "Рекомендуемый срок": {
+    "en": "Recommended timeframe",
+    "kk": "Ұсынылатын мерзім"
+  },
+  "Решение принимает заказчик вручную. Каждая оценка опирается на описанное свидетельство. Можно запросить объяснение и небольшое изменение решения, затем сохранить наблюдения проверяющего. Паспорт отдельно показывает оценку результата и статус проверки понимания; история сохраняет версии и решения.": {
+    "en": "The buyer makes the decision manually. Each rating is supported by described evidence. They can request an explanation and a small change to the solution, then save the reviewer's observations. The passport shows the result rating and the understanding-check status separately; the history stores versions and decisions.",
+    "kk": "Шешімді тапсырыс беруші өзі қабылдайды. Әр баға сипатталған дәлелге сүйенеді. Түсіндірме мен шешімге шағын өзгеріс сұрап, кейін тексерушінің бақылауларын сақтауға болады. Паспортта нәтиже бағасы мен түсінуді тексеру күйі бөлек көрсетіледі; тарихта нұсқалар мен шешімдер сақталады."
+  },
+  "Роли и доступ к данным": {
+    "en": "Roles and data access",
+    "kk": "Рөлдер және деректерге қолжетімділік"
+  },
+  "Роль и компетенция проверяющего": {
+    "en": "Reviewer's role and expertise",
+    "kk": "Тексерушінің рөлі мен құзыреті"
+  },
+  "Свидетельство: ": {
+    "en": "Evidence: ",
+    "kk": "Дәлел: "
+  },
+  "Сдать доработку": {
+    "en": "Submit revision",
+    "kk": "Түзетілген жұмысты жіберу"
+  },
+  "Скачать образцы и исходники": {
+    "en": "Download samples and source files",
+    "kk": "Үлгілер мен бастапқы файлдарды жүктеу"
+  },
+  "Скачать паспорт работы": {
+    "en": "Download work passport",
+    "kk": "Жұмыс паспортын жүктеу"
+  },
+  "Скачать шаблон отчёта": {
+    "en": "Download report template",
+    "kk": "Есеп үлгісін жүктеу"
+  },
+  "Следующий шаг — по согласию": {
+    "en": "Next steps require consent",
+    "kk": "Келесі қадам — келісіммен"
+  },
+  "Сменить роль": {
+    "en": "Switch role",
+    "kk": "Рөлді ауыстыру"
+  },
+  "Смоделированные сценарии: примеры ниже вымышлены и не являются ответами участников исследования.": {
+    "en": "Simulated scenarios: the examples below are fictional, not responses from research participants.",
+    "kk": "Модельденген сценарийлер: төмендегі мысалдар ойдан шығарылған, зерттеу қатысушыларының жауаптары емес."
+  },
+  "Смоделированный сценарий": {
+    "en": "Simulated scenario",
+    "kk": "Модельденген сценарий"
+  },
+  "Снятие любого согласия убирает профиль из каталога и избранного, отзывает ожидающие приглашения. Заказчик сохраняет доступ к работам на своих заданиях. В реальном сервисе нужна отдельная проверка согласия; этот переключатель её не заменяет.": {
+    "en": "Withdrawing either consent removes the profile from the catalog and saved lists and withdraws pending invitations. The buyer retains access to work submitted to their tasks. A real service requires separate consent verification; this switch does not replace it.",
+    "kk": "Келісімдердің кез келгенін қайтарып алу профильді каталог пен таңдаулылардан алып тастап, күтілген шақыруларды кері қайтарады. Тапсырыс берушінің өз тапсырмаларына жіберілген жұмыстарға қолжетімділігі сақталады. Нақты қызметте келісімді бөлек тексеру қажет; бұл ауыстырғыш оны алмастырмайды."
+  },
+  "Согласие законного представителя получено — моделирование для демо": {
+    "en": "Legal representative's consent received — simulated for the demo",
+    "kk": "Заңды өкілдің келісімі алынды — демо үшін модельдеу"
+  },
+  "Создать мини-задание": {
+    "en": "Create a mini-task",
+    "kk": "Шағын тапсырма жасау"
+  },
+  "Сохранить видимость": {
+    "en": "Save sharing settings",
+    "kk": "Көрсету баптауларын сақтау"
+  },
+  "Ссылка на репозиторий или прототип": {
+    "en": "Repository or prototype link",
+    "kk": "Репозиторийге немесе прототипке сілтеме"
+  },
+  "Статус работы": {
+    "en": "Work status",
+    "kk": "Жұмыс күйі"
+  },
+  "Статус: гипотеза. Реальные интервью ещё не проведены.": {
+    "en": "Status: hypothesis. Real interviews have not been conducted yet.",
+    "kk": "Күйі: болжам. Нақты сұхбаттар әлі жүргізілген жоқ."
+  },
+  "Статусы, оценки и обратная связь по вашим результатам.": {
+    "en": "Statuses, ratings and feedback on your results.",
+    "kk": "Нәтижелеріңіздің күйі, бағалары және кері байланыс."
+  },
+  "Стек: Python, Streamlit, SQLite. Новый сценарий работает без API-ключей. Предыдущая версия сохранена в legacy_app.py. Реальная авторизация, проверка согласия законного представителя и постоянная серверная база нужны до работы с настоящими школьниками.": {
+    "en": "Stack: Python, Streamlit, SQLite. The new workflow runs without API keys. The previous version is preserved in legacy_app.py. Real authentication, verification of legal representative consent and a persistent server database are required before working with real school students.",
+    "kk": "Технологиялар: Python, Streamlit, SQLite. Жаңа сценарий API кілттерінсіз жұмыс істейді. Алдыңғы нұсқа legacy_app.py файлында сақталған. Нақты оқушылармен жұмыс басталғанға дейін шынайы авторизация, заңды өкілдің келісімін тексеру және тұрақты серверлік дерекқор қажет."
+  },
+  "Сценарий демонстрации для жюри": {
+    "en": "Demo walkthrough for the judges",
+    "kk": "Қазыларға арналған демо-сценарий"
+  },
+  "ТАЛАНТ И СЕМЬЯ": {
+    "en": "TALENT AND FAMILY",
+    "kk": "ДАРЫН ЖӘНЕ ОТБАСЫ"
+  },
+  "Только избранные": {
+    "en": "Saved only",
+    "kk": "Тек таңдаулылар"
+  },
+  "Убрать из избранного": {
+    "en": "Remove from saved",
+    "kk": "Таңдаулылардан алып тастау"
+  },
+  "Укажите конкретную версию, которую передаёте на проверку. Это сведения автора; сервис не проверяет коммит автоматически.": {
+    "en": "Specify the exact version you are submitting for review. This is author-provided information; the service does not verify the commit automatically.",
+    "kk": "Тексеруге жіберіп отырған нақты нұсқаны көрсетіңіз. Бұл — автор берген мәлімет; қызмет коммитті автоматты түрде тексермейді."
+  },
+  "Укажите фрагмент, тест, экран или ответ и объясните, что он показывает.": {
+    "en": "Identify a snippet, test, screen or answer and explain what it demonstrates.",
+    "kk": "Үзіндіні, тестті, экранды немесе жауапты көрсетіп, оның нені дәлелдейтінін түсіндіріңіз."
+  },
+  "Цель приглашения и следующий шаг": {
+    "en": "Purpose of the invitation and next step",
+    "kk": "Шақыру мақсаты және келесі қадам"
+  },
+  "Что может опровергнуть гипотезу: нынешний процесс устраивает координатора, а TaskUp не добавляет полезных сведений.": {
+    "en": "What could disprove the hypothesis: the current process meets the coordinator's needs, and TaskUp adds no useful information.",
+    "kk": "Болжамды не жоққа шығаруы мүмкін: қазіргі процесс үйлестірушіні қанағаттандырады, ал TaskUp пайдалы мәлімет қоспайды."
+  },
+  "Что предстоит проверить": {
+    "en": "What still needs to be tested",
+    "kk": "Әлі нені тексеру керек"
+  },
+  "Что проверяем: какие уточнения действительно запрашивали при прошлой подаче и что произошло дальше.": {
+    "en": "What we are testing: which clarifications were actually requested in a previous submission and what happened next.",
+    "kk": "Нені тексереміз: алдыңғы өтінімде қандай нақтылаулар шынымен сұралған және одан кейін не болған."
+  },
+  "Что проверяем: конкретный случай, действия проверяющего, затраты времени и влияние на решение.": {
+    "en": "What we are testing: a specific case, the reviewer's actions, time spent and the effect on the decision.",
+    "kk": "Нені тексереміз: нақты жағдай, тексерушінің әрекеттері, жұмсалған уақыт және шешімге әсері."
+  },
+  "Что сделано и как проверить": {
+    "en": "What was done and how to check it",
+    "kk": "Не жасалды және қалай тексеруге болады"
+  },
+  "Школы и организаторы выступают источниками сведений о достижениях. Школьник решает, добавлять ли полученную запись в портфолио. Такая запись показывает заявление источника и способ проверки, а не независимую сертификацию платформой.": {
+    "en": "Schools and organizers provide information about achievements. The student decides whether to add a received record to their portfolio. The record shows the source's statement and review method, not independent certification by the platform.",
+    "kk": "Мектептер мен ұйымдастырушылар жетістіктер туралы мәлімет береді. Оқушы алынған жазбаны портфолиоға қосу-қоспауды өзі шешеді. Мұндай жазба платформаның тәуелсіз сертификаттауын емес, дереккөздің мәлімдемесі мен тексеру тәсілін көрсетеді."
+  },
+  "Школьник 8–11 класса из Актюбинской области получает практику, обратную связь и портфолио. Вузы, образовательные агентства, компании и фонды создают задания, проверяют результаты и приглашают участников. Школы и организаторы конкурсов дают сведения о достижениях, а родители видят результаты своего ребёнка и управляют согласием.": {
+    "en": "A student in grades 8–11 from Aktobe Region gains practice, feedback and a portfolio. Universities, education agencies, companies and foundations create tasks, review results and invite participants. Schools and competition organizers provide achievement records, while parents see their own child's results and manage consent.",
+    "kk": "Ақтөбе облысындағы 8–11 сынып оқушысы тәжірибе, кері байланыс және портфолио алады. Жоғары оқу орындары, білім беру агенттіктері, компаниялар мен қорлар тапсырмалар жасап, нәтижелерді тексеріп, қатысушыларды шақырады. Мектептер мен байқау ұйымдастырушылары жетістіктер туралы мәлімет береді, ал ата-аналар өз баласының нәтижелерін көріп, келісімді басқарады."
+  },
+  "Школьник сам выберет, отвечать ли на приглашение. Контакты не раскрываются.": {
+    "en": "The student chooses whether to respond to the invitation. Contact details are not disclosed.",
+    "kk": "Шақыруға жауап беру-бермеуді оқушы өзі таңдайды. Байланыс мәліметтері ашылмайды."
+  },
+  "Школьник: общий проект, неясный личный вклад": {
+    "en": "Student: a shared project with an unclear personal contribution",
+    "kk": "Оқушы: ортақ жоба, жеке үлесі түсініксіз"
+  },
+  "Я организатор конкурса": {
+    "en": "I organize competitions",
+    "kk": "Мен байқау ұйымдастырушысымын"
+  },
+  "Я открыл результат и проверил его по критериям (демо)": {
+    "en": "I opened the result and checked it against the criteria (demo)",
+    "kk": "Нәтижені ашып, өлшемдер бойынша тексердім (демо)"
+  },
+  "Я представляю агентство": {
+    "en": "I represent an agency",
+    "kk": "Мен агенттік өкілімін"
+  },
+  "Я представляю вуз": {
+    "en": "I represent a university",
+    "kk": "Мен ЖОО өкілімін"
+  },
+  "Я представляю компанию": {
+    "en": "I represent a company",
+    "kk": "Мен компания өкілімін"
+  },
+  "Я представляю фонд": {
+    "en": "I represent a foundation",
+    "kk": "Мен қор өкілімін"
+  },
+  "Я представляю школу": {
+    "en": "I represent a school",
+    "kk": "Мен мектеп өкілімін"
+  },
+  "Я родитель": {
+    "en": "I am a parent",
+    "kk": "Мен ата-анамын"
+  },
+  "Я согласен показать вузам, агентствам, компаниям и фондам тестовый профиль, принятые работы, историю, материалы защиты и принятые записи источников": {
+    "en": "I agree to show universities, agencies, companies and foundations my test profile, accepted work, history, defense materials and accepted source records",
+    "kk": "ЖОО-ларға, агенттіктерге, компаниялар мен қорларға сынақ профилімді, қабылданған жұмыстарымды, тарихты, қорғау материалдарын және қабылданған дереккөз жазбаларын көрсетуге келісемін"
+  },
+  "Я школьник": {
+    "en": "I am a school student",
+    "kk": "Мен оқушымын"
+  },
+  "в образовательную или CSR-программу": {
+    "en": "to an educational or CSR programme",
+    "kk": "білім беру немесе CSR бағдарламасына"
+  },
+  "в проектную школу или программу для абитуриентов": {
+    "en": "to a project school or a programme for prospective students",
+    "kk": "жобалық мектепке немесе талапкерлерге арналған бағдарламаға"
+  },
+  "на консультацию по образовательной траектории": {
+    "en": "to a consultation on an educational pathway",
+    "kk": "білім алу бағыты бойынша кеңеске"
+  },
+  "на отбор в грантовую программу": {
+    "en": "to selection for a grant programme",
+    "kk": "гранттық бағдарламаға іріктеуге"
+  }
+}

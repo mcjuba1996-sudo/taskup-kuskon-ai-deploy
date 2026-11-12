@@ -1,5 +1,39 @@
 TaskUp Talent validation report — 2026-11-12
 
+Trilingual Talent revision:
+PASS: python -m unittest discover -s tests -v
+131 tests, 67.458 seconds. Exit code 0.
+Includes 8 new localization tests in tests/test_talent_i18n.py:
+- Catalog placeholders and explicit language selection.
+- Demo lookup leaves arbitrary user-authored content unchanged.
+- Personal-project export translates labels while preserving authored text.
+- Incomplete-project export translates missing-field requirements.
+- Work passport uses the requested language without rewriting evidence.
+- Canonical filters, profile identity and page survive a language switch.
+- Personal-project form values and saved text survive a language switch.
+- The defense verdict stays canonical and submits correctly in English.
+PASS: separate AppTest sweep of 99 role/page/language views across Russian,
+Kazakh and English. These are simulated Streamlit views, not browser sessions.
+
+The language selector is at the top of every Talent screen. Local catalogs
+cover all eight roles, demo tasks and rubrics, report labels and demo reports.
+No translation API or credentials are required. User-authored content is kept
+in its original language; exact prepared demo strings can be translated.
+Users are instructed to save a form before changing the language.
+The full research TXT remains Russian and its translated link says so.
+Python/CSV/HTML artifacts and fenced code/data in translated demo reports
+remain unchanged. Six English/Kazakh Markdown report variants are included.
+
+PASS: focused localization rerun after final demo-label and duplicate-catalog
+corrections: 8 tests, 7.204 seconds. All catalog placeholders and duplicate
+translations agree; the existing full-suite result above predates these fixes.
+PASS: local real browser: English landing, student navigation and About;
+switch to Kazakh preserves the student profile and About page; Kazakh task
+catalog at 390x844 has document width 390 and main scroll width 380.
+The language selector clears the fixed header. Temporary viewport reset.
+Public real-browser verification of this revision is pending. Historical browser
+checks below apply to the specific earlier revisions named in those sections.
+
 Research overview revision:
 PASS: 2 existing AppTest navigation scenarios, 6.386 seconds. Exit code 0.
 Student/company pages and all buyer subtype entries still render, including About.

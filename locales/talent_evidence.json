@@ -1,0 +1,602 @@
+{
+  "  Основание: {evidence}": {
+    "en": "  Evidence: {evidence}",
+    "kk": "  Негіздеме: {evidence}"
+  },
+  "# Мой проект": {
+    "en": "# My project",
+    "kk": "# Менің жобам"
+  },
+  "# Паспорт работы — ДЕМО": {
+    "en": "# Work passport — DEMO",
+    "kk": "# Жұмыс паспорты — ДЕМО"
+  },
+  "## {label} — со слов автора": {
+    "en": "## {label} — as reported by the author",
+    "kk": "## {label} — автордың айтуынша"
+  },
+  "## Вклад и инструменты": {
+    "en": "## Contribution and tools",
+    "kk": "## Жеке үлес және құралдар"
+  },
+  "## Оценка результата": {
+    "en": "## Result assessment",
+    "kk": "## Нәтижені бағалау"
+  },
+  "## Перед отправкой": {
+    "en": "## Before submitting",
+    "kk": "## Жіберу алдында"
+  },
+  "## Проверка понимания": {
+    "en": "## Understanding check",
+    "kk": "## Түсінуді тексеру"
+  },
+  "## Самопроверка автора": {
+    "en": "## Author's self-check",
+    "kk": "## Автордың өзін-өзі тексеруі"
+  },
+  "**{label}: {rating}/4 × {weight}% = {points:g} балла**": {
+    "en": "**{label}: {rating}/4 × {weight}% = {points:g} points**",
+    "kk": "**{label}: {rating}/4 × {weight}% = {points:g} ұпай**"
+  },
+  "**Вопрос по решению**": {
+    "en": "**Question about the solution**",
+    "kk": "**Шешім туралы сұрақ**"
+  },
+  "**Наблюдения проверяющего**": {
+    "en": "**Reviewer's observations**",
+    "kk": "**Тексерушінің бақылаулары**"
+  },
+  "**Небольшое изменение**": {
+    "en": "**Small change**",
+    "kk": "**Шағын өзгеріс**"
+  },
+  "**Ограничения проверки**": {
+    "en": "**Review limitations**",
+    "kk": "**Тексерудің шектеулері**"
+  },
+  "**Основания оценок**": {
+    "en": "**Evidence for the scores**",
+    "kk": "**Бағалардың негіздемелері**"
+  },
+  "**Ответ школьника**": {
+    "en": "**Pupil's answer**",
+    "kk": "**Оқушының жауабы**"
+  },
+  "**Черновик: поля для отправки заполнены не полностью.**": {
+    "en": "**Draft: required submission fields are incomplete.**",
+    "kk": "**Жоба нұсқасы: жіберуге қажетті өрістер толық толтырылмаған.**"
+  },
+  "**Что изменено и как проверено**": {
+    "en": "**What changed and how it was tested**",
+    "kk": "**Не өзгертілді және қалай тексерілді**"
+  },
+  "Версия источника со слов автора: {source_version}": {
+    "en": "Source version as reported by the author: {source_version}",
+    "kk": "Автор көрсеткен дереккөз нұсқасы: {source_version}"
+  },
+  "Версия источника: {source_version}": {
+    "en": "Source version: {source_version}",
+    "kk": "Дереккөз нұсқасы: {source_version}"
+  },
+  "Версия исходного результата": {
+    "en": "Original result version",
+    "kk": "Бастапқы нәтиже нұсқасы"
+  },
+  "Вопрос и изменение отправлены школьнику.": {
+    "en": "The question and change request have been sent to the pupil.",
+    "kk": "Сұрақ пен өзгерту тапсырмасы оқушыға жіберілді."
+  },
+  "Вопрос отправлен. Ответить можно в роли школьника, в разделе «Мои работы».": {
+    "en": "Question sent. Switch to the pupil role and open My work to answer.",
+    "kk": "Сұрақ жіберілді. Жауап беру үшін оқушы рөліндегі «Менің жұмыстарым» бөліміне өтіңіз."
+  },
+  "Вопрос по решению": {
+    "en": "Question about the solution",
+    "kk": "Шешім туралы сұрақ"
+  },
+  "Вопрос: {question}": {
+    "en": "Question: {question}",
+    "kk": "Сұрақ: {question}"
+  },
+  "Вопросы, ответы и наблюдения проверки": {
+    "en": "Review questions, answers and observations",
+    "kk": "Тексерудегі сұрақтар, жауаптар және бақылаулар"
+  },
+  "Все данные синтетические. Паспорт фиксирует оценку конкретной работы, не удостоверяет личность или авторство всей работы. Содержимое внешней ссылки может измениться.": {
+    "en": "All data is synthetic. This passport records the assessment of a specific work; it does not verify identity or authorship of the entire work. Content at external links may change.",
+    "kk": "Барлық дерек — жасанды мысал. Паспорт нақты жұмыстың бағасын тіркейді, бірақ тұлғаны немесе бүкіл жұмыстың авторлығын растамайды. Сыртқы сілтемедегі мазмұн өзгеруі мүмкін."
+  },
+  "Выберите задание, требованиям которого соответствует ваш проект. Организация получит копию текущей версии и проверит её по своим критериям. Поздние изменения личного проекта не изменят отправленную работу.": {
+    "en": "Choose a challenge that fits your project. The organization will receive a copy of the current version and review it against its criteria. Later edits to your personal project will not change the submitted work.",
+    "kk": "Жобаңызға сәйкес келетін тапсырманы таңдаңыз. Ұйым ағымдағы нұсқаның көшірмесін алып, өз критерийлері бойынша тексереді. Жеке жобаға кейін енгізілген өзгерістер жіберілген жұмысқа әсер етпейді."
+  },
+  "Вывод по пониманию": {
+    "en": "Understanding assessment",
+    "kk": "Түсіну туралы қорытынды"
+  },
+  "Дата: {date}": {
+    "en": "Date: {date}",
+    "kk": "Күні: {date}"
+  },
+  "Добавить свой проект": {
+    "en": "Add your project",
+    "kk": "Өз жобаңызды қосу"
+  },
+  "Добавьте учёт кабинета: конфликт возможен только в одном кабинете.": {
+    "en": "Account for the room: a conflict is possible only within the same room.",
+    "kk": "Кабинетті ескеріңіз: уақыт қақтығысы тек бір кабинетте болуы мүмкін."
+  },
+  "Задание для проверки": {
+    "en": "Challenge for review",
+    "kk": "Тексеруге арналған тапсырма"
+  },
+  "Задача, результат и как его проверить": {
+    "en": "Problem, result and how to test it",
+    "kk": "Мәселе, нәтиже және оны тексеру жолы"
+  },
+  "Запросите объяснение и небольшое изменение по теме задания. Оценивайте наблюдаемый ответ; использование ИИ или помощь наставника сами по себе не означают отсутствие понимания.": {
+    "en": "Ask for an explanation and a small change related to the challenge. Assess the observed response; using AI or a mentor's help does not by itself imply a lack of understanding.",
+    "kk": "Тапсырма тақырыбы бойынша түсіндірме мен шағын өзгеріс сұраңыз. Нақты жауапты бағалаңыз: ЖИ қолдану немесе тәлімгер көмегі өздігінен оқушының түсінбегенін білдірмейді."
+  },
+  "Запросить защиту работы": {
+    "en": "Request a work defense",
+    "kk": "Жұмысты қорғауды сұрау"
+  },
+  "Запрошена доработка": {
+    "en": "Revision requested",
+    "kk": "Толықтыру сұралды"
+  },
+  "Запрошена защита": {
+    "en": "Defense requested",
+    "kk": "Қорғау сұралды"
+  },
+  "Защита №{id} · редакция работы {revision} · {status}": {
+    "en": "Defense #{id} · work revision {revision} · {status}",
+    "kk": "Қорғау №{id} · жұмыс нұсқасы {revision} · {status}"
+  },
+  "Изменение: {change}": {
+    "en": "Change: {change}",
+    "kk": "Өзгеріс: {change}"
+  },
+  "Имя проверяющего (демо)": {
+    "en": "Reviewer's name (demo)",
+    "kk": "Тексерушінің аты (демо)"
+  },
+  "Индивидуальный проверяющий не указан": {
+    "en": "Individual reviewer not specified",
+    "kk": "Жеке тексеруші көрсетілмеген"
+  },
+  "Инструменты и полученная помощь": {
+    "en": "Tools and assistance received",
+    "kk": "Құралдар мен алынған көмек"
+  },
+  "Инструменты, ИИ и помощь других людей": {
+    "en": "Tools, AI and help from other people",
+    "kk": "Құралдар, ЖИ және басқа адамдардың көмегі"
+  },
+  "История версий и решений": {
+    "en": "Version and decision history",
+    "kk": "Нұсқалар мен шешімдер тарихы"
+  },
+  "История хранит введённые сведения и решения. Содержимое внешнего сайта по ссылке может измениться; для точной привязки используйте ссылку на конкретный коммит или неизменяемую версию файла.": {
+    "en": "The history preserves entered information and decisions. Content at an external link may change; use a link to a specific commit or an immutable file version to identify the exact source.",
+    "kk": "Тарих енгізілген мәліметтер мен шешімдерді сақтайды. Сыртқы сайттағы мазмұн өзгеруі мүмкін; нақты нұсқаны көрсету үшін белгілі бір коммитке немесе файлдың өзгермейтін нұсқасына сілтеме беріңіз."
+  },
+  "Источник: {url}": {
+    "en": "Source: {url}",
+    "kk": "Дереккөз: {url}"
+  },
+  "Комментарий: {feedback}": {
+    "en": "Feedback: {feedback}",
+    "kk": "Пікір: {feedback}"
+  },
+  "Коммит или версия результата": {
+    "en": "Commit or result version",
+    "kk": "Коммит немесе нәтиже нұсқасы"
+  },
+  "Коммит или версия файла": {
+    "en": "Commit or file version",
+    "kk": "Коммит немесе файл нұсқасы"
+  },
+  "Копия передана организации. Ответы и проверка находятся в разделе «Мои работы».": {
+    "en": "A copy has been sent to the organization. Find answers and reviews under My work.",
+    "kk": "Көшірме ұйымға жіберілді. Жауаптар мен тексеру «Менің жұмыстарым» бөлімінде."
+  },
+  "ЛИЧНОЕ ПРОСТРАНСТВО": {
+    "en": "PERSONAL SPACE",
+    "kk": "ЖЕКЕ КЕҢІСТІК"
+  },
+  "Личный вклад и выводы: {reflection}": {
+    "en": "Personal contribution and reflections: {reflection}",
+    "kk": "Жеке үлес және қорытындылар: {reflection}"
+  },
+  "Личный учебный материал. Описания и отметки ниже сообщены автором; они не подтверждают авторство, качество или уровень таланта.": {
+    "en": "Personal learning material. The descriptions and checks below are self-reported; they do not verify authorship, quality or talent level.",
+    "kk": "Жеке оқу материалы. Төмендегі сипаттамалар мен белгілерді автор өзі берген; олар авторлықты, сапаны немесе қабілет деңгейін растамайды."
+  },
+  "Личный черновик · версия {version} · внешней проверки нет": {
+    "en": "Private draft · version {version} · no external review",
+    "kk": "Жеке жоба нұсқасы · {version} нұсқа · сыртқы тексеру жоқ"
+  },
+  "Мой вклад": {
+    "en": "My contribution",
+    "kk": "Менің үлесім"
+  },
+  "Мой проект — уже сегодня": {
+    "en": "My project — start today",
+    "kk": "Менің жобам — бүгіннен бастап"
+  },
+  "Наблюдения сохранены. Итоговую оценку работы выставьте отдельно по критериям.": {
+    "en": "Observations saved. Score the work separately against the criteria.",
+    "kk": "Бақылаулар сақталды. Жұмыстың қорытынды бағасын критерийлер бойынша бөлек қойыңыз."
+  },
+  "Наблюдения: {observations}": {
+    "en": "Observations: {observations}",
+    "kk": "Бақылаулар: {observations}"
+  },
+  "Название": {
+    "en": "Title",
+    "kk": "Атауы"
+  },
+  "Название проекта": {
+    "en": "Project title",
+    "kk": "Жоба атауы"
+  },
+  "Начальное состояние сохранённой работы": {
+    "en": "Initial state of the saved work",
+    "kk": "Сақталған жұмыстың бастапқы күйі"
+  },
+  "Не указано": {
+    "en": "Not specified",
+    "kk": "Көрсетілмеген"
+  },
+  "Небольшое изменение для проверки понимания": {
+    "en": "Small change to check understanding",
+    "kk": "Түсінуді тексеруге арналған шағын өзгеріс"
+  },
+  "Нужна карточка личного проекта.": {
+    "en": "A personal project record is required.",
+    "kk": "Жеке жоба карточкасы қажет."
+  },
+  "Нужно уточнение": {
+    "en": "Needs clarification",
+    "kk": "Нақтылау қажет"
+  },
+  "Объяснение решения": {
+    "en": "Explanation of the solution",
+    "kk": "Шешімді түсіндіру"
+  },
+  "Обязательные поля для отправки заполнены. Это не результат проверки.": {
+    "en": "Required submission fields are complete. This is not a review result.",
+    "kk": "Жіберуге міндетті өрістер толтырылған. Бұл тексеру нәтижесі емес."
+  },
+  "Ограничения проверки: {limitations}": {
+    "en": "Review limitations: {limitations}",
+    "kk": "Тексерудің шектеулері: {limitations}"
+  },
+  "Ограничения: {limitations}": {
+    "en": "Limitations: {limitations}",
+    "kk": "Шектеулер: {limitations}"
+  },
+  "Ожидается ответ на вопросы": {
+    "en": "Awaiting answers",
+    "kk": "Сұрақтарға жауап күтілуде"
+  },
+  "Описание пока не заполнено.": {
+    "en": "No description yet.",
+    "kk": "Сипаттама әлі толтырылмаған."
+  },
+  "Описание результата": {
+    "en": "Result description",
+    "kk": "Нәтиже сипаттамасы"
+  },
+  "Организация: {organization}": {
+    "en": "Organization: {organization}",
+    "kk": "Ұйым: {organization}"
+  },
+  "Ответ и результат увидит заказчик задания. Опишите помощь и инструменты, если использовали их.": {
+    "en": "The challenge owner will see your answer and result. Describe any help and tools you used.",
+    "kk": "Жауап пен нәтижені тапсырма беруші көреді. Қолданған құралдарыңыз бен алған көмегіңізді сипаттаңыз."
+  },
+  "Ответ отправлен. Отметка о понимании появится только после оценки проверяющего.": {
+    "en": "Answer submitted. Understanding will be marked only after the reviewer's assessment.",
+    "kk": "Жауап жіберілді. Түсіну туралы белгі тек тексеруші бағалағаннан кейін пайда болады."
+  },
+  "Ответ получен, оценка понимания ожидается": {
+    "en": "Answer received; understanding assessment pending",
+    "kk": "Жауап алынды, түсінуді бағалау күтілуде"
+  },
+  "Ответ: {answer}": {
+    "en": "Answer: {answer}",
+    "kk": "Жауап: {answer}"
+  },
+  "Отметки не проверены третьей стороной.": {
+    "en": "The checks have not been verified by a third party.",
+    "kk": "Белгілерді үшінші тарап тексермеген."
+  },
+  "Отправить ответ проверяющему": {
+    "en": "Send answer to reviewer",
+    "kk": "Жауапты тексерушіге жіберу"
+  },
+  "Отправлена доработка": {
+    "en": "Revision submitted",
+    "kk": "Толықтырылған жұмыс жіберілді"
+  },
+  "Оформите существующую работу, опишите свой вклад и получите отчёт для портфолио. Для этого не нужно ждать покупателя или выполнять новое задание.": {
+    "en": "Document an existing work, describe your contribution and get a portfolio report. There is no need to wait for a buyer or complete a new challenge.",
+    "kk": "Бар жұмысыңызды рәсімдеп, жеке үлесіңізді сипаттаңыз және портфолиоға есеп алыңыз. Ол үшін тапсырыс берушіні күту немесе жаңа тапсырма орындау қажет емес."
+  },
+  "Оценено понимание": {
+    "en": "Understanding assessed",
+    "kk": "Түсіну бағаланды"
+  },
+  "Оценки: {ratings} · итог {total:g}/100": {
+    "en": "Ratings: {ratings} · total {total:g}/100",
+    "kk": "Бағалар: {ratings} · қорытынды {total:g}/100"
+  },
+  "Передать на проверку": {
+    "en": "Submit for review",
+    "kk": "Тексеруге жіберу"
+  },
+  "Передать работу организации по заданию": {
+    "en": "Submit your work to an organization's challenge",
+    "kk": "Жұмысты ұйымның тапсырмасына жіберу"
+  },
+  "Подробное свидетельство не сохранено в ранней демонстрационной версии.": {
+    "en": "Detailed evidence was not saved in the early demo version.",
+    "kk": "Ертеректегі демо-нұсқада егжей-тегжейлі дәлел сақталмаған."
+  },
+  "Подтвердите передачу проекта выбранной организации.": {
+    "en": "Confirm submission of the project to the selected organization.",
+    "kk": "Жобаны таңдалған ұйымға жіберуді растаңыз."
+  },
+  "Пока нет заданий организаций. Личный отчёт уже доступен без них.": {
+    "en": "No organization challenges yet. Your personal report is already available without them.",
+    "kk": "Әзірге ұйымдардың тапсырмалары жоқ. Жеке есеп оларсыз да қолжетімді."
+  },
+  "Покажите понимание своего решения": {
+    "en": "Show your understanding of the solution",
+    "kk": "Шешіміңізді түсінетініңізді көрсетіңіз"
+  },
+  "Получен ответ школьника": {
+    "en": "Pupil's answer received",
+    "kk": "Оқушының жауабы алынды"
+  },
+  "Понимание по текущей редакции уже оценено. При необходимости можно задать следующий вопрос.": {
+    "en": "Understanding of the current revision has been assessed. You can ask another question if needed.",
+    "kk": "Ағымдағы нұсқа бойынша түсіну бағаланды. Қажет болса, келесі сұрақты қоюға болады."
+  },
+  "Понимание показано": {
+    "en": "Understanding demonstrated",
+    "kk": "Түсінетіні көрсетілді"
+  },
+  "Понимание решения не проверялось": {
+    "en": "Understanding of the solution has not been checked",
+    "kk": "Шешімді түсіну тексерілмеген"
+  },
+  "Понимание решения проверено": {
+    "en": "Understanding of the solution checked",
+    "kk": "Шешімді түсіну тексерілді"
+  },
+  "Понимание требует уточнения": {
+    "en": "Understanding needs clarification",
+    "kk": "Түсінуді нақтылау қажет"
+  },
+  "Почему соседние интервалы времени не считаются пересечением?": {
+    "en": "Why are adjacent time intervals not treated as overlapping?",
+    "kk": "Неліктен іргелес уақыт аралықтары қиылысу болып саналмайды?"
+  },
+  "Проверить понимание решения": {
+    "en": "Check understanding of the solution",
+    "kk": "Шешімді түсінуді тексеру"
+  },
+  "Проверяющий: {name} · {role}": {
+    "en": "Reviewer: {name} · {role}",
+    "kk": "Тексеруші: {name} · {role}"
+  },
+  "Проверяющий: {name} · {role} · {organization}": {
+    "en": "Reviewer: {name} · {role} · {organization}",
+    "kk": "Тексеруші: {name} · {role} · {organization}"
+  },
+  "Проект сохранён в личном пространстве. Внешняя проверка не проводилась.": {
+    "en": "Project saved in your personal space. No external review has taken place.",
+    "kk": "Жоба жеке кеңістікте сақталды. Сыртқы тексеру жүргізілген жоқ."
+  },
+  "Профиль: {name}": {
+    "en": "Profile: {name}",
+    "kk": "Профиль: {name}"
+  },
+  "Работа отправлена": {
+    "en": "Work submitted",
+    "kk": "Жұмыс жіберілді"
+  },
+  "Работа принята": {
+    "en": "Work approved",
+    "kk": "Жұмыс қабылданды"
+  },
+  "Редактировать проект": {
+    "en": "Edit project",
+    "kk": "Жобаны өңдеу"
+  },
+  "Редакция {revision} · версия состояния {version}": {
+    "en": "Revision {revision} · state version {version}",
+    "kk": "{revision} редакция · күй нұсқасы {version}"
+  },
+  "Редакция работы {revision} · Версия источника со слов автора: {source_version}": {
+    "en": "Work revision {revision} · Source version as reported by the author: {source_version}",
+    "kk": "Жұмыс нұсқасы {revision} · Автор көрсеткен дереккөз нұсқасы: {source_version}"
+  },
+  "Редакция работы: {revision}": {
+    "en": "Work revision: {revision}",
+    "kk": "Жұмыс нұсқасы: {revision}"
+  },
+  "Результат изменения · защита №{id}": {
+    "en": "Changed result · defense #{id}",
+    "kk": "Өзгеріс нәтижесі · қорғау №{id}"
+  },
+  "Результат изменения: {url}": {
+    "en": "Changed result: {url}",
+    "kk": "Өзгеріс нәтижесі: {url}"
+  },
+  "Результат: {url}": {
+    "en": "Result: {url}",
+    "kk": "Нәтиже: {url}"
+  },
+  "Решение проверяющего": {
+    "en": "Reviewer's decision",
+    "kk": "Тексерушінің шешімі"
+  },
+  "Решение: {feedback}": {
+    "en": "Decision: {feedback}",
+    "kk": "Шешім: {feedback}"
+  },
+  "Роль и компетенция проверяющего": {
+    "en": "Reviewer's role and expertise",
+    "kk": "Тексерушінің рөлі мен құзыреті"
+  },
+  "Роль не указана": {
+    "en": "Role not specified",
+    "kk": "Рөлі көрсетілмеген"
+  },
+  "Самооценка. Внешняя проверка не проводилась": {
+    "en": "Self-assessment. No external review has taken place",
+    "kk": "Өзін-өзі бағалау. Сыртқы тексеру жүргізілген жоқ"
+  },
+  "Самооценка. Внешняя проверка не проводилась. Проекты доступны только выбранному демопрофилю; передача организации выполняется отдельным действием. Все вводимые данные должны быть тестовыми.": {
+    "en": "Self-assessment. No external review has taken place. Projects are accessible only to the selected demo profile; submission to an organization is a separate action. Enter test data only.",
+    "kk": "Өзін-өзі бағалау. Сыртқы тексеру жүргізілген жоқ. Жобалар тек таңдалған демопрофильге қолжетімді; ұйымға жіберу бөлек әрекетпен орындалады. Тек сынақ деректерін енгізіңіз."
+  },
+  "Самопроверка: ваши отметки помогают подготовить отчёт и не означают внешнюю проверку.": {
+    "en": "Self-check: your checks help prepare the report and do not represent an external review.",
+    "kk": "Өзін-өзі тексеру: белгілеріңіз есепті дайындауға көмектеседі және сыртқы тексеруді білдірмейді."
+  },
+  "Система": {
+    "en": "System",
+    "kk": "Жүйе"
+  },
+  "Скачать отчёт самооценки": {
+    "en": "Download self-assessment report",
+    "kk": "Өзін-өзі бағалау есебін жүктеп алу"
+  },
+  "Согласен передать копию тестового проекта заказчику выбранного задания": {
+    "en": "I agree to send a copy of this test project to the selected challenge owner",
+    "kk": "Сынақ жобасының көшірмесін таңдалған тапсырманың иесіне жіберуге келісемін"
+  },
+  "Сохранено состояние на момент обновления приложения. Более ранние версии восстановить нельзя.": {
+    "en": "The state at the time of the app update was saved. Earlier versions cannot be recovered.",
+    "kk": "Қолданба жаңартылған кездегі күй сақталған. Бұрынғы нұсқаларды қалпына келтіру мүмкін емес."
+  },
+  "Сохранить наблюдения": {
+    "en": "Save observations",
+    "kk": "Бақылауларды сақтау"
+  },
+  "Сохранить проект": {
+    "en": "Save project",
+    "kk": "Жобаны сақтау"
+  },
+  "Ссылка на работу (можно добавить позже)": {
+    "en": "Link to the work (can be added later)",
+    "kk": "Жұмысқа сілтеме (кейін қосуға болады)"
+  },
+  "Ссылка на результат": {
+    "en": "Link to the result",
+    "kk": "Нәтижеге сілтеме"
+  },
+  "Ссылка на результат изменения": {
+    "en": "Link to the changed result",
+    "kk": "Өзгертілген нәтижеге сілтеме"
+  },
+  "Формула: сумма (оценка / 4 × вес).": {
+    "en": "Formula: sum of (rating / 4 × weight).",
+    "kk": "Формула: (баға / 4 × салмақ) қосындысы."
+  },
+  "Что изменено, как проверено и какая помощь использовалась": {
+    "en": "What changed, how it was tested and what help was used",
+    "kk": "Не өзгертілді, қалай тексерілді және қандай көмек пайдаланылды"
+  },
+  "Что именно сделал я": {
+    "en": "What I did myself",
+    "kk": "Мен нақты не істедім"
+  },
+  "Что конкретно показал ответ и результат изменения": {
+    "en": "What the answer and changed result specifically demonstrated",
+    "kk": "Жауап пен өзгеріс нәтижесі нақты нені көрсетті"
+  },
+  "Что осталось непроверенным": {
+    "en": "What remains unchecked",
+    "kk": "Не тексерілмей қалды"
+  },
+  "Чтобы передать на проверку, дополните: {missing}": {
+    "en": "Before submitting for review, complete: {missing}",
+    "kk": "Тексеруге жіберу үшін толықтырыңыз: {missing}"
+  },
+  "Экспорт не публикует проект и не передаёт его покупателю. Передача на выбранное задание — отдельное действие владельца.": {
+    "en": "Exporting does not publish the project or send it to a buyer. Submission to a selected challenge is a separate action by the owner.",
+    "kk": "Экспорт жобаны жарияламайды және тапсырыс берушіге жібермейді. Таңдалған тапсырмаға жіберуді жоба иесі бөлек орындайды."
+  },
+  "Эта отметка отражает наблюдения проверяющего по ответу и изменению решения. Она не удостоверяет личность или авторство всей работы.": {
+    "en": "This mark reflects the reviewer's observations of the answer and the change to the solution. It does not verify identity or authorship of the entire work.",
+    "kk": "Бұл белгі жауап пен шешімдегі өзгеріс бойынша тексерушінің бақылауларын көрсетеді. Ол тұлғаны немесе бүкіл жұмыстың авторлығын растамайды."
+  },
+  "Я описал ограничения и следующий шаг": {
+    "en": "I described the limitations and the next step",
+    "kk": "Мен шектеулер мен келесі қадамды сипаттадым"
+  },
+  "Я описал, как воспроизвести результат": {
+    "en": "I described how to reproduce the result",
+    "kk": "Мен нәтижені қалай қайталауға болатынын сипаттадым"
+  },
+  "Я отделил личный вклад от полученной помощи": {
+    "en": "I distinguished my own contribution from the assistance received",
+    "kk": "Мен өз үлесімді алынған көмектен ажыраттым"
+  },
+  "Я проверил основной сценарий и записал результат": {
+    "en": "I tested the main scenario and recorded the result",
+    "kk": "Мен негізгі сценарийді тексеріп, нәтижесін жаздым"
+  },
+  "не сохранено в раннем демо": {
+    "en": "not saved in the earlier demo",
+    "kk": "ертеректегі демода сақталмаған"
+  },
+  "не указан": {
+    "en": "not specified",
+    "kk": "көрсетілмеген"
+  },
+  "не указана": {
+    "en": "not specified",
+    "kk": "көрсетілмеген"
+  },
+  "не указаны": {
+    "en": "not specified",
+    "kk": "көрсетілмеген"
+  },
+  "нет": {
+    "en": "none",
+    "kk": "жоқ"
+  },
+  "ожидается": {
+    "en": "pending",
+    "kk": "күтілуде"
+  },
+  "проверка не завершена": {
+    "en": "review not completed",
+    "kk": "тексеру аяқталмаған"
+  },
+  "роль не указана": {
+    "en": "role not specified",
+    "kk": "рөлі көрсетілмеген"
+  },
+  "Добавьте корректную http/https-ссылку на результат.": {
+    "en": "Add a valid http/https link to the result.",
+    "kk": "Нәтижеге жарамды http/https сілтемесін қосыңыз."
+  },
+  "Описание результата: нужно не менее 20 символов перед отправкой.": {
+    "en": "Result description: enter at least 20 characters before submitting.",
+    "kk": "Нәтиже сипаттамасы: жіберу алдында кемінде 20 таңба енгізіңіз."
+  },
+  "Личный вклад: нужно не менее 20 символов перед отправкой.": {
+    "en": "Personal contribution: enter at least 20 characters before submitting.",
+    "kk": "Жеке үлес: жіберу алдында кемінде 20 таңба енгізіңіз."
+  }
+}
