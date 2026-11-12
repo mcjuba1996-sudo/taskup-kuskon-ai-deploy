@@ -1,4 +1,17 @@
-TaskUp Talent participant roles validation report — 2026-11-12
+TaskUp Talent validation report — 2026-11-12
+
+Light interface revision:
+PASS: 12 Talent UI AppTest scenarios, 38.560 seconds. Exit code 0.
+PASS: talent_ui.py compilation and git diff --check.
+Browser: desktop landing, role cards, university review and native dropdown;
+mobile landing at 390x844 without horizontal overflow; role navigation anchor.
+Temporary viewport override reset. Light colors apply to native forms and cards.
+Business arithmetic, internal document links and source/assumption boundaries
+reviewed. No buyer interviews, payments or channel agreements were obtained.
+The full 123-test run below belongs to the preceding participant-role revision;
+it was not rerun for the subsequent presentation-only change.
+
+Participant-role baseline:
 
 Environment: Windows, Python 3.12.14, Streamlit 1.67.0.
 
