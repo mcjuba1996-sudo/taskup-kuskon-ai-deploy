@@ -7,6 +7,9 @@ PASS: talent_ui.py compilation and git diff --check.
 The new About section presents the problem, initial segment, three explicitly
 fictional scenarios and a link to the full synthetic exercise. Interview status
 remains unvalidated; no real response data or product workflows were changed.
+PASS: public Streamlit after commit 3c89568. Browser verified the About section,
+explicit hypothesis status, expansion of the counterexample, and the full
+exercise link opening the correct public GitHub file. Screenshot saved.
 
 Light interface revision:
 PASS: 12 Talent UI AppTest scenarios, 38.560 seconds. Exit code 0.
