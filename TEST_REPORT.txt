@@ -1,5 +1,13 @@
 TaskUp Talent validation report — 2026-11-12
 
+Research overview revision:
+PASS: 2 existing AppTest navigation scenarios, 6.386 seconds. Exit code 0.
+Student/company pages and all buyer subtype entries still render, including About.
+PASS: talent_ui.py compilation and git diff --check.
+The new About section presents the problem, initial segment, three explicitly
+fictional scenarios and a link to the full synthetic exercise. Interview status
+remains unvalidated; no real response data or product workflows were changed.
+
 Light interface revision:
 PASS: 12 Talent UI AppTest scenarios, 38.560 seconds. Exit code 0.
 PASS: talent_ui.py compilation and git diff --check.
