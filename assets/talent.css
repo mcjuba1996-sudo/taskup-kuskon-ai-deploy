@@ -9,6 +9,7 @@
 }
 [data-testid="stHeader"] { background:rgba(247,248,252,.96); border-bottom:1px solid #e9edf5; }
 [data-testid="stMainBlockContainer"] { max-width:1320px; padding:3rem 3rem 4rem; }
+.st-key-talent_language_bar { padding-top:1rem; }
 [data-testid="stSidebar"] { background:#ffffff; border-right:1px solid var(--border); }
 [data-testid="stSidebar"] [data-testid="stSidebarContent"] { padding-top:1.25rem; }
 [data-testid="stVerticalBlock"] { gap:1rem; }

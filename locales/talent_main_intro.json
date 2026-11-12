@@ -1,0 +1,258 @@
+{
+  " · Демо-проверка": {
+    "en": " · Demo review",
+    "kk": " · Демо тексеру"
+  },
+  " класс · ": {
+    "en": " grade · ",
+    "kk": "-сынып · "
+  },
+  "# Мой мини-проект\n\n## Задача\n\n## Что работает\n\n## Ссылка и инструкция\n\n## Мой вклад и инструменты\n\n## Проверка\n\n## Ограничения и выводы\n": {
+    "en": "# My mini-project\n\n## Challenge\n\n## What works\n\n## Link and instructions\n\n## My contribution and tools\n\n## Testing\n\n## Limitations and lessons learned\n",
+    "kk": "# Менің шағын жобам\n\n## Тапсырма\n\n## Не жұмыс істейді\n\n## Сілтеме және нұсқаулық\n\n## Менің үлесім және құралдар\n\n## Тексеру\n\n## Шектеулер мен қорытындылар\n"
+  },
+  "**Личный вклад и выводы**": {
+    "en": "**Personal contribution and lessons learned**",
+    "kk": "**Жеке үлес пен қорытындылар**"
+  },
+  "**Обратная связь заказчика**": {
+    "en": "**Feedback from the challenge owner**",
+    "kk": "**Тапсырыс берушінің кері байланысы**"
+  },
+  "**Оценка этой работы: ": {
+    "en": "**Score for this submission: ",
+    "kk": "**Осы жұмыстың бағасы: "
+  },
+  "**Оценка этой работы: {p0:g}/100**": {
+    "en": "**Score for this submission: {p0:g}/100**",
+    "kk": "**Осы жұмыстың бағасы: {p0:g}/100**"
+  },
+  "**Первый сегмент для проверки:** школьники 9–11 классов Актюбинской области и координаторы корпоративных проектных IT-программ с конкурсным отбором.": {
+    "en": "**Initial segment to validate:** students in grades 9–11 in Aktobe Region and coordinators of corporate IT project programs with competitive selection.",
+    "kk": "**Алдымен тексерілетін сегмент:** Ақтөбе облысының 9–11-сынып оқушылары және конкурстық іріктеуі бар корпоративтік IT жобалау бағдарламаларының үйлестірушілері."
+  },
+  "**Почему личный вклад:** работа показывает общий результат, а пояснение и короткая защита могут помочь понять действия и решения конкретного участника. Пользу такого процесса ещё нужно проверить.": {
+    "en": "**Why personal contribution matters:** a project shows the overall result, while an explanation and a short defense may help reveal the actions and decisions of an individual participant. The value of this process still needs to be tested.",
+    "kk": "**Жеке үлес неге маңызды:** жұмыс жалпы нәтижені көрсетеді, ал түсіндірме мен қысқа қорғау нақты қатысушының әрекеттері мен шешімдерін түсінуге көмектесуі мүмкін. Бұл үдерістің пайдасын әлі тексеру керек."
+  },
+  "**Что нужно сдать**": {
+    "en": "**What to submit**",
+    "kk": "**Не тапсыру керек**"
+  },
+  ". Общего рейтинга школьников нет: оценка относится к отдельной работе.": {
+    "en": ". There is no overall student ranking: the score applies to an individual submission.",
+    "kk": ". Оқушылардың жалпы рейтингі жоқ: баға жеке жұмысқа қатысты."
+  },
+  "/4 · вес ": {
+    "en": "/4 · weight ",
+    "kk": "/4 · салмағы "
+  },
+  "0 — нет свидетельств": {
+    "en": "0 — no evidence",
+    "kk": "0 — дәлел жоқ"
+  },
+  "1 — частично, доказательств мало": {
+    "en": "1 — partial result, limited evidence",
+    "kk": "1 — ішінара орындалған, дәлел аз"
+  },
+  "1. Школьник → София Т. → «Мои работы»: исходная работа по расписанию уже ждёт проверки.\n\n2. Компания → Qadam IT Education → «Проверка работ»: запросите объяснение границ интервалов и изменение с учётом кабинета.\n\n3. Школьник → София Т. → «Мои работы»: отправьте ответ и тестовый результат изменения.\n\n4. Компания → сохраните наблюдения, выставьте оценки со свидетельствами и примите работу.\n\n5. Школьник → «Моё портфолио»: откройте паспорт и историю, включите оба демонстрационных согласия.\n\n6. Компания → «Каталог работ»: отправьте приглашение; школьник отвечает в «Приглашениях».\n\n7. Покажите «Мой проект»: частный отчёт самооценки доступен сразу, без проверки компанией.": {
+    "en": "1. Student → Sofia T. → My work: the initial schedule submission is already awaiting review.\n\n2. Company → Qadam IT Education → Work reviews: request an explanation of interval boundaries and a change that accounts for rooms.\n\n3. Student → Sofia T. → My work: submit an answer and a test result for the change.\n\n4. Company → save observations, assign scores with supporting evidence, and accept the submission.\n\n5. Student → My portfolio: open the work passport and history, and enable both demo consents.\n\n6. Company → Work directory: send an invitation; the student responds under Invitations.\n\n7. Show My project: a private self-assessment report is available immediately, without a company review.",
+    "kk": "1. Оқушы → София Т. → «Менің жұмыстарым»: сабақ кестесі бойынша бастапқы жұмыс тексеруді күтіп тұр.\n\n2. Компания → Qadam IT Education → «Жұмыстарды тексеру»: уақыт аралықтарының шекарасын түсіндіруді және кабинеттерді ескеретін өзгеріс енгізуді сұраңыз.\n\n3. Оқушы → София Т. → «Менің жұмыстарым»: жауап пен өзгерісті тексеру нәтижесін жіберіңіз.\n\n4. Компания → бақылауларды сақтаңыз, дәлелдерге сүйеніп баға қойыңыз және жұмысты қабылдаңыз.\n\n5. Оқушы → «Менің портфолиом»: жұмыс паспортын және тарихын ашып, екі демо келісімді де қосыңыз.\n\n6. Компания → «Жұмыстар каталогы»: шақыру жіберіңіз; оқушы «Шақырулар» бөлімінде жауап береді.\n\n7. «Менің жобам» бөлімін көрсетіңіз: жеке өзін-өзі бағалау есебі компания тексеруінсіз бірден қолжетімді."
+  },
+  "15 ответов школьников и 2 интервью покупателей, готовность платить и каналы набора первых 100 участников. Демонстрационные данные не являются результатами исследования.": {
+    "en": "15 student responses and 2 buyer interviews, willingness to pay, and channels for recruiting the first 100 participants. Demo data is not research evidence.",
+    "kk": "Оқушылардың 15 жауабы және сатып алушылармен 2 сұхбат, төлеуге дайындық және алғашқы 100 қатысушыны тарту арналары. Демо деректер зерттеу нәтижелері емес."
+  },
+  "2 — базовый результат подтверждён": {
+    "en": "2 — basic result supported by evidence",
+    "kk": "2 — негізгі нәтиже расталған"
+  },
+  "3 — выполнено с доказательствами": {
+    "en": "3 — completed with evidence",
+    "kk": "3 — дәлелдермен орындалған"
+  },
+  "4 — выполнено и проверено": {
+    "en": "4 — completed and tested",
+    "kk": "4 — орындалған және тексерілген"
+  },
+  "5–7 дней": {
+    "en": "5–7 days",
+    "kk": "5–7 күн"
+  },
+  "<a class=\"tt-hero-cta\" href=\"#vyberite-svoy-kabinet\">Найти свой кабинет <span>→</span></a>": {
+    "en": "<a class=\"tt-hero-cta\" href=\"#vyberite-svoy-kabinet\">Find your workspace <span>→</span></a>",
+    "kk": "<a class=\"tt-hero-cta\" href=\"#vyberite-svoy-kabinet\">Өз кабинетіңді тап <span>→</span></a>"
+  },
+  "<div class=\"tt-kicker tt-hero-kicker\">РЕАЛЬНАЯ РАБОТА → ДОВЕРИЕ</div><h1 class=\"tt-hero-title\">Твой талант.<br><em>Твои доказательства.</em></h1><p class=\"tt-lead\">Сделай небольшой IT-проект. Получи разбор от вуза или другой организации. Покажи, что умеешь, через результат работы.</p>": {
+    "en": "<div class=\"tt-kicker tt-hero-kicker\">REAL WORK → TRUST</div><h1 class=\"tt-hero-title\">Your talent.<br><em>Your evidence.</em></h1><p class=\"tt-lead\">Build a small IT project. Get feedback from a university or another organization. Show what you can do through your work.</p>",
+    "kk": "<div class=\"tt-kicker tt-hero-kicker\">НАҚТЫ ЖҰМЫС → СЕНІМ</div><h1 class=\"tt-hero-title\">Сенің талантың.<br><em>Сенің дәлелдерің.</em></h1><p class=\"tt-lead\">Шағын IT жоба жаса. Университеттен немесе басқа ұйымнан кері байланыс ал. Жұмысыңның нәтижесі арқылы не істей алатыныңды көрсет.</p>"
+  },
+  "<div class=\"tt-proof\"><div class=\"tt-proof-top\">ПАСПОРТ РАБОТЫ <span>ДЕМО</span></div><h3>Учебный анализ данных</h3><p>Участник A-101 · Актобе · Аналитика</p><div class=\"tt-proof-result\">✓ Результат принят заказчиком</div><div class=\"tt-proof-row\"><span>Работа и исходники</span><b>Приложены</b></div><div class=\"tt-proof-row\"><span>Критерии и обратная связь</span><b>Открыты</b></div><div class=\"tt-proof-row\"><span>Публикация профиля</span><b>По согласию</b></div><p class=\"tt-small\">Иллюстрация паспорта. Проверяется конкретная работа, а не «рейтинг таланта» школьника.</p></div>": {
+    "en": "<div class=\"tt-proof\"><div class=\"tt-proof-top\">WORK PASSPORT <span>DEMO</span></div><h3>Learning data analysis</h3><p>Participant A-101 · Aktobe · Analytics</p><div class=\"tt-proof-result\">✓ Result accepted by the challenge owner</div><div class=\"tt-proof-row\"><span>Work and source files</span><b>Attached</b></div><div class=\"tt-proof-row\"><span>Criteria and feedback</span><b>Available</b></div><div class=\"tt-proof-row\"><span>Profile sharing</span><b>With consent</b></div><p class=\"tt-small\">Illustrative work passport. Reviews assess a specific submission, not a student's “talent ranking”.</p></div>",
+    "kk": "<div class=\"tt-proof\"><div class=\"tt-proof-top\">ЖҰМЫС ПАСПОРТЫ <span>ДЕМО</span></div><h3>Оқу мақсатындағы деректерді талдау</h3><p>A-101 қатысушысы · Ақтөбе · Аналитика</p><div class=\"tt-proof-result\">✓ Нәтижені тапсырыс беруші қабылдады</div><div class=\"tt-proof-row\"><span>Жұмыс және бастапқы файлдар</span><b>Тіркелген</b></div><div class=\"tt-proof-row\"><span>Критерийлер мен кері байланыс</span><b>Қолжетімді</b></div><div class=\"tt-proof-row\"><span>Профильді жариялау</span><b>Келісім бойынша</b></div><p class=\"tt-small\">Жұмыс паспортының үлгісі. Оқушының «талант рейтингі» емес, нақты жұмыс тексеріледі.</p></div>"
+  },
+  "<div class=\"tt-steps\"><div><b>01</b><strong>Выбери задание</strong><span>Критерии известны заранее</span></div><div><b>02</b><strong>Покажи результат</strong><span>Ссылка, подход и личный вклад</span></div><div><b>03</b><strong>Получи признание</strong><span>Разбор и паспорт принятой работы</span></div></div>": {
+    "en": "<div class=\"tt-steps\"><div><b>01</b><strong>Choose a challenge</strong><span>Criteria are known in advance</span></div><div><b>02</b><strong>Show your result</strong><span>A link, your approach, and your contribution</span></div><div><b>03</b><strong>Earn recognition</strong><span>Feedback and an accepted work passport</span></div></div>",
+    "kk": "<div class=\"tt-steps\"><div><b>01</b><strong>Тапсырма таңда</strong><span>Критерийлер алдын ала белгілі</span></div><div><b>02</b><strong>Нәтижеңді көрсет</strong><span>Сілтеме, тәсіл және жеке үлес</span></div><div><b>03</b><strong>Еңбегіңді мойындат</strong><span>Талдау және қабылданған жұмыс паспорты</span></div></div>"
+  },
+  "HackHub · Талант до вуза\n\nВсе данные вымышлены. Выбор профиля — демонстрация, не вход в аккаунт.": {
+    "en": "HackHub · Talent Before University\n\nAll data is fictional. Choosing a profile is a demonstration, not an account login.",
+    "kk": "HackHub · Университетке дейінгі талант\n\nБарлық деректер ойдан шығарылған. Профильді таңдау — аккаунтқа кіру емес, демонстрация."
+  },
+  "Kuskon AI · HackHub 2026 · Талант до вуза": {
+    "en": "Kuskon AI · HackHub 2026 · Talent Before University",
+    "kk": "Kuskon AI · HackHub 2026 · Университетке дейінгі талант"
+  },
+  "TaskUp Talent · Талант до вуза": {
+    "en": "TaskUp Talent · Talent Before University",
+    "kk": "TaskUp Talent · Университетке дейінгі талант"
+  },
+  "{p0} · {p1} класс · {p2}": {
+    "en": "{p0} · Grade {p1} · {p2}",
+    "kk": "{p0} · {p1}-сынып · {p2}"
+  },
+  "{p0}: {p1}/4 · вес {p2}%": {
+    "en": "{p0}: {p1}/4 · weight {p2}%",
+    "kk": "{p0}: {p1}/4 · салмағы {p2}%"
+  },
+  "Аналитика": {
+    "en": "Analytics",
+    "kk": "Аналитика"
+  },
+  "Без покупателя можно сохранить свой проект, описать вклад, пройти самопроверку и скачать отчёт. Он обозначен как самооценка. Передача организации происходит отдельным действием.": {
+    "en": "Without a buyer, you can save your project, describe your contribution, complete a self-check, and download a report. It is labeled as a self-assessment. Sending it to an organization is a separate action.",
+    "kk": "Сатып алушысыз да жобаңызды сақтап, өз үлесіңізді сипаттап, өзін-өзі тексеруден өтіп, есепті жүктей аласыз. Есеп өзін-өзі бағалау ретінде белгіленеді. Оны ұйымға жіберу — бөлек әрекет."
+  },
+  "В демонстрации родитель привязан к участнику A-106. В остальных ранних профилях согласие представителя по-прежнему моделируется переключателем. Все связи, организации и записи вымышлены.": {
+    "en": "In this demo, the parent is linked to participant A-106. In the other earlier profiles, guardian consent is still simulated using a toggle. All relationships, organizations, and records are fictional.",
+    "kk": "Демонстрацияда ата-ана A-106 қатысушысына байланыстырылған. Бұрын қосылған басқа профильдерде өкілдің келісімі әлі де ауыстырғыш арқылы үлгіленеді. Барлық байланыстар, ұйымдар мен жазбалар ойдан шығарылған."
+  },
+  "В другой программе есть стандартное задание, короткая защита и общая таблица решений. Такого процесса может быть достаточно; новая платформа способна добавить лишний ввод данных.": {
+    "en": "Another program already uses a standard task, a short defense, and a shared decision spreadsheet. This process may be sufficient; a new platform could add unnecessary data entry.",
+    "kk": "Басқа бағдарламада стандартты тапсырма, қысқа қорғау және шешімдердің ортақ кестесі бар. Бұл үдеріс жеткілікті болуы мүмкін; жаңа платформа артық дерек енгізуді талап етуі ықтимал."
+  },
+  "В избранное": {
+    "en": "Save to favorites",
+    "kk": "Таңдаулыларға қосу"
+  },
+  "В каталоге доступны псевдоним, регион, класс, направление, принятые работы и история их версий, включая прежние доработки, ответы на защиту, наблюдения проверяющего и принятые вами записи источников. Телефон, адрес и контакты не собираются. Ссылки и текст работ тоже видны: используйте только тестовые данные.": {
+    "en": "The directory shows your pseudonym, region, grade, field, accepted submissions, and their version history, including earlier revisions, defense answers, reviewer observations, and issuer records you have accepted. Phone numbers, addresses, and contact details are not collected. Submission links and text are also visible: use test data only.",
+    "kk": "Каталогта бүркеншік атыңыз, өңіріңіз, сыныбыңыз, бағытыңыз, қабылданған жұмыстар мен олардың нұсқалар тарихы, соның ішінде бұрынғы толықтырулар, қорғау жауаптары, тексерушінің бақылаулары және сіз қабылдаған дереккөз жазбалары қолжетімді. Телефон, мекенжай және байланыс деректері жиналмайды. Жұмыстардың сілтемелері мен мәтіні де көрінеді: тек сынақ деректерін қолданыңыз."
+  },
+  "В разделе «Мой проект» школьник оформляет существующую работу, описывает вклад и помощь, проходит самопроверку и скачивает отчёт. Внешняя проверка такого отчёта не заявляется. Позже можно явно передать копию проекта организации по подходящему заданию.": {
+    "en": "In My project, a student documents an existing project, describes their contribution and any assistance, completes a self-check, and downloads a report. The report does not claim external verification. Later, the student can explicitly send a copy of the project to an organization for a suitable challenge.",
+    "kk": "«Менің жобам» бөлімінде оқушы бар жұмысын рәсімдеп, өз үлесі мен алған көмегін сипаттайды, өзін-өзі тексеруден өтіп, есепті жүктейді. Бұл есеп сыртқы тексеруден өтті деп көрсетілмейді. Кейін жоба көшірмесін лайықты тапсырма бойынша ұйымға бөлек әрекетпен жіберуге болады."
+  },
+  "Веб-разработка": {
+    "en": "Web development",
+    "kk": "Веб-әзірлеу"
+  },
+  "Вернуть на доработку": {
+    "en": "Request revision",
+    "kk": "Толықтыруға қайтару"
+  },
+  "Видно покупателям при наличии принятой работы": {
+    "en": "Visible to buyers if there is an accepted submission",
+    "kk": "Қабылданған жұмыс болса, сатып алушыларға көрінеді"
+  },
+  "Все навыки": {
+    "en": "All skills",
+    "kk": "Барлық дағдылар"
+  },
+  "Все направления": {
+    "en": "All fields",
+    "kk": "Барлық бағыттар"
+  },
+  "Все организации": {
+    "en": "All organizations",
+    "kk": "Барлық ұйымдар"
+  },
+  "Все работы": {
+    "en": "All submissions",
+    "kk": "Барлық жұмыстар"
+  },
+  "Все регионы": {
+    "en": "All regions",
+    "kk": "Барлық өңірлер"
+  },
+  "Вы управляете тем, что доступно вузам, агентствам, компаниям и фондам.": {
+    "en": "You control what universities, agencies, companies, and funds can access.",
+    "kk": "Университеттерге, агенттіктерге, компаниялар мен қорларға не қолжетімді болатынын өзіңіз басқарасыз."
+  },
+  "Выберите мини-проект. Критерии открыты до начала работы.": {
+    "en": "Choose a mini-project. The criteria are available before you start.",
+    "kk": "Шағын жобаны таңдаңыз. Критерийлер жұмысты бастамас бұрын ашық беріледі."
+  },
+  "Выберите свой кабинет": {
+    "en": "Choose your workspace",
+    "kk": "Кабинетіңізді таңдаңыз"
+  },
+  "Выбрать задание →": {
+    "en": "Choose a challenge →",
+    "kk": "Тапсырманы таңдау →"
+  },
+  "Выдача записей о результатах участникам и управление собственным реестром.": {
+    "en": "Issue result records to participants and manage your own register.",
+    "kk": "Қатысушыларға нәтижелері туралы жазбалар беру және өз тізілімін басқару."
+  },
+  "Гипотеза цены: 100 000 ₸ за одну 30-дневную кампанию компании: одно задание, до 100 регистраций и до 25 работ на проверке. Экспертов предоставляет покупатель. Платят за организацию процесса отбора; число участников и приглашений не гарантируется. Цена, спрос и окупаемость ещё не подтверждены интервью.": {
+    "en": "Pricing hypothesis: 100 000 ₸ for one 30-day company campaign: one challenge, up to 100 registrations, and up to 25 submissions for review. The buyer supplies the experts. The fee covers organizing the selection process; participant and invitation numbers are not guaranteed. The price, demand, and financial viability have not yet been validated through interviews.",
+    "kk": "Баға гипотезасы: компанияның бір 30 күндік науқаны үшін 100 000 ₸: бір тапсырма, 100-ге дейін тіркелу және тексеруге 25-ке дейін жұмыс. Сарапшыларды сатып алушы ұсынады. Төлем іріктеу үдерісін ұйымдастыру үшін алынады; қатысушылар мен шақырулар санына кепілдік берілмейді. Баға, сұраныс және өзін-өзі ақтау сұхбаттар арқылы әлі расталмаған."
+  },
+  "ДЕМО · Тестовые профили и работы · Без реальных персональных данных": {
+    "en": "DEMO · Test profiles and submissions · No real personal data",
+    "kk": "ДЕМО · Сынақ профильдері мен жұмыстары · Нақты жеке деректерсіз"
+  },
+  "Демонстрационный профиль": {
+    "en": "Demo profile",
+    "kk": "Демо профиль"
+  },
+  "Демонстрационный стенд: все профили и результаты вымышлены. Переключение роли — не авторизация. Используйте только тестовые данные и ссылки.": {
+    "en": "Demo environment: all profiles and results are fictional. Switching roles is not authentication. Use only test data and links.",
+    "kk": "Демо орта: барлық профильдер мен нәтижелер ойдан шығарылған. Рөлді ауыстыру — авторизация емес. Тек сынақ деректері мен сілтемелерін қолданыңыз."
+  },
+  "Для школьников 8–11 классов Актюбинской области": {
+    "en": "For students in grades 8–11 in Aktobe Region",
+    "kk": "Ақтөбе облысының 8–11-сынып оқушыларына арналған"
+  },
+  "Для этого демопрофиля согласие представителя меняется в кабинете родителя. Ваше собственное согласие остаётся отдельным: для показа нужны оба.": {
+    "en": "For this demo profile, guardian consent is changed in the parent workspace. Your own consent remains separate: both are required for sharing.",
+    "kk": "Бұл демо профиль үшін өкілдің келісімі ата-ана кабинетінде өзгертіледі. Сіздің өз келісіміңіз бөлек қалады: көрсету үшін екеуі де қажет."
+  },
+  "Для этой роли пока нет демонстрационных профилей.": {
+    "en": "There are no demo profiles for this role yet.",
+    "kk": "Бұл рөл үшін әзірге демо профильдер жоқ."
+  },
+  "Доверие через результат работы": {
+    "en": "Trust through work results",
+    "kk": "Жұмыс нәтижесі арқылы сенім"
+  },
+  "Доказательства достижений региональных школьников и приглашения на отбор.": {
+    "en": "Evidence of regional students' achievements and invitations to selection programs.",
+    "kk": "Өңір оқушыларының жетістік дәлелдері және іріктеуге шақырулар."
+  },
+  "Доработка: ": {
+    "en": "Revision: ",
+    "kk": "Толықтыру: "
+  },
+  "Достижения": {
+    "en": "Achievements",
+    "kk": "Жетістіктер"
+  },
+  "Достижения от школы и организаторов": {
+    "en": "Achievements from schools and organizers",
+    "kk": "Мектеп пен ұйымдастырушылардан жетістіктер туралы мәліметтер"
+  },
+  "Ждёт ответа": {
+    "en": "Awaiting response",
+    "kk": "Жауап күтуде"
+  },
+  "ЗАДАНИЯ ОРГАНИЗАЦИИ": {
+    "en": "ORGANIZATION CHALLENGES",
+    "kk": "ҰЙЫМНЫҢ ТАПСЫРМАЛАРЫ"
+  },
+  "За каждым решением — доказательства": {
+    "en": "Evidence behind every decision",
+    "kk": "Әр шешімнің негізінде — дәлел"
+  }
+}

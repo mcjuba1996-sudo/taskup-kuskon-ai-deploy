@@ -1,0 +1,318 @@
+{
+  "Ожидает решения школьника": {
+    "en": "Awaiting the student's decision",
+    "kk": "Оқушының шешімін күтуде"
+  },
+  "Школьник включил запись в достижения": {
+    "en": "Added to achievements by the student",
+    "kk": "Оқушы жазбаны жетістіктеріне қосты"
+  },
+  "Школьник отклонил запись": {
+    "en": "Declined by the student",
+    "kk": "Оқушы жазбадан бас тартты"
+  },
+  "Источник отозвал запись": {
+    "en": "Revoked by the issuer",
+    "kk": "Дереккөз жазбаны кері қайтарды"
+  },
+  "На проверке": {
+    "en": "Under review",
+    "kk": "Тексерілуде"
+  },
+  "Нужна доработка": {
+    "en": "Revision requested",
+    "kk": "Толықтыру қажет"
+  },
+  "Результат принят": {
+    "en": "Result accepted",
+    "kk": "Нәтиже қабылданды"
+  },
+  "Ожидает ответа школьника": {
+    "en": "Awaiting the student's response",
+    "kk": "Оқушының жауабын күтуде"
+  },
+  "Принято школьником": {
+    "en": "Accepted by the student",
+    "kk": "Оқушы қабылдады"
+  },
+  "Отклонено школьником": {
+    "en": "Declined by the student",
+    "kk": "Оқушы бас тартты"
+  },
+  "Отозвано": {
+    "en": "Withdrawn",
+    "kk": "Кері қайтарылды"
+  },
+  "Школа": {
+    "en": "School",
+    "kk": "Мектеп"
+  },
+  "Организатор конкурса": {
+    "en": "Competition organizer",
+    "kk": "Байқау ұйымдастырушысы"
+  },
+  "Событие: {event}": {
+    "en": "Event: {event}",
+    "kk": "Іс-шара: {event}"
+  },
+  "**Что заявляет источник**": {
+    "en": "**What the issuer states**",
+    "kk": "**Дереккөздің мәлімдемесі**"
+  },
+  "Основание записи №{record_id} ↗": {
+    "en": "Evidence for record #{record_id} ↗",
+    "kk": "№{record_id} жазбаның негіздемесі ↗"
+  },
+  "**Как источник проверял сведения**": {
+    "en": "**How the issuer checked the information**",
+    "kk": "**Дереккөз мәліметтерді қалай тексерді**"
+  },
+  "{kind}: {name} · {date}": {
+    "en": "{kind}: {name} · {date}",
+    "kk": "{kind}: {name} · {date}"
+  },
+  "Ограничения: {limitations}": {
+    "en": "Limitations: {limitations}",
+    "kk": "Шектеулер: {limitations}"
+  },
+  "Причина отзыва: {reason}": {
+    "en": "Reason for revocation: {reason}",
+    "kk": "Кері қайтару себебі: {reason}"
+  },
+  "ИСТОЧНИК СВЕДЕНИЙ · ДЕМО": {
+    "en": "INFORMATION SOURCE · DEMO",
+    "kk": "МӘЛІМЕТ ДЕРЕККӨЗІ · ДЕМО"
+  },
+  "Реестр достижений": {
+    "en": "Achievement register",
+    "kk": "Жетістіктер тізілімі"
+  },
+  "{name}: передайте школьнику запись о конкретном событии и укажите основание. Школьник сам решает, включать ли её в свои достижения.": {
+    "en": "{name}: send the student a record of a specific event and provide supporting evidence. The student decides whether to include it in their achievements.",
+    "kk": "{name}: оқушыға нақты іс-шара туралы жазба жіберіп, оның негіздемесін көрсетіңіз. Оны жетістіктеріне қосу-қоспауды оқушы өзі шешеді."
+  },
+  "Школа и организатор работают только со своим демонстрационным списком участников. Запись источника не означает независимую проверку платформой и не подтверждает реальную личность.": {
+    "en": "Schools and organizers can only work with their own demo participant roster. An issuer's record is not an independent platform review and does not verify a real identity.",
+    "kk": "Мектеп пен ұйымдастырушы тек өз демо қатысушылар тізімімен жұмыс істейді. Дереккөз жазбасы платформаның тәуелсіз тексеруін білдірмейді және нақты тұлғаны растамайды."
+  },
+  "Выдать запись участнику": {
+    "en": "Issue a record to a participant",
+    "kk": "Қатысушыға жазба беру"
+  },
+  "В вашем демонстрационном списке пока нет участников.": {
+    "en": "Your demo roster has no participants yet.",
+    "kk": "Демо тізіміңізде әзірге қатысушылар жоқ."
+  },
+  "Участник из моего списка": {
+    "en": "Participant from my roster",
+    "kk": "Менің тізімімдегі қатысушы"
+  },
+  "{name} · {grade} класс": {
+    "en": "{name} · Grade {grade}",
+    "kk": "{name} · {grade}-сынып"
+  },
+  "Название достижения": {
+    "en": "Achievement title",
+    "kk": "Жетістік атауы"
+  },
+  "Событие или программа": {
+    "en": "Event or program",
+    "kk": "Іс-шара немесе бағдарлама"
+  },
+  "Участие и результат, которые подтверждает источник": {
+    "en": "Participation and result attested by the issuer",
+    "kk": "Дереккөз растайтын қатысу фактісі мен нәтиже"
+  },
+  "Ссылка на протокол или другое основание": {
+    "en": "Link to a record of results or other supporting evidence",
+    "kk": "Хаттамаға немесе басқа негіздемеге сілтеме"
+  },
+  "Как проверены сведения и кем": {
+    "en": "How the information was checked and by whom",
+    "kk": "Мәліметтерді кім және қалай тексерді"
+  },
+  "Например: сопоставили результат с тестовым протоколом события.": {
+    "en": "For example: compared the result with the event's sample results record.",
+    "kk": "Мысалы: нәтижені іс-шараның сынақ хаттамасымен салыстырдық."
+  },
+  "Ограничения подтверждения": {
+    "en": "Limitations of the attestation",
+    "kk": "Растаудың шектеулері"
+  },
+  "Передать запись школьнику": {
+    "en": "Send record to the student",
+    "kk": "Жазбаны оқушыға жіберу"
+  },
+  "Запись передана школьнику. До его решения она не появится в открытых достижениях.": {
+    "en": "The record was sent to the student. It will not appear in shared achievements until they decide to include it.",
+    "kk": "Жазба оқушыға жіберілді. Оқушы шешім қабылдағанға дейін ол ашық жетістіктерде көрсетілмейді."
+  },
+  "Мои выданные записи": {
+    "en": "Records I have issued",
+    "kk": "Мен берген жазбалар"
+  },
+  "Вы ещё не выдавали записей. Все поля выше заполняются тестовыми данными.": {
+    "en": "You have not issued any records yet. Use test data in all fields above.",
+    "kk": "Сіз әлі жазба берген жоқсыз. Жоғарыдағы барлық өрістерге сынақ деректерін енгізіңіз."
+  },
+  "Участник: {name}": {
+    "en": "Participant: {name}",
+    "kk": "Қатысушы: {name}"
+  },
+  "Отозвать запись": {
+    "en": "Revoke record",
+    "kk": "Жазбаны кері қайтару"
+  },
+  "Отзыв убирает запись из доступных покупателю достижений. Причина останется видна школьнику.": {
+    "en": "Revoking removes the record from achievements visible to the buyer. The student will still see the reason.",
+    "kk": "Кері қайтарылған жазба сатып алушыға қолжетімді жетістіктерден алынады. Оның себебі оқушыға көрініп тұрады."
+  },
+  "Причина отзыва": {
+    "en": "Reason for revocation",
+    "kk": "Кері қайтару себебі"
+  },
+  "Отозвать запись источника": {
+    "en": "Revoke the issuer's record",
+    "kk": "Дереккөз жазбасын кері қайтару"
+  },
+  "Запись отозвана источником.": {
+    "en": "The issuer revoked the record.",
+    "kk": "Дереккөз жазбаны кері қайтарды."
+  },
+  "ЗАКОННЫЙ ПРЕДСТАВИТЕЛЬ · ДЕМО": {
+    "en": "LEGAL GUARDIAN · DEMO",
+    "kk": "ЗАҢДЫ ӨКІЛ · ДЕМО"
+  },
+  "Согласие и прогресс ребёнка": {
+    "en": "Consent and the child's progress",
+    "kk": "Келісім және баланың ілгерілеуі"
+  },
+  "Показаны только связанные с этим демопрофилем дети. Связь и согласие моделируются: реальная личность и полномочия законного представителя здесь не удостоверяются.": {
+    "en": "Only children linked to this demo profile are shown. The relationship and consent are simulated: this demo does not verify the legal guardian's real identity or authority.",
+    "kk": "Тек осы демо профильге байланыстырылған балалар көрсетіледі. Байланыс пен келісім үлгі ретінде берілген: мұнда заңды өкілдің нақты тұлғасы мен өкілеттігі куәландырылмайды."
+  },
+  "В демонстрации пока нет связанного ребёнка.": {
+    "en": "No child is linked in this demo yet.",
+    "kk": "Демонстрацияда әзірге байланыстырылған бала жоқ."
+  },
+  "Связанный ребёнок": {
+    "en": "Linked child",
+    "kk": "Байланыстырылған бала"
+  },
+  "{region} · {grade} класс · {focus}": {
+    "en": "{region} · Grade {grade} · {focus}",
+    "kk": "{region} · {grade}-сынып · {focus}"
+  },
+  "Выбор школьника: {choice}": {
+    "en": "Student's choice: {choice}",
+    "kk": "Оқушының таңдауы: {choice}"
+  },
+  "разрешает показ профиля": {
+    "en": "allows profile sharing",
+    "kk": "профильді көрсетуге рұқсат береді"
+  },
+  "профиль закрыт для каталога": {
+    "en": "profile is hidden from the directory",
+    "kk": "профиль каталогта көрсетілмейді"
+  },
+  "Согласие представителя и решение школьника независимы. Для каталога нужны оба согласия и принятая работа. Представитель не может включить согласие за школьника.": {
+    "en": "Guardian consent and the student's choice are independent. The directory requires both consents and an accepted submission. The guardian cannot consent on the student's behalf.",
+    "kk": "Өкілдің келісімі мен оқушының шешімі бір-біріне тәуелсіз. Каталогқа шығу үшін екі келісім де және қабылданған жұмыс қажет. Өкіл оқушының орнына келісім бере алмайды."
+  },
+  "Покупателям станут доступны профиль, принятые работы, история прежних редакций и решений, материалы защиты и принятые школьником записи школы или организатора.": {
+    "en": "Buyers will be able to view the profile, accepted submissions, previous revisions and decisions, defense materials, and school or organizer records accepted by the student.",
+    "kk": "Сатып алушыларға профиль, қабылданған жұмыстар, алдыңғы нұсқалар мен шешімдер тарихы, қорғау материалдары және оқушы қабылдаған мектеп не ұйымдастырушы жазбалары қолжетімді болады."
+  },
+  "Разрешаю показать организациям тестовый профиль, принятые работы, историю, материалы защиты и принятые ребёнком записи источников": {
+    "en": "I allow organizations to view the test profile, accepted submissions, history, defense materials, and issuer records accepted by the child",
+    "kk": "Ұйымдарға сынақ профилін, қабылданған жұмыстарды, тарихты, қорғау материалдарын және бала қабылдаған дереккөз жазбаларын көрсетуге рұқсат беремін"
+  },
+  "Сохранить согласие представителя": {
+    "en": "Save guardian consent",
+    "kk": "Өкілдің келісімін сақтау"
+  },
+  "Согласие представителя сохранено.": {
+    "en": "Guardian consent saved.",
+    "kk": "Өкілдің келісімі сақталды."
+  },
+  "Отзыв согласия скрывает профиль из каталога и избранного, отзывает ожидающие приглашения. Организации сохраняют доступ к работам, отправленным на их задания.": {
+    "en": "Withdrawing consent hides the profile from the directory and saved candidates, and withdraws pending invitations. Organizations retain access to submissions sent to their challenges.",
+    "kk": "Келісімді кері қайтару профильді каталог пен таңдаулылардан жасырады, жауап күткен шақыруларды кері қайтарады. Ұйымдар өз тапсырмаларына жіберілген жұмыстарға қолжетімділігін сақтайды."
+  },
+  "Работы, отправленные на проверку": {
+    "en": "Submissions sent for review",
+    "kk": "Тексеруге жіберілген жұмыстар"
+  },
+  "Ребёнок ещё не отправлял работ на задания организаций.": {
+    "en": "The child has not submitted work for any organization challenges yet.",
+    "kk": "Бала ұйымдардың тапсырмаларына әлі жұмыс жіберген жоқ."
+  },
+  "Оценка конкретной работы: {score:g}/100": {
+    "en": "Score for this submission: {score:g}/100",
+    "kk": "Осы жұмыстың бағасы: {score:g}/100"
+  },
+  "Личные черновики и проекты самооценки в кабинете представителя не показываются.": {
+    "en": "Private drafts and self-assessment projects are not shown in the guardian workspace.",
+    "kk": "Жеке нобайлар мен өзін-өзі бағалау жобалары өкілдің кабинетінде көрсетілмейді."
+  },
+  "Приглашения ребёнку": {
+    "en": "Invitations to the child",
+    "kk": "Балаға келген шақырулар"
+  },
+  "Приглашений пока нет.": {
+    "en": "No invitations yet.",
+    "kk": "Әзірге шақырулар жоқ."
+  },
+  "Ответ на приглашение даёт сам школьник. Здесь нет инструментов подбора кандидатов или рассылки.": {
+    "en": "The student responds to invitations themselves. This workspace has no candidate search or messaging tools.",
+    "kk": "Шақыруға оқушы өзі жауап береді. Мұнда үміткерлерді іздеу немесе хабар тарату құралдары жоқ."
+  },
+  "ДОСТИЖЕНИЯ · ЗАПИСИ ИСТОЧНИКОВ": {
+    "en": "ACHIEVEMENTS · ISSUER RECORDS",
+    "kk": "ЖЕТІСТІКТЕР · ДЕРЕККӨЗ ЖАЗБАЛАРЫ"
+  },
+  "Школа и организаторы о вашей работе": {
+    "en": "Your work: school and organizer records",
+    "kk": "Мектеп пен ұйымдастырушылардың жұмысыңыз туралы жазбалары"
+  },
+  "Проверьте запись и решите, включать ли её в свои достижения. Принятие записи не включает публичность профиля: настройки видимости находятся отдельно в портфолио.": {
+    "en": "Review the record and decide whether to include it in your achievements. Accepting a record does not make your profile public: visibility is controlled separately in your portfolio.",
+    "kk": "Жазбаны тексеріп, оны жетістіктеріңізге қосу-қоспауды шешіңіз. Жазбаны қабылдау профильді ашық етпейді: көріну параметрлері портфолиода бөлек реттеледі."
+  },
+  "Одной записи источника недостаточно для каталога покупателей: нужны принятая работа, ваше согласие на видимость и согласие законного представителя.": {
+    "en": "An issuer's record alone is not enough for the buyer directory: you need an accepted submission, your own sharing consent, and legal guardian consent.",
+    "kk": "Сатып алушылар каталогына шығу үшін тек дереккөз жазбасы жеткіліксіз: қабылданған жұмыс, көрсетуге өз келісіміңіз және заңды өкілдің келісімі қажет."
+  },
+  "Записей пока нет. В демонстрации школа или организатор могут передать сведения из своего реестра.": {
+    "en": "No records yet. In this demo, a school or organizer can send information from their register.",
+    "kk": "Әзірге жазбалар жоқ. Демонстрацияда мектеп не ұйымдастырушы өз тізілімінен мәлімет жібере алады."
+  },
+  "Включить в мои достижения": {
+    "en": "Add to my achievements",
+    "kk": "Жетістіктеріме қосу"
+  },
+  "Запись включена в достижения. Настройки публичности не изменены.": {
+    "en": "Record added to achievements. Sharing settings are unchanged.",
+    "kk": "Жазба жетістіктерге қосылды. Көріну параметрлері өзгерген жоқ."
+  },
+  "Отклонить запись": {
+    "en": "Decline record",
+    "kk": "Жазбадан бас тарту"
+  },
+  "Запись отклонена.": {
+    "en": "Record declined.",
+    "kk": "Жазбадан бас тартылды."
+  },
+  "Дополнительные сведения от школы и организаторов": {
+    "en": "Additional information from schools and organizers",
+    "kk": "Мектеп пен ұйымдастырушылардан қосымша мәліметтер"
+  },
+  "Принятые школьником заявления источников дополняют работы. Платформа не проводила независимую проверку этих сведений.": {
+    "en": "Issuer statements accepted by the student supplement their submissions. The platform has not independently verified this information.",
+    "kk": "Оқушы қабылдаған дереккөз мәлімдемелері жұмыстарды толықтырады. Платформа бұл мәліметтерге тәуелсіз тексеру жүргізген жоқ."
+  },
+  "Демонстрационная запись вымышленного источника. Личность организации, подлинность документа и результат внешней проверки в реальном мире не подтверждены.": {
+    "en": "A demo record from a fictional source. The organization's identity, the document's authenticity and the outcome of an external real-world review have not been verified.",
+    "kk": "Ойдан шығарылған дереккөздің демо-жазбасы. Ұйымның сәйкестігі, құжаттың түпнұсқалығы және шынайы өмірдегі сыртқы тексеру нәтижесі расталмаған."
+  }
+}

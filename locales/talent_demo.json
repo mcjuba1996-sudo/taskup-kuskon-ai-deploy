@@ -1,0 +1,334 @@
+{
+  "Компания": {
+    "en": "Company",
+    "kk": "Компания"
+  },
+  "Вуз": {
+    "en": "University",
+    "kk": "Жоғары оқу орны"
+  },
+  "Образовательное агентство": {
+    "en": "Education agency",
+    "kk": "Білім беру агенттігі"
+  },
+  "Фонд / грантодатель": {
+    "en": "Foundation / grant provider",
+    "kk": "Қор / грант беруші"
+  },
+  "Актюбинская область": {
+    "en": "Aktobe Region",
+    "kk": "Ақтөбе облысы"
+  },
+  "Аналитика данных": {
+    "en": "Data analytics",
+    "kk": "Деректерді талдау"
+  },
+  "Python и автоматизация": {
+    "en": "Python and automation",
+    "kk": "Python және автоматтандыру"
+  },
+  "Дизайн интерфейсов": {
+    "en": "Interface design",
+    "kk": "Интерфейс дизайны"
+  },
+  "Презентация IT-проекта": {
+    "en": "IT project presentation",
+    "kk": "IT-жобаны таныстыру"
+  },
+  "Python и первые IT-проекты": {
+    "en": "Python and first IT projects",
+    "kk": "Python және алғашқы IT-жобалар"
+  },
+  "Образовательные программы": {
+    "en": "Educational programmes",
+    "kk": "Білім беру бағдарламалары"
+  },
+  "Социальные проекты и наставничество": {
+    "en": "Social projects and mentoring",
+    "kk": "Әлеуметтік жобалар және тәлімгерлік"
+  },
+  "3–5 часов": {
+    "en": "3–5 hours",
+    "kk": "3–5 сағат"
+  },
+  "4–6 часов": {
+    "en": "4–6 hours",
+    "kk": "4–6 сағат"
+  },
+  "3–4 часа": {
+    "en": "3–4 hours",
+    "kk": "3–4 сағат"
+  },
+  "2–3 часа": {
+    "en": "2–3 hours",
+    "kk": "2–3 сағат"
+  },
+  "5–7 дней": {
+    "en": "5–7 days",
+    "kk": "5–7 күн"
+  },
+  "Айлин А. · демо": {
+    "en": "Ailin A. · demo",
+    "kk": "Айлин А. · демо"
+  },
+  "Данияр К. · демо": {
+    "en": "Daniyar K. · demo",
+    "kk": "Данияр К. · демо"
+  },
+  "Мадина С. · демо": {
+    "en": "Madina S. · demo",
+    "kk": "Мадина С. · демо"
+  },
+  "Арман Б. · демо": {
+    "en": "Arman B. · demo",
+    "kk": "Арман Б. · демо"
+  },
+  "София Т. · демо": {
+    "en": "Sofia T. · demo",
+    "kk": "София Т. · демо"
+  },
+  "Нурай Е. · демо": {
+    "en": "Nuray E. · demo",
+    "kk": "Нурай Е. · демо"
+  },
+  "Qadam IT Education · демо": {
+    "en": "Qadam IT Education · demo",
+    "kk": "Qadam IT Education · демо"
+  },
+  "Aktobe CSR Lab · демо": {
+    "en": "Aktobe CSR Lab · demo",
+    "kk": "Aktobe CSR Lab · демо"
+  },
+  "Qadam University · демо": {
+    "en": "Qadam University · demo",
+    "kk": "Qadam University · демо"
+  },
+  "StudyRoute · демо": {
+    "en": "StudyRoute · demo",
+    "kk": "StudyRoute · демо"
+  },
+  "Region Talent Fund · демо": {
+    "en": "Region Talent Fund · demo",
+    "kk": "Region Talent Fund · демо"
+  },
+  "Поиск мотивированных участников довузовской IT-программы": {
+    "en": "Finding motivated participants for a pre-university IT programme",
+    "kk": "Жоғары оқу орнына дейінгі IT-бағдарламаға ынталы қатысушыларды іздеу"
+  },
+  "Разбор учебных проектов для подготовки к образовательным программам": {
+    "en": "Reviewing learning projects to prepare for educational programmes",
+    "kk": "Білім беру бағдарламаларына дайындалу үшін оқу жобаларын талдау"
+  },
+  "Отбор участников региональной программы наставничества": {
+    "en": "Selecting participants for a regional mentoring programme",
+    "kk": "Өңірлік тәлімгерлік бағдарламасына қатысушыларды іріктеу"
+  },
+  "Работоспособность результата": {
+    "en": "Functionality of the result",
+    "kk": "Нәтиженің жұмыс істеуі"
+  },
+  "Обоснование решений": {
+    "en": "Reasoning behind decisions",
+    "kk": "Шешімдерді негіздеу"
+  },
+  "Самостоятельность и рефлексия": {
+    "en": "Independent contribution and reflection",
+    "kk": "Өзіндік үлес және рефлексия"
+  },
+  "0 — результата нет; 1 — частичный результат без подтверждения; 2 — базовый сценарий воспроизводим; 3 — сценарий выполнен полностью с примерами; 4 — полный результат с проверками крайних случаев.": {
+    "en": "0 — no result; 1 — partial result without evidence; 2 — the basic scenario is reproducible; 3 — the full scenario is completed with examples; 4 — a complete result with edge-case checks.",
+    "kk": "0 — нәтиже жоқ; 1 — дәлелсіз ішінара нәтиже; 2 — негізгі сценарийді қайталап орындауға болады; 3 — сценарий мысалдармен толық орындалған; 4 — шеткі жағдайлары тексерілген толық нәтиже."
+  },
+  "0 — объяснения нет; 1 — общие слова без примеров; 2 — основные решения объяснены воспроизводимо; 3 — все решения обоснованы примерами; 4 — сравнили альтернативы и проверили ограничения.": {
+    "en": "0 — no explanation; 1 — general statements without examples; 2 — key decisions are explained so they can be reproduced; 3 — all decisions are supported by examples; 4 — alternatives are compared and limitations checked.",
+    "kk": "0 — түсіндірме жоқ; 1 — мысалсыз жалпы сөздер; 2 — негізгі шешімдер қайталап орындауға болатындай түсіндірілген; 3 — барлық шешім мысалдармен негізделген; 4 — баламалар салыстырылып, шектеулер тексерілген."
+  },
+  "0 — вклад не описан; 1 — общие утверждения без примеров; 2 — описаны личные действия и полученная помощь; 3 — вклад и исправления показаны на примерах; 4 — выводы проверены и намечен следующий шаг. Рубрика оценивает описание вклада, а не доказывает авторство.": {
+    "en": "0 — contribution is not described; 1 — general claims without examples; 2 — personal actions and help received are described; 3 — contribution and corrections are illustrated with examples; 4 — conclusions are checked and a next step is identified. This rubric assesses the description of the contribution; it does not prove authorship.",
+    "kk": "0 — үлес сипатталмаған; 1 — мысалсыз жалпы тұжырымдар; 2 — жеке әрекеттер мен алынған көмек сипатталған; 3 — үлес пен түзетулер мысалдармен көрсетілген; 4 — қорытындылар тексеріліп, келесі қадам белгіленген. Бағалау өлшемі үлестің сипаттамасын бағалайды, авторлықты дәлелдемейді."
+  },
+  "Помоги учебному центру увидеть отток учеников": {
+    "en": "Help a learning centre understand learner drop-off",
+    "kk": "Оқу орталығына оқушылардың қатысуының төмендеуін түсінуге көмектес"
+  },
+  "По синтетической таблице посещаемости найди три причины пропусков. Представь небольшой отчёт и предложи один проверяемый способ улучшить посещаемость. Реальные данные учеников не нужны.": {
+    "en": "Use the synthetic attendance table to identify three reasons for absences. Present a short report and propose one testable way to improve attendance. No real student data is needed.",
+    "kk": "Жасанды қатысу кестесінен сабаққа келмеудің үш себебін анықта. Қысқаша есеп ұсынып, қатысуды жақсартудың тексеруге болатын бір тәсілін ұсын. Оқушылардың нақты деректері қажет емес."
+  },
+  "Таблица расчётов, 2 графика и пояснение на одну страницу.": {
+    "en": "A table of calculations, 2 charts and a one-page explanation.",
+    "kk": "Есептеу кестесі, 2 диаграмма және бір беттік түсіндірме."
+  },
+  "Автоматизируй расписание демокурсов": {
+    "en": "Automate the demo course timetable",
+    "kk": "Демо-курстардың кестесін автоматтандыр"
+  },
+  "Создай небольшой Python-скрипт, который находит пересечения в синтетическом расписании курсов. Покажи работу на пяти примерах, включая отсутствие конфликтов и повторяющиеся интервалы.": {
+    "en": "Create a small Python script that finds overlaps in a synthetic course timetable. Demonstrate it with five examples, including no conflicts and repeated intervals.",
+    "kk": "Курстардың жасанды кестесіндегі уақыт қабаттасуын табатын шағын Python скриптін жаса. Оны бес мысалмен көрсет: қайшылықсыз кесте мен қайталанатын аралықтар да қамтылсын."
+  },
+  "Ссылка на репозиторий с кодом, примерами и инструкцией запуска.": {
+    "en": "A link to a repository with the code, examples and instructions to run it.",
+    "kk": "Коды, мысалдары және іске қосу нұсқаулығы бар репозиторийге сілтеме."
+  },
+  "Спроектируй запись на волонтёрскую встречу": {
+    "en": "Design registration for a volunteer meeting",
+    "kk": "Еріктілер кездесуіне тіркелуді жобала"
+  },
+  "Подготовь прототип формы записи на бесплатную встречу наставников. Продумай понятные подписи, подтверждение записи и отказ от участия. Используй вымышленные данные.": {
+    "en": "Create a prototype registration form for a free mentoring meeting. Include clear labels, registration confirmation and cancellation. Use fictional data.",
+    "kk": "Тәлімгерлердің тегін кездесуіне тіркелу формасының прототипін жаса. Түсінікті өріс атауларын, тіркелуді растауды және қатысудан бас тартуды ойластыр. Ойдан шығарылған деректерді пайдалан."
+  },
+  "Прототип из трёх экранов, сценарий проверки и объяснение решений.": {
+    "en": "A three-screen prototype, a test scenario and an explanation of the design decisions.",
+    "kk": "Үш экраннан тұратын прототип, тексеру сценарийі және шешімдердің түсіндірмесі."
+  },
+  "Проверь расписание университетского IT-интенсива": {
+    "en": "Check the university IT intensive timetable",
+    "kk": "Университеттің IT-интенсив кестесін тексер"
+  },
+  "На синтетическом расписании вводных занятий найди пересечения. Объясни обработку соседних интервалов и пустого списка. Это учебная проба для довузовской программы, а не решение о зачислении.": {
+    "en": "Find overlaps in a synthetic timetable of introductory classes. Explain how adjacent intervals and an empty list are handled. This is a practice task for a pre-university programme, not an admission decision.",
+    "kk": "Кіріспе сабақтардың жасанды кестесінен уақыт қабаттасуын тап. Іргелес аралықтар мен бос тізімнің қалай өңделетінін түсіндір. Бұл — жоғары оқу орнына дейінгі бағдарламаға арналған оқу тапсырмасы, оқуға қабылдау туралы шешім емес."
+  },
+  "Код проверки расписания, примеры запуска и объяснение граничных случаев.": {
+    "en": "Timetable checking code, examples of running it and an explanation of boundary cases.",
+    "kk": "Кестені тексеру коды, іске қосу мысалдары және шекаралық жағдайлардың түсіндірмесі."
+  },
+  "Собери понятный разбор учебного проекта": {
+    "en": "Prepare a clear review of a learning project",
+    "kk": "Оқу жобасының түсінікті талдауын дайында"
+  },
+  "На основе собственного тестового IT-проекта подготовь краткий разбор: цель, личный вклад, использованные инструменты и два примера проверки. Не добавляй настоящие документы или данные о поступлении.": {
+    "en": "Prepare a short review of your own test IT project: its goal, your contribution, the tools used and two examples of checks. Do not add real documents or admissions data.",
+    "kk": "Өзіңнің сынақ IT-жобаңа қысқаша талдау дайында: мақсаты, жеке үлесің, қолданылған құралдар және екі тексеру мысалы. Нақты құжаттар мен оқуға түсу деректерін қоспа."
+  },
+  "Ссылка на работу и отчёт, отделяющий личный вклад от полученной помощи.": {
+    "en": "A link to the work and a report distinguishing your contribution from help received.",
+    "kk": "Жұмысқа сілтеме және жеке үлес пен алынған көмекті ажырататын есеп."
+  },
+  "Спроектируй запись на региональную встречу наставников": {
+    "en": "Design registration for a regional mentoring meeting",
+    "kk": "Өңірлік тәлімгерлер кездесуіне тіркелуді жобала"
+  },
+  "Подготовь простой прототип записи на бесплатную встречу для школьников. Покажи подтверждение и отмену записи на вымышленных данных. Результат нужен для учебного отбора в демопрограмму наставничества.": {
+    "en": "Prepare a simple registration prototype for a free meeting for school students. Show confirmation and cancellation using fictional data. The result is used for a practice selection process in a demo mentoring programme.",
+    "kk": "Оқушыларға арналған тегін кездесуге тіркелудің қарапайым прототипін дайында. Ойдан шығарылған деректермен тіркелуді растау мен тоқтатуды көрсет. Нәтиже тәлімгерліктің демо-бағдарламасындағы оқу мақсатындағы іріктеуге арналған."
+  },
+  "Три экрана прототипа, сценарий проверки и объяснение доступности формы.": {
+    "en": "Three prototype screens, a test scenario and an explanation of form accessibility.",
+    "kk": "Прототиптің үш экраны, тексеру сценарийі және форманың қолжетімділігі туралы түсіндірме."
+  },
+  "Синтетический пример работы: результат, воспроизводимые проверки и пояснение решений. Материалы созданы для демонстрации продукта и не являются работой реального школьника.": {
+    "en": "A synthetic work sample: the result, reproducible checks and explanations of decisions. These materials were created to demonstrate the product and are not the work of a real school student.",
+    "kk": "Жасанды жұмыс үлгісі: нәтиже, қайталап орындауға болатын тексерулер және шешімдердің түсіндірмесі. Материалдар өнімді көрсету үшін жасалған, нақты оқушының жұмысы емес."
+  },
+  "Демонстрационная работа на проверке: скрипт сопоставляет интервалы и выводит найденные конфликты. Приложены синтетические примеры и инструкция воспроизведения; реального автора нет.": {
+    "en": "A demo submission awaiting review: the script compares intervals and reports conflicts. Synthetic examples and reproduction instructions are included; there is no real student author.",
+    "kk": "Тексеруді күтіп тұрған демо-жұмыс: скрипт уақыт аралықтарын салыстырып, табылған қайшылықтарды көрсетеді. Жасанды мысалдар мен қайталау нұсқаулығы қоса берілген; нақты оқушы авторы жоқ."
+  },
+  "Синтетическая учебная заявка: пример проверки расписания из демонстрационных материалов. Это не работа реального школьника; университетский профиль может провести демопроверку.": {
+    "en": "A synthetic learning submission: a timetable checking example from the demo materials. It is not a real school student's work; the university profile can perform a demo review.",
+    "kk": "Жасанды оқу өтінімі: демо-материалдардағы кестені тексеру үлгісі. Бұл нақты оқушының жұмысы емес; университет профилі демо-тексеру жүргізе алады."
+  },
+  "Демонстрационный самоотчёт: разобраны интервалы времени и примеры запуска; понимание нужно проверить отдельно.": {
+    "en": "Demo self-report: time intervals and execution examples have been explained; understanding needs to be checked separately.",
+    "kk": "Демо-өзіндік есеп: уақыт аралықтары мен іске қосу мысалдары талданған; түсінуді бөлек тексеру керек."
+  },
+  "Демонстрационный образец schedule.md": {
+    "en": "Demo sample schedule.md",
+    "kk": "schedule.md демо үлгісі"
+  },
+  "Демо-рефлексия: самостоятельно подготовил основу, проверил примеры и исправил найденные ошибки. Следующий шаг — расширить набор проверок.": {
+    "en": "Demo reflection: I prepared the foundation myself, checked the examples and fixed the errors found. The next step is to expand the set of checks.",
+    "kk": "Демо-рефлексия: негізін өзім дайындадым, мысалдарды тексеріп, табылған қателерді түзеттім. Келесі қадам — тексерулер жиынтығын кеңейту."
+  },
+  "Самостоятельно описала алгоритм; с подсказкой исправила сравнение границ. Нужно проверить пустое расписание.": {
+    "en": "I described the algorithm myself and corrected the boundary comparison with a hint. An empty timetable still needs to be checked.",
+    "kk": "Алгоритмді өзім сипаттадым; кеңестің көмегімен шекараларды салыстыруды түзеттім. Бос кестені тексеру керек."
+  },
+  "Проверены расчёты и графики, выводы подтверждены примерами. Следующий шаг — сравнить группы по дням недели.": {
+    "en": "Calculations and charts were checked; conclusions are supported by examples. The next step is to compare groups by day of the week.",
+    "kk": "Есептеулер мен диаграммалар тексерілген, қорытындылар мысалдармен расталған. Келесі қадам — топтарды апта күндері бойынша салыстыру."
+  },
+  "Скрипт находит пересечения на пяти примерах. Автор объяснил алгоритм и ограничения проверки времени.": {
+    "en": "The script finds overlaps in five examples. The author explained the algorithm and the limitations of time validation.",
+    "kk": "Скрипт бес мысалда уақыт қабаттасуын табады. Автор алгоритмді және уақытты тексеру шектеулерін түсіндірген."
+  },
+  "Основной сценарий понятен; показаны отказ, повторная запись и изменения после проверки прототипа.": {
+    "en": "The main scenario is clear; cancellation, repeat registration and changes after checking the prototype are shown.",
+    "kk": "Негізгі сценарий түсінікті; бас тарту, қайта тіркелу және прототипті тексергеннен кейінгі өзгерістер көрсетілген."
+  },
+  "Расчёты воспроизводимы, объяснение выводов достаточно для принятия демоработы.": {
+    "en": "The calculations are reproducible, and the explanation of the conclusions is sufficient to accept the demo submission.",
+    "kk": "Есептеулерді қайталауға болады, қорытындылардың түсіндірмесі демо-жұмысты қабылдауға жеткілікті."
+  },
+  "Снимок при подключении истории. Прошлые версии не восстановлены; новые сведения о проверяющем и защите не добавлены задним числом.": {
+    "en": "Snapshot taken when history tracking was introduced. Earlier versions were not recovered; new reviewer and defense details were not added retroactively.",
+    "kk": "Тарихты сақтау қосылған кездегі күйдің көшірмесі. Бұрынғы нұсқалар қалпына келтірілмеген; тексеруші мен қорғау туралы жаңа мәліметтер кейіннен бұрынғы күнмен қосылмаған."
+  },
+  "Импорт существующего состояния": {
+    "en": "Import of existing state",
+    "kk": "Бар күйді импорттау"
+  },
+  "Школа «Өркен» · демо": {
+    "en": "«Өркен» School · demo",
+    "kk": "«Өркен» мектебі · демо"
+  },
+  "Региональный IT-конкурс · демо": {
+    "en": "Regional IT competition · demo",
+    "kk": "Өңірлік IT-байқау · демо"
+  },
+  "Родитель участника A-106 · демо": {
+    "en": "Parent of participant A-106 · demo",
+    "kk": "A-106 қатысушысының ата-анасы · демо"
+  },
+  "Родитель участника A-{pupil_id} · демо": {
+    "en": "Parent of participant A-{pupil_id} · demo",
+    "kk": "A-{pupil_id} қатысушысының ата-анасы · демо"
+  },
+  "Учебный анализ данных · демонстрация": {
+    "en": "Learning data analysis · demonstration",
+    "kk": "Деректерді оқу мақсатында талдау · демонстрация"
+  },
+  "Участие в IT-конкурсе · демонстрация": {
+    "en": "IT competition participation · demonstration",
+    "kk": "IT-байқауға қатысу · демонстрация"
+  },
+  "Вымышленное учебное событие TaskUp Talent": {
+    "en": "Fictional TaskUp Talent learning event",
+    "kk": "TaskUp Talent ойдан шығарылған оқу іс-шарасы"
+  },
+  "Предложение тестовой записи для демонстрации принятия школьником.": {
+    "en": "A proposed test record to demonstrate a student's acceptance.",
+    "kk": "Оқушының қабылдауын көрсету үшін ұсынылған сынақ жазбасы."
+  },
+  "Демо: источник ссылается на общий синтетический артефакт команды, не на реальную проверку.": {
+    "en": "Demo: the source refers to a shared synthetic artifact prepared by the team, not to a real review.",
+    "kk": "Демо: дереккөз нақты тексеруге емес, команда дайындаған ортақ жасанды материалға сілтейді."
+  },
+  "Демонстрационная запись вымышленного источника. Личность организации, подлинность документа и результат внешней проверки в реальном мире не подтверждены.": {
+    "en": "A demo record from a fictional source. The organization's identity, the document's authenticity and the outcome of an external real-world review have not been verified.",
+    "kk": "Ойдан шығарылған дереккөздің демо-жазбасы. Ұйымның сәйкестігі, құжаттың түпнұсқалығы және шынайы өмірдегі сыртқы тексеру нәтижесі расталмаған."
+  },
+  "Подробное свидетельство не сохранено в ранней демонстрационной версии.": {
+    "en": "Detailed evidence was not saved in the early demo version.",
+    "kk": "Ертеректегі демо-нұсқада егжей-тегжейлі дәлел сақталмаған."
+  },
+  "Индивидуальный проверяющий не указан": {
+    "en": "Individual reviewer not specified",
+    "kk": "Жеке тексеруші көрсетілмеген"
+  },
+  "Роль не указана": {
+    "en": "Role not specified",
+    "kk": "Рөлі көрсетілмеген"
+  },
+  "Синтетический пример принятой работы: результат, проверочные примеры и пояснение решений. Ссылка-заглушка ведёт на example.com.": {
+    "en": "A synthetic accepted submission: the result, test examples and explanations of decisions. The placeholder link points to example.com.",
+    "kk": "Қабылданған жұмыстың жасанды үлгісі: нәтиже, тексеру мысалдары және шешімдердің түсіндірмесі. Үлгі сілтеме example.com сайтына апарады."
+  },
+  "Демонстрационная работа на проверке: скрипт сопоставляет интервалы и выводит найденные конфликты. Ссылка является заглушкой.": {
+    "en": "A demo submission awaiting review: the script compares intervals and reports conflicts. The link is a placeholder.",
+    "kk": "Тексеруді күтіп тұрған демо-жұмыс: скрипт аралықтарды салыстырып, табылған қайшылықтарды көрсетеді. Сілтеме үлгі ретінде берілген."
+  }
+}
