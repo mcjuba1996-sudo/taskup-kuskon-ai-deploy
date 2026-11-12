@@ -1,49 +1,43 @@
-TaskUp Talent v2 validation report — 2026-11-12
+TaskUp Talent participant roles validation report — 2026-11-12
 
 Environment: Windows, Python 3.12.14, Streamlit 1.67.0.
 
 PASS: python -m unittest discover -s tests -v
-100 tests, 63.788 seconds. Exit code 0.
-Includes 12 talent persistence tests, 16 evidence/defense/history tests,
-11 personal-project tests, 6 Talent AppTest flows, and all 55 original core,
-translation, display-label, and legacy UI tests.
+123 tests, 63.484 seconds. Exit code 0.
+Includes 55 original core/translation/legacy UI tests, 12 talent store tests,
+16 defense/history tests, 11 personal-project tests, 6 existing Talent AppTest
+flows, 6 organization tests, 11 source/guardian tests, 4 network AppTest flows,
+and 2 organization AppTest flows.
 
-AppTest journeys checked:
-- Submission consent -> submit -> reject insufficient score -> request changes
-  -> resubmit -> evidence-backed review -> weighted score -> approved passport
-  -> both visibility consents -> discovery -> shortlist -> invitation -> response.
-- Request explanation and a small change -> student answer -> reviewer observations
-  -> understanding assessment -> separate rubric review -> passport and history.
-- Private title-only draft -> edit -> self-assessment export -> explicit consent
-  -> handoff of a copy to a challenge. Self-assessment never becomes verification.
-- A stale project form cannot overwrite a newer edit from another session.
-- All role pages, profile-switch consent isolation, and buyer task creation.
+New coverage:
+- Company, university, educational agency and foundation: task creation, own
+  reviews, discovery, invitations; role-specific profile filtering and context.
+- University review -> separate guardian consent -> pupil sharing -> discovery
+  -> invitation -> pupil response -> limited guardian summary.
+- School/organizer own rosters -> issuer statement -> pupil accept/decline
+  -> public visibility only with accepted work and two consents -> issuer revoke.
+- Parents see only linked children, not private drafts or submitted source files.
+  Their consent preserves the pupil's choice and cannot be changed by that pupil.
+- An already open pupil page reflects external guardian grants and withdrawals.
+- Consent withdrawal removes shortlist entries and pending invitations atomically;
+  simulated failure rolls all related changes back.
+- Additive, idempotent migration preserves existing data/history and occupied IDs.
 
-Domain checks also cover ownership, version conflicts, immutable review/history
-snapshots, resubmission state, missing criterion evidence, defense scope and stale
-rounds, consent withdrawal, duplicate invitations, demo migrations, seed
-idempotence, old-data preservation, and private-project access/export boundaries.
+Previous submission/revision/defense/approval/portfolio and independent-project
+journeys remain passing, including evidence-required reviews and stale forms.
 
-PASS: python demo_evidence/schedule.py — 9 example tests, 0.002 seconds.
-PASS: python demo_evidence/analyze_attendance.py — 24 events, 17 present,
-7 absent, attendance 70.83%. Synthetic self-reported reasons only.
-PASS: python -m compileall -q app.py legacy_app.py talent_store.py talent_ui.py
-      talent_evidence_ui.py personal_projects.py personal_projects_ui.py tests demo_evidence
-PASS: git diff --check.
+PASS: Python compilation of app, modules and tests.
+Local browser: all eight entry points visible; university cabinet opens its own
+profile and pending university challenge. Public deployment verification follows
+publishing this tested revision.
 
-PASS: after the final copy and history display changes, all 6 Talent AppTest
-flows passed again in 10.766 seconds.
-PASS: restarted local Streamlit v2 and inspected both role interfaces in browser.
-Created a personal title-only draft and observed persisted version 1 and the
-self-assessment download. Submitted a defense question/change request from the
-company and observed its saved pending-answer state and approval restriction.
-This browser check is partial; the complete lifecycle above was verified by AppTest.
-Hosted deployment: pending Streamlit Community Cloud sign-in. The sign-in attempt
-reported a GitHub HTTP 500 page; the repository remains reachable through Git.
+Unchanged example artifacts retain their earlier successful checks: schedule.py
+9 tests; attendance 24 events, 17 present, 7 absent (70.83%).
 
-Limits: AppTest is not a real-browser end-to-end test. Automated app tests use
-isolated SQLite databases and no real AI/provider calls. These checks do not
-establish production authentication, legally valid consent, real authorship,
-durable hosted storage, or delivery of external messages. Example ratings,
-pupils and companies are synthetic. Interviews and price are not validated by
-technical checks. Existing legacy Streamlit deprecation warnings are non-failing.
+Limits: AppTest is not a real-browser end-to-end test. Tests use isolated SQLite
+databases and no real AI/provider calls. These checks do not establish production
+authentication, real guardian authority, real authorship, independent issuer
+verification, durable hosted storage, or external message delivery. All profiles,
+organizations, consent relationships, achievements and example ratings are demo
+data. Demand, interviews and price remain unvalidated. Legacy Streamlit
+deprecation warnings are non-failing.

@@ -12,6 +12,12 @@ import database as db
 
 WEIGHTS = (40, 35, 25)
 PASS_SCORE = 70
+ORGANIZATION_KINDS = {
+    'company': 'Компания',
+    'university': 'Вуз',
+    'agency': 'Образовательное агентство',
+    'fund': 'Фонд / грантодатель',
+}
 DEMO_EVIDENCE_URLS = {
     challenge_id: 'https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy/blob/'
                   f'codex/hackhub-talent/demo_evidence/{filename}.md'
@@ -45,6 +51,12 @@ def _person(row):
     item = dict(row)
     item['share_profile'] = bool(item['share_profile'])
     item['guardian_consent'] = bool(item['guardian_consent'])
+    if item['role'] == 'buyer':
+        item['organization_kind'] = item.get('organization_kind') or 'company'
+        item['organization_purpose'] = item.get('organization_purpose') or item['focus']
+    else:
+        item.pop('organization_kind', None)
+        item.pop('organization_purpose', None)
     return item
 
 
@@ -125,6 +137,88 @@ def _baseline_history(conn):
                              'новые сведения о проверяющем и защите не добавлены задним числом.')
 
 
+def _free_demo_id(conn, table, preferred):
+    """Internal fixed table names only; occupied manual IDs must not be reused."""
+    network_exists = table == 'talent_people' and conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='table' AND name='talent_network_actors'").fetchone()
+    def occupied(candidate):
+        return (conn.execute(f'SELECT 1 FROM {table} WHERE id=?', (candidate,)).fetchone()
+                or (network_exists and conn.execute(
+                    'SELECT 1 FROM talent_network_actors WHERE id=?', (candidate,)).fetchone()))
+    if not occupied(preferred):
+        return preferred
+    maximum = conn.execute(f'SELECT COALESCE(MAX(id),0) FROM {table}').fetchone()[0]
+    candidate = max(maximum, preferred) + 1
+    while occupied(candidate):
+        candidate += 1
+    return candidate
+
+
+def _migrate_organizations(conn):
+    """Extend the demo ecosystem once, without updating existing work or profiles."""
+    if conn.execute("SELECT 1 FROM talent_meta WHERE key='ecosystem_demo_ids_v1'").fetchone():
+        return
+    conn.execute('''INSERT OR IGNORE INTO talent_organizations(person_id,kind,purpose)
+        SELECT id,'company',focus FROM talent_people WHERE role='buyer' ''')
+    identities = {}
+    for preferred, kind, name, purpose in (
+        (203, 'university', 'Qadam University · демо', 'Поиск мотивированных участников довузовской IT-программы'),
+        (204, 'agency', 'StudyRoute · демо', 'Разбор учебных проектов для подготовки к образовательным программам'),
+        (205, 'fund', 'Region Talent Fund · демо', 'Отбор участников региональной программы наставничества'),
+    ):
+        profile_id = _free_demo_id(conn, 'talent_people', preferred)
+        conn.execute('INSERT INTO talent_people VALUES(?,?,?,?,?,?,?,?)',
+                     (profile_id, 'buyer', name, 'Актюбинская область', None, purpose, 0, 0))
+        conn.execute('INSERT INTO talent_organizations VALUES(?,?,?)', (profile_id, kind, purpose))
+        identities[kind] = profile_id
+    student_id = _free_demo_id(conn, 'talent_people', 106)
+    conn.execute('INSERT INTO talent_people VALUES(?,?,?,?,?,?,?,?)',
+                 (student_id, 'student', 'Нурай Е. · демо', 'Актюбинская область', 8,
+                  'Python и первые IT-проекты', 0, 0))
+    identities['student'] = student_id
+    stamp = db.now()
+    for preferred, kind, title, brief, skill, duration, deliverable in (
+        (4, 'university', 'Проверь расписание университетского IT-интенсива',
+         'На синтетическом расписании вводных занятий найди пересечения. Объясни обработку соседних интервалов '
+         'и пустого списка. Это учебная проба для довузовской программы, а не решение о зачислении.',
+         'Python и автоматизация', '3–5 часов', 'Код проверки расписания, примеры запуска и объяснение граничных случаев.'),
+        (5, 'agency', 'Собери понятный разбор учебного проекта',
+         'На основе собственного тестового IT-проекта подготовь краткий разбор: цель, личный вклад, '
+         'использованные инструменты и два примера проверки. Не добавляй настоящие документы или данные о поступлении.',
+         'Презентация IT-проекта', '2–3 часа', 'Ссылка на работу и отчёт, отделяющий личный вклад от полученной помощи.'),
+        (6, 'fund', 'Спроектируй запись на региональную встречу наставников',
+         'Подготовь простой прототип записи на бесплатную встречу для школьников. Покажи подтверждение и отмену '
+         'записи на вымышленных данных. Результат нужен для учебного отбора в демопрограмму наставничества.',
+         'Дизайн интерфейсов', '3–4 часа', 'Три экрана прототипа, сценарий проверки и объяснение доступности формы.'),
+    ):
+        challenge_id = _free_demo_id(conn, 'talent_challenges', preferred)
+        conn.execute('INSERT INTO talent_challenges VALUES(?,?,?,?,?,?,?,?,?)',
+                     (challenge_id, identities[kind], title, brief, skill, duration, deliverable,
+                      json.dumps(CRITERIA, ensure_ascii=False), stamp))
+        identities[kind + '_challenge'] = challenge_id
+    submission_id = conn.execute('''INSERT INTO talent_submissions
+        (challenge_id,student_id,evidence_url,description,reflection,source_version,
+         status,ratings,feedback,total,version,created,updated)
+        VALUES(?,?,?,?,?,?,'pending','[]','',0,1,?,?)''',
+        (identities['university_challenge'], student_id, DEMO_EVIDENCE_URLS[2],
+         'Синтетическая учебная заявка: пример проверки расписания из демонстрационных материалов. '
+         'Это не работа реального школьника; университетский профиль может провести демопроверку.',
+         'Демонстрационный самоотчёт: разобраны интервалы времени и примеры запуска; понимание нужно проверить отдельно.',
+         'Демонстрационный образец schedule.md', stamp, stamp)).lastrowid
+    identities['university_submission'] = submission_id
+    conn.execute("INSERT INTO talent_meta VALUES('ecosystem_demo_ids_v1',?)",
+                 (json.dumps(identities, ensure_ascii=False),))
+
+
+def ecosystem_demo_ids():
+    """Actual fixture IDs, stable even when pre-existing manual IDs collide."""
+    with db.connect() as conn:
+        row = conn.execute("SELECT value FROM talent_meta WHERE key='ecosystem_demo_ids_v1'").fetchone()
+        if not row:
+            raise ValueError('Сначала инициализируйте демонстрационную экосистему.')
+        return json.loads(row['value'])
+
+
 def init():
     """Create only additive tables and seed fictional examples once, atomically."""
     with db.connect() as conn:
@@ -162,6 +256,10 @@ def init():
         CREATE UNIQUE INDEX IF NOT EXISTS talent_one_active_invitation
             ON talent_invitations(buyer_id, student_id) WHERE status IN ('pending','accepted');
         CREATE TABLE IF NOT EXISTS talent_meta(key TEXT PRIMARY KEY, value TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS talent_organizations(
+            person_id INTEGER PRIMARY KEY REFERENCES talent_people(id),
+            kind TEXT NOT NULL CHECK(kind IN ('company','university','agency','fund')),
+            purpose TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS talent_defenses(
             id INTEGER PRIMARY KEY, submission_id INTEGER NOT NULL REFERENCES talent_submissions(id),
             work_revision INTEGER NOT NULL, version INTEGER NOT NULL DEFAULT 1,
@@ -191,20 +289,33 @@ def init():
                 _seed(conn)
                 conn.execute("INSERT INTO talent_meta VALUES('seed_v1','done')")
         _migrate_demo(conn)
+        _migrate_organizations(conn)
         _baseline_history(conn)
 
 
-def people(role):
+def people(role, organization_kind=None):
     if role not in ('student', 'buyer'):
         raise ValueError('Неизвестная роль.')
+    if organization_kind is not None and (role != 'buyer' or organization_kind not in ORGANIZATION_KINDS):
+        raise ValueError('Выберите допустимый тип организации-покупателя.')
     with db.connect() as conn:
-        return [_person(row) for row in conn.execute(
-            'SELECT * FROM talent_people WHERE role=? ORDER BY id', (role,))]
+        sql = '''SELECT p.*,o.kind AS organization_kind,o.purpose AS organization_purpose
+            FROM talent_people p LEFT JOIN talent_organizations o ON o.person_id=p.id WHERE p.role=?'''
+        args = [role]
+        if organization_kind is not None:
+            sql += " AND COALESCE(o.kind,'company')=?"
+            args.append(organization_kind)
+        return [_person(row) for row in conn.execute(sql + ' ORDER BY p.id', args)]
+
+
+def organizations(kind=None):
+    return people('buyer', organization_kind=kind)
 
 
 def person(profile_id):
     with db.connect() as conn:
-        row = conn.execute('SELECT * FROM talent_people WHERE id=?', (profile_id,)).fetchone()
+        row = conn.execute('''SELECT p.*,o.kind AS organization_kind,o.purpose AS organization_purpose
+            FROM talent_people p LEFT JOIN talent_organizations o ON o.person_id=p.id WHERE p.id=?''', (profile_id,)).fetchone()
         if not row:
             raise ValueError('Демопрофиль не найден.')
         return _person(row)
@@ -517,7 +628,11 @@ def set_visibility(student_id, share_profile, guardian_consent):
         raise ValueError('Согласия должны быть явно включены или выключены.')
     with db.connect() as conn:
         conn.execute('BEGIN IMMEDIATE')
-        _role(conn, student_id, 'student')
+        student = _role(conn, student_id, 'student')
+        has_links = conn.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='talent_guardian_links'").fetchone()
+        if (has_links and conn.execute('SELECT 1 FROM talent_guardian_links WHERE student_id=?', (student_id,)).fetchone()
+                and bool(student['guardian_consent']) != guardian_consent):
+            raise ValueError('Согласие законного представителя меняется только в связанном родительском демопрофиле.')
         conn.execute('''UPDATE talent_people SET share_profile=?,guardian_consent=? WHERE id=?''',
                      (int(share_profile), int(guardian_consent), student_id))
         if not (share_profile and guardian_consent):

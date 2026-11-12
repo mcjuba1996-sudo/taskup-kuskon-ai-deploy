@@ -5,17 +5,23 @@ from pathlib import Path
 from zipfile import ZipFile
 import streamlit as st
 import talent_store as store
+import talent_network as network
 import personal_projects
 from personal_projects_ui import render as render_projects
 from talent_evidence_ui import (
     evidence_summary, defense_record, history_panel, student_defense, buyer_defense, passport_report,
 )
+from talent_network_ui import render_source, render_parent, render_student_records, render_public_records
 
 ROOT = Path(__file__).resolve().parent
 STATUS = {'pending': 'Ожидает проверки', 'changes_requested': 'Нужны доработки', 'approved': 'Результат принят'}
 INVITES = {'pending': 'Ждёт ответа', 'accepted': 'Принято', 'declined': 'Отклонено', 'withdrawn': 'Отозвано после закрытия профиля'}
 RATINGS = {0: '0 — нет свидетельств', 1: '1 — частично, доказательств мало', 2: '2 — базовый результат подтверждён',
            3: '3 — выполнено с доказательствами', 4: '4 — выполнено и проверено'}
+BUYER_CABINETS = {'company': 'Кабинет компании', 'university': 'Кабинет вуза',
+                  'agency': 'Кабинет образовательного агентства', 'fund': 'Кабинет фонда'}
+BUYER_INVITES = {'company': 'в образовательную или CSR-программу', 'university': 'в проектную школу или программу для абитуриентов',
+                 'agency': 'на консультацию по образовательной траектории', 'fund': 'на отбор в грантовую программу'}
 
 
 def html(value):
@@ -44,11 +50,13 @@ def action(callback, message):
     st.rerun()
 
 
-def enter(role):
+def enter(role, organization_kind=None):
     for key in list(st.session_state):
         if key.startswith('tt_'):
             del st.session_state[key]
     st.session_state['tt_role'] = role
+    if role == 'buyer':
+        st.session_state['tt_buyer_kind'] = organization_kind or 'company'
 
 
 def navigate(page):
@@ -61,9 +69,9 @@ def landing():
     left, right = st.columns([1.4, 1], gap='large')
     with left:
         html('<div class="tt-kicker">РЕАЛЬНАЯ РАБОТА → ДОВЕРИЕ</div><h1 class="tt-hero-title">Твой талант.<br>'
-             '<em>Твои доказательства.</em></h1><p class="tt-lead">Сделай небольшой IT-проект. Получи разбор от компании. '
+             '<em>Твои доказательства.</em></h1><p class="tt-lead">Сделай небольшой IT-проект. Получи разбор от вуза или другой организации. '
              'Покажи, что умеешь, через результат работы.</p>')
-        tag('Для школьников 9–11 классов Актюбинской области')
+        tag('Для школьников 8–11 классов Актюбинской области')
     with right:
         html('<div class="tt-proof"><div class="tt-proof-top">ПАСПОРТ РАБОТЫ <span>ДЕМО</span></div>'
              '<h3>Дашборд школьного клуба</h3><p>Участник A-103 · Актобе · Аналитика</p>'
@@ -75,25 +83,35 @@ def landing():
     html('<div class="tt-steps"><div><b>01</b><strong>Выбери задание</strong><span>Критерии известны заранее</span></div>'
          '<div><b>02</b><strong>Покажи результат</strong><span>Ссылка, подход и личный вклад</span></div>'
          '<div><b>03</b><strong>Получи признание</strong><span>Разбор и паспорт принятой работы</span></div></div>')
-    st.subheader('Попробуйте обе стороны')
-    for col, role, title, text, button in zip(st.columns(2, gap='large'), ('student', 'buyer'),
-            ('Я школьник', 'Я представляю компанию'),
-            ('Практика, обратная связь и портфолио работ. Для школьника бесплатно.',
-             'Задания для образовательной программы, проверка результатов и подбор участников по работам.'),
-            ('Выбрать задание →', 'Открыть кабинет компании →')):
-        with col, st.container(border=True):
-            st.subheader(title)
-            st.write(text)
-            st.button(button, key=f'tt_enter_{role}', type='primary' if role == 'student' else 'secondary',
-                      use_container_width=True, on_click=enter, args=(role,))
+    st.subheader('Выберите свой кабинет')
+    cards = [
+        ('student', None, 'student', 'Я школьник', 'Практика, личные проекты, обратная связь и портфолио. Бесплатно.', 'Выбрать задание →'),
+        ('parent', None, 'parent', 'Я родитель', 'Результаты ребёнка, следующий шаг и согласие на показ профиля.', 'Открыть кабинет родителя →'),
+        ('buyer', 'university', 'university', 'Я представляю вуз', 'Проектные задания, знакомство с абитуриентами и приглашения в программы.', 'Открыть кабинет вуза →'),
+        ('buyer', 'company', 'buyer', 'Я представляю компанию', 'Задания, проверка навыков и отбор в образовательные и CSR-программы.', 'Открыть кабинет компании →'),
+        ('buyer', 'fund', 'fund', 'Я представляю фонд', 'Доказательства достижений региональных школьников и приглашения на отбор.', 'Открыть кабинет фонда →'),
+        ('buyer', 'agency', 'agency', 'Я представляю агентство', 'Портфолио мотивированных школьников и приглашения на консультацию.', 'Открыть кабинет агентства →'),
+        ('school', None, 'school', 'Я представляю школу', 'Подтверждение результатов своих учеников с указанием источника и способа проверки.', 'Открыть кабинет школы →'),
+        ('organizer', None, 'organizer', 'Я организатор конкурса', 'Выдача записей о результатах участникам и управление собственным реестром.', 'Открыть кабинет организатора →'),
+    ]
+    for start in range(0, len(cards), 2):
+        for col, (role, kind, key, title, description, button) in zip(st.columns(2, gap='large'), cards[start:start + 2]):
+            with col, st.container(border=True):
+                st.subheader(title)
+                st.write(description)
+                st.button(button, key=f'tt_enter_{key}', type='primary' if role == 'student' else 'secondary',
+                          use_container_width=True, on_click=enter, args=(role, kind))
     st.info('Демонстрационный стенд: все профили и результаты вымышлены. Переключение роли — не авторизация. '
             'Используйте только тестовые данные и ссылки.')
     with st.expander('Как устроено доверие'):
-        st.write('Компания оценивает работу по трём критериям и указывает основания каждой оценки. По запросу '
+        st.write('Организация оценивает работу по трём критериям и указывает основания каждой оценки. По запросу '
                  'школьник объясняет решение и вносит небольшое изменение. В паспорте видны доказательства, '
                  'наблюдения проверяющего и границы проверки. Оценка результата и проверка понимания показаны отдельно.')
-        st.write('Без компании можно сохранить свой проект, описать вклад, пройти самопроверку и скачать отчёт. '
-                 'Он обозначен как самооценка. Передача компании происходит отдельным действием.')
+        st.write('Без покупателя можно сохранить свой проект, описать вклад, пройти самопроверку и скачать отчёт. '
+                 'Он обозначен как самооценка. Передача организации происходит отдельным действием.')
+        st.write('Школы и организаторы выступают источниками сведений о достижениях. Школьник решает, добавлять ли '
+                 'полученную запись в портфолио. Такая запись показывает заявление источника и способ проверки, '
+                 'а не независимую сертификацию платформой.')
 
 
 def rubric(criteria):
@@ -144,13 +162,20 @@ def show_work(work, include_student=False):
 def challenge_catalog(student_id):
     heading('ПРАКТИКА', 'От задачи — к первой работе', 'Выберите мини-проект. Критерии открыты до начала работы.')
     items = store.challenges()
-    selected = st.selectbox('Направление', ['Все направления', *sorted({c['skill'] for c in items})], key='tt_catalog_skill')
+    directions, organizations = st.columns(2)
+    selected = directions.selectbox('Направление', ['Все направления', *sorted({c['skill'] for c in items})], key='tt_catalog_skill')
+    selected_kind = organizations.selectbox('Кто предлагает задание', ['all', *store.ORGANIZATION_KINDS],
+        format_func=lambda k: 'Все организации' if k == 'all' else store.ORGANIZATION_KINDS[k], key='tt_catalog_kind')
     my_works = {w['challenge_id']: w for w in store.submissions(student_id=student_id)}
     for challenge in items:
+        owner = store.person(challenge['buyer_id'])
         if selected != 'Все направления' and challenge['skill'] != selected:
             continue
+        if selected_kind != 'all' and owner['organization_kind'] != selected_kind:
+            continue
         with st.container(border=True):
-            st.caption(f'{challenge["skill"]} · {challenge["duration"]} · {store.person(challenge["buyer_id"])["name"]}')
+            st.caption(f'{challenge["skill"]} · {challenge["duration"]} · {owner["name"]} · '
+                       f'{store.ORGANIZATION_KINDS[owner["organization_kind"]]}')
             st.subheader(challenge['title'])
             st.write(challenge['brief'])
             st.markdown('**Что нужно сдать**')
@@ -165,7 +190,7 @@ def challenge_catalog(student_id):
             if prior:
                 st.warning('Доработка: ' + prior['feedback'])
             with st.expander('Сдать доработку' if prior else 'Отправить работу на проверку'):
-                st.caption('Работу увидит компания — автор задания, даже если портфолио закрыто. '
+                st.caption('Работу увидит организация — автор задания, даже если портфолио закрыто. '
                            'Не добавляйте реальные ФИО, контакты или данные других школьников.')
                 cid = challenge['id']
                 with st.form(f'tt_submit_{cid}'):
@@ -178,11 +203,11 @@ def challenge_catalog(student_id):
                     source_version = st.text_input('Коммит или версия результата', value=prior.get('source_version', '') if prior else '',
                                                    max_chars=200, key=f'tt_source_version_{cid}',
                                                    help='Укажите конкретную версию, которую передаёте на проверку. Это сведения автора; сервис не проверяет коммит автоматически.')
-                    consent = st.checkbox('Отправляю тестовую работу этой компании для проверки', key=f'tt_submit_consent_{cid}')
+                    consent = st.checkbox('Отправляю тестовую работу этой организации для проверки', key=f'tt_submit_consent_{cid}')
                     send = st.form_submit_button('Отправить на проверку', type='primary')
                 if send:
                     if not consent:
-                        st.error('Подтвердите передачу тестовой работы компании.')
+                        st.error('Подтвердите передачу тестовой работы организации.')
                     else:
                         action(lambda: store.submit_work(cid, student_id, url, description, reflection, source_version=source_version),
                                'Работа отправлена. Статус можно посмотреть в «Мои работы».')
@@ -207,19 +232,25 @@ def student_works(student_id):
 
 def portfolio(student_id):
     pupil = store.person(student_id)
-    heading('ПОРТФОЛИО', 'Работы говорят за вас', 'Вы управляете тем, что доступно компаниям в каталоге.')
+    heading('ПОРТФОЛИО', 'Работы говорят за вас', 'Вы управляете тем, что доступно вузам, агентствам, компаниям и фондам.')
     st.subheader(pupil['name'])
     st.write(f'{pupil["region"]} · {pupil["grade"]} класс · {pupil["focus"]}')
     public = pupil['share_profile'] and pupil['guardian_consent']
-    tag('Видно компаниям при наличии принятой работы' if public else 'Закрыто для каталога компаний', public)
+    tag('Видно покупателям при наличии принятой работы' if public else 'Закрыто для каталога покупателей', public)
     st.caption('В каталоге доступны псевдоним, регион, класс, направление, принятые работы и история их версий, '
-               'включая прежние доработки, ответы на защиту и наблюдения проверяющего. Телефон, адрес, школа '
+               'включая прежние доработки, ответы на защиту, наблюдения проверяющего и принятые вами записи источников. Телефон, адрес '
                'и контакты не собираются. Ссылки и текст работ тоже видны: используйте только тестовые данные.')
+    linked_guardian = network.has_guardian(student_id)
+    if linked_guardian:
+        st.session_state['tt_guardian_consent'] = pupil['guardian_consent']
+        st.caption('Для этого демопрофиля согласие представителя меняется в кабинете родителя. '
+                   'Ваше собственное согласие остаётся отдельным: для показа нужны оба.')
     with st.form(f'tt_visibility_{student_id}'):
-        share = st.checkbox('Я согласен показать компаниям тестовый профиль, принятые работы, историю их версий и материалы защиты',
+        share = st.checkbox('Я согласен показать вузам, агентствам, компаниям и фондам тестовый профиль, принятые работы, историю, материалы защиты и принятые записи источников',
                             value=pupil['share_profile'], key='tt_share_profile')
         guardian = st.checkbox('Согласие законного представителя получено — моделирование для демо',
-                               value=pupil['guardian_consent'], key='tt_guardian_consent')
+                               value=False if linked_guardian else pupil['guardian_consent'],
+                               key='tt_guardian_consent', disabled=linked_guardian)
         saved = st.form_submit_button('Сохранить видимость', type='primary')
     if saved:
         action(lambda: store.set_visibility(student_id, share, guardian), 'Настройки видимости сохранены.')
@@ -229,12 +260,13 @@ def portfolio(student_id):
     st.subheader('Паспорта принятых работ')
     works = [w for w in store.submissions(student_id=student_id) if w['status'] == 'approved']
     if not works:
-        st.info('Паспорт появится после приёмки результата компанией.')
+        st.info('Паспорт появится после приёмки результата организацией — автором задания.')
     for work in works:
         with st.container(border=True):
             show_work(work)
             report = passport_report(work, pupil, student_id)
             st.download_button('Скачать паспорт работы', report, f'work-{work["id"]}.md', mime='text/markdown', key=f'tt_download_{work["id"]}')
+    st.button('Достижения от школы и организаторов', key='tt_open_achievements', on_click=navigate, args=('achievements',))
 
 
 def invitations(person_id, role):
@@ -303,7 +335,8 @@ def buyer_review(buyer_id):
 
 
 def buyer_challenges(buyer_id):
-    heading('ЗАДАНИЯ КОМПАНИИ', 'Начните с конкретной задачи', 'Небольшой результат и прозрачные критерии помогают увидеть навыки.')
+    owner = store.person(buyer_id)
+    heading('ЗАДАНИЯ ОРГАНИЗАЦИИ', 'Начните с конкретной задачи', owner['organization_purpose'])
     with st.expander('Создать мини-задание'):
         with st.form('tt_create_challenge'):
             title = st.text_input('Название задания', max_chars=140, key='tt_challenge_title')
@@ -329,6 +362,8 @@ def buyer_challenges(buyer_id):
 
 def discovery(buyer_id):
     heading('КАТАЛОГ РАБОТ', 'Ищите навыки. Смотрите доказательства.', 'Принятые результаты и профили с двумя демонстрационными согласиями.')
+    owner = store.person(buyer_id)
+    st.info(owner['organization_purpose'])
     pupils = store.discover(buyer_id)
     a, b, c = st.columns(3)
     region = a.selectbox('Регион', ['Все регионы', *sorted({p['region'] for p in pupils})], key='tt_filter_region')
@@ -350,7 +385,8 @@ def discovery(buyer_id):
             for work in pupil['works']:
                 with st.expander(f'Паспорт: {work["challenge_title"]}'):
                     show_work(work)
-            with st.expander('Пригласить в образовательную программу'):
+            render_public_records(buyer_id, pid)
+            with st.expander('Пригласить ' + BUYER_INVITES[owner['organization_kind']]):
                 st.caption('Школьник сам выберет, отвечать ли на приглашение. Контакты не раскрываются.')
                 with st.form(f'tt_invite_{pid}'):
                     message = st.text_area('Цель приглашения и следующий шаг', max_chars=1500, key=f'tt_invite_message_{pid}')
@@ -362,8 +398,9 @@ def discovery(buyer_id):
 def about():
     heading('О ПРОЕКТЕ', 'Доверие через результат работы', 'Один фокус для HackHub: понять, что школьник умеет делать.')
     st.subheader('Кому и за что это нужно')
-    st.write('Школьник 9–11 класса из Актюбинской области получает практику, обратную связь и портфолио. '
-             'Компания — организатор образовательной или CSR-программы — получает задания, проверку результатов и подбор участников по работам.')
+    st.write('Школьник 8–11 класса из Актюбинской области получает практику, обратную связь и портфолио. '
+             'Вузы, образовательные агентства, компании и фонды создают задания, проверяют результаты и приглашают участников. '
+             'Школы и организаторы конкурсов дают сведения о достижениях, а родители видят результаты своего ребёнка и управляют согласием.')
     st.info('Гипотеза цены: 100 000 ₸ за 30-дневный пилот для одной компании. Платят за рабочее пространство программы '
             'и отбор участников. Цена и спрос ещё не подтверждены интервью.')
     st.subheader('Как появляется паспорт работы')
@@ -371,10 +408,18 @@ def about():
     st.write('Решение принимает заказчик вручную. Каждая оценка опирается на описанное свидетельство. '
              'Можно запросить объяснение и небольшое изменение решения, затем сохранить наблюдения проверяющего. '
              'Паспорт отдельно показывает оценку результата и статус проверки понимания; история сохраняет версии и решения.')
-    st.subheader('Польза без компании')
+    st.caption('Первый проверяемый коммерческий сегмент — корпоративная проектная IT-программа для 9–11 классов. '
+               'Другие кабинеты расширяют сценарии прототипа; спрос и готовность платить у каждого сегмента ещё предстоит проверить.')
+    st.subheader('Польза без покупателя')
     st.write('В разделе «Мой проект» школьник оформляет существующую работу, описывает вклад и помощь, '
              'проходит самопроверку и скачивает отчёт. Внешняя проверка такого отчёта не заявляется. '
-             'Позже можно явно передать копию проекта компании по подходящему заданию.')
+             'Позже можно явно передать копию проекта организации по подходящему заданию.')
+    st.subheader('Роли и доступ к данным')
+    st.write('Покупателям доступны профили с принятой работой и двумя согласиями. Школа или организатор работает со своим '
+             'демонстрационным списком участников и собственными записями. Школьник принимает или отклоняет запись источника. '
+             'Родитель видит только привязанный профиль и сводку результатов; личные черновики остаются у школьника.')
+    st.caption('В демонстрации родитель привязан к участнику A-106. В остальных ранних профилях согласие представителя '
+               'по-прежнему моделируется переключателем. Все связи, организации и записи вымышлены.')
     with st.expander('Сценарий демонстрации для жюри'):
         st.write('1. Школьник → София Т. → «Мои работы»: исходная работа по расписанию уже ждёт проверки.\n\n'
                  '2. Компания → Qadam IT Education → «Проверка работ»: запросите объяснение границ интервалов и изменение с учётом кабинета.\n\n'
@@ -397,24 +442,42 @@ def main():
     try:
         store.init()
         personal_projects.init_projects()
+        network.init_network()
     except (OSError, store.db.sqlite3.Error):
         st.error('Не удалось открыть демонстрационную базу. Проверьте доступ к каталогу data.')
         st.stop()
     role = st.session_state.get('tt_role')
-    if role not in ('student', 'buyer'):
+    if role not in ('student', 'buyer', 'school', 'organizer', 'parent'):
         landing()
         return
-    by_id = {p['id']: p for p in store.people(role)}
-    pages = ({'catalog': 'Задания', 'projects': 'Мой проект', 'works': 'Мои работы', 'portfolio': 'Моё портфолио', 'invitations': 'Приглашения', 'about': 'О проекте'}
-             if role == 'student' else {'review': 'Проверка работ', 'challenges': 'Мои задания', 'discovery': 'Каталог работ',
-                                        'invitations': 'Приглашения', 'about': 'О проекте'})
+    kind = st.session_state.get('tt_buyer_kind', 'company')
+    profiles = (store.people('buyer', organization_kind=kind) if role == 'buyer' else
+                store.people('student') if role == 'student' else network.people(role))
+    by_id = {p['id']: p for p in profiles}
+    role_pages = {
+        'student': {'catalog': 'Задания', 'projects': 'Мой проект', 'works': 'Мои работы',
+                    'achievements': 'Достижения', 'portfolio': 'Моё портфолио', 'invitations': 'Приглашения', 'about': 'О проекте'},
+        'buyer': {'review': 'Проверка работ', 'challenges': 'Мои задания', 'discovery': 'Каталог работ',
+                  'invitations': 'Приглашения', 'about': 'О проекте'},
+        'school': {'registry': 'Результаты учеников', 'about': 'О проекте'},
+        'organizer': {'registry': 'Реестр результатов', 'about': 'О проекте'},
+        'parent': {'children': 'Ребёнок и согласие', 'about': 'О проекте'},
+    }
+    pages = role_pages[role]
+    cabinet = (BUYER_CABINETS.get(kind, 'Кабинет организации') if role == 'buyer' else
+               {'student': 'Кабинет школьника', 'school': 'Кабинет школы', 'organizer': 'Кабинет организатора',
+                'parent': 'Кабинет родителя'}[role])
     with st.sidebar:
         brand()
-        st.caption('Кабинет школьника' if role == 'student' else 'Кабинет компании')
+        st.caption(cabinet)
+        if not by_id:
+            st.info('Для этой роли пока нет демонстрационных профилей.')
+            st.button('Сменить роль', key='tt_change_role', on_click=enter, args=(None,))
+            return
         person_id = st.selectbox('Демонстрационный профиль', list(by_id), format_func=lambda i: by_id[i]['name'], key=f'tt_person_{role}')
         if st.session_state.get('tt_current_person') != person_id:
             for key in list(st.session_state):
-                if key.startswith('tt_') and key not in ('tt_role', f'tt_person_{role}', 'tt_page'):
+                if key.startswith('tt_') and key not in ('tt_role', f'tt_person_{role}', 'tt_page', 'tt_buyer_kind'):
                     del st.session_state[key]
             st.session_state['tt_current_person'] = person_id
         st.divider()
@@ -431,9 +494,14 @@ def main():
     page = st.session_state['tt_page']
     if page == 'about':
         about()
-    elif page == 'invitations':
+    elif page == 'invitations' and role in ('student', 'buyer'):
         invitations(person_id, role)
     elif role == 'student':
-        {'catalog': challenge_catalog, 'projects': render_projects, 'works': student_works, 'portfolio': portfolio}.get(page, challenge_catalog)(person_id)
-    else:
+        {'catalog': challenge_catalog, 'projects': render_projects, 'works': student_works,
+         'portfolio': portfolio, 'achievements': render_student_records}.get(page, challenge_catalog)(person_id)
+    elif role == 'buyer':
         {'review': buyer_review, 'challenges': buyer_challenges, 'discovery': discovery}.get(page, buyer_review)(person_id)
+    elif role == 'parent':
+        render_parent(person_id)
+    else:
+        render_source(person_id)
