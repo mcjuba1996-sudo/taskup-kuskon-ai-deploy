@@ -31,7 +31,12 @@ PASS: local real browser: English landing, student navigation and About;
 switch to Kazakh preserves the student profile and About page; Kazakh task
 catalog at 390x844 has document width 390 and main scroll width 380.
 The language selector clears the fixed header. Temporary viewport reset.
-Public real-browser verification of this revision is pending. Historical browser
+PASS: public Streamlit after PR #4 (main merge aa745f0): Russian landing,
+English landing and university work review, About navigation, then Kazakh
+language switch retaining the university profile and About page. Kazakh review
+screen and controls inspected at 1280x900; screenshot saved, viewport reset.
+These public browser checks are smoke coverage, not every form transition.
+Historical browser
 checks below apply to the specific earlier revisions named in those sections.
 
 Research overview revision:
