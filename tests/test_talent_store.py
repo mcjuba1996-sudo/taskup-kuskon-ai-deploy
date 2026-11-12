@@ -19,6 +19,15 @@ class TalentStoreTests(unittest.TestCase):
         self.addCleanup(environment.stop)
         talent.init()
 
+    def review(self, *args, **kwargs):
+        defaults = dict(criterion_evidence=[
+            'Основной сценарий воспроизводится на приложенных примерах.',
+            'В пояснении описан выбор алгоритма и граничные случаи.',
+            'Рефлексия описывает собственные изменения и использованную помощь.',
+        ], reviewer_name='Демо-проверяющий', reviewer_role='Наставник IT-программы')
+        defaults.update(kwargs)
+        return talent.review_work(*args, **defaults)
+
     def work(self, student=105, buyer=201):
         return next(work for work in talent.submissions(student_id=student, buyer_id=buyer)
                     if work['status'] == 'pending')
@@ -88,8 +97,8 @@ class TalentStoreTests(unittest.TestCase):
         self.assertFalse(talent.person(105)['share_profile'])
         self.assertNotIn(work['id'], {w['id'] for w in talent.submissions(buyer_id=202)})
         with self.assertRaises(ValueError):
-            talent.review_work(work['id'], 202, work['version'], [3, 3, 3], 'Хорошая работа с примерами.', True)
-        talent.review_work(work['id'], 201, work['version'], [3, 3, 3], 'Хорошая работа с примерами.', True)
+            self.review(work['id'], 202, work['version'], [3, 3, 3], 'Хорошая работа с примерами.', True)
+        self.review(work['id'], 201, work['version'], [3, 3, 3], 'Хорошая работа с примерами.', True)
         approved = talent.submissions(student_id=105)[0]
         self.assertEqual(approved['status'], 'approved')
         self.assertEqual(approved['total'], 75)
@@ -100,7 +109,7 @@ class TalentStoreTests(unittest.TestCase):
 
     def test_change_request_resubmit_stale_review_and_immutable_approval(self):
         original = self.work()
-        talent.review_work(original['id'], 201, original['version'], [2, 2, 1],
+        self.review(original['id'], 201, original['version'], [2, 2, 1],
                            'Добавьте проверки и подробнее опишите свой вклад.', False)
         revised_id = talent.submit_work(2, 105, 'https://example.com/revised',
             'Добавлены проверки пустого списка и граничных значений.',
@@ -112,12 +121,12 @@ class TalentStoreTests(unittest.TestCase):
         self.assertEqual(revised['feedback'], '')
         self.assertIsNone(revised['reviewed_at'])
         with self.assertRaises(ValueError):
-            talent.review_work(revised_id, 201, original['version'], [4, 4, 4], 'Все проверки пройдены.', True)
-        talent.review_work(revised_id, 201, revised['version'], [4, 2, 2], 'Основной сценарий и вклад подтверждены примерами.', True)
+            self.review(revised_id, 201, original['version'], [4, 4, 4], 'Все проверки пройдены.', True)
+        self.review(revised_id, 201, revised['version'], [4, 2, 2], 'Основной сценарий и вклад подтверждены примерами.', True)
         approved = talent.submissions(student_id=105)[0]
         self.assertEqual(approved['total'], 70)
         with self.assertRaises(ValueError):
-            talent.review_work(revised_id, 201, approved['version'], [4, 4, 4], 'Повторная проверка работы.', True)
+            self.review(revised_id, 201, approved['version'], [4, 4, 4], 'Повторная проверка работы.', True)
         with self.assertRaises(ValueError):
             talent.submit_work(2, 105, 'https://example.com/again', 'Повторная сдача принятой работы.', 'Повторная рефлексия принятой работы.')
 
@@ -126,7 +135,7 @@ class TalentStoreTests(unittest.TestCase):
         for ratings in ([4, 4, 1], [2, 2, 2], [3, 3, 2], [5, 4, 4], [-1, 3, 3],
                         [True, 3, 3], [3.0, 3, 3], [3, 3], '333'):
             with self.subTest(ratings=ratings), self.assertRaises(ValueError):
-                talent.review_work(work['id'], 201, work['version'], ratings, 'Обоснованная обратная связь.', True)
+                self.review(work['id'], 201, work['version'], ratings, 'Обоснованная обратная связь.', True)
         self.assertEqual(self.work()['version'], work['version'])
 
     def test_fractional_scores_match_rubric_and_migrate_old_demo_scores(self):
@@ -134,7 +143,7 @@ class TalentStoreTests(unittest.TestCase):
         self.assertEqual(seeded['ratings'], [4, 3, 4])
         self.assertEqual(seeded['total'], 91.25)
         work = self.work()
-        talent.review_work(work['id'], 201, work['version'], [3, 4, 3], 'Проверки выполнены, обоснование подробное.', True)
+        self.review(work['id'], 201, work['version'], [3, 4, 3], 'Проверки выполнены, обоснование подробное.', True)
         self.assertEqual(talent.submissions(student_id=105)[0]['total'], 83.75)
         with db.connect() as conn:
             conn.execute('UPDATE talent_submissions SET total=91 WHERE id=?', (seeded['id'],))

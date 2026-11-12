@@ -11,7 +11,7 @@ import talent_store as store
 ROOT = Path(__file__).resolve().parents[1]
 
 
-class TalentUIFlowTests(unittest.TestCase):
+class TalentUIBase(unittest.TestCase):
     def setUp(self):
         temporary = tempfile.TemporaryDirectory(prefix='taskup-talent-ui-')
         self.addCleanup(temporary.cleanup)
@@ -59,11 +59,19 @@ class TalentUIFlowTests(unittest.TestCase):
     def review(self, work, scores, approve):
         for index, score in enumerate(scores):
             self.app.select_slider(key=f'tt_score_{work["id"]}_{index}_{work["version"]}').set_value(score)
+            self.app.text_area(key=f'tt_evidence_{work["id"]}_{index}_{work["version"]}').set_value(
+                f'Критерий {index + 1}: открыт результат, воспроизведён пример из инструкции и проверено описанное ограничение.')
+        self.app.text_input(key=f'tt_reviewer_name_{work["id"]}_{work["version"]}').set_value('Демо-наставник А.')
+        self.app.text_input(key=f'tt_reviewer_role_{work["id"]}_{work["version"]}').set_value('Наставник образовательной программы')
+        self.app.text_area(key=f'tt_review_limits_{work["id"]}_{work["version"]}').set_value(
+            'Проверены только приложенные тестовые примеры. Личность автора и применение в реальной среде не проверялись.')
         self.app.text_area(key=f'tt_feedback_{work["id"]}_{work["version"]}').set_value(
             'Проверены расчёты и примеры результата. В пояснении видны подход и личный вклад; ограничения указаны.')
         self.app.checkbox(key=f'tt_checked_{work["id"]}_{work["version"]}').check()
         self.submit(f'tt_review_{work["id"]}_{work["version"]}', 'Принять работу' if approve else 'Вернуть на доработку')
 
+
+class TalentUIFlowTests(TalentUIBase):
     def test_all_pages_both_roles_and_identity_consent_isolation(self):
         self.assertIn('Твои доказательства', self.rendered())
         self.enter('student')
@@ -160,8 +168,8 @@ class TalentUIFlowTests(unittest.TestCase):
         self.app.selectbox(key='tt_catalog_skill').set_value('UX/UI').run()
         self.healthy()
         self.assertIn(created['title'], self.rendered())
-        self.assertEqual(len(self.app.text_input), 1)
-        self.assertEqual(self.app.text_input[0].key, f'tt_url_{created["id"]}')
+        self.assertEqual([w.key for w in self.app.text_input if w.key.startswith('tt_url_')],
+                         [f'tt_url_{created["id"]}'])
 
 
 if __name__ == '__main__':

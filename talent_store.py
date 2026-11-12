@@ -5,6 +5,7 @@ discovery. Challenge owners may still review work submitted to their challenges.
 All added tables are namespaced so the original TaskUp data remains untouched.
 """
 import json
+from contextlib import nullcontext
 
 import database as db
 
@@ -99,6 +100,31 @@ def _migrate_demo(conn):
         conn.execute("INSERT INTO talent_meta VALUES('demo_evidence_v1','done')")
 
 
+def _migrate_verification(conn):
+    """Add audit metadata without inventing evidence for earlier reviews."""
+    columns = {row['name'] for row in conn.execute('PRAGMA table_info(talent_submissions)')}
+    additions = {
+        'work_revision': 'INTEGER NOT NULL DEFAULT 1',
+        'source_version': "TEXT NOT NULL DEFAULT ''",
+        'criterion_evidence': "TEXT NOT NULL DEFAULT '[]'",
+        'reviewer_name': "TEXT NOT NULL DEFAULT ''",
+        'reviewer_role': "TEXT NOT NULL DEFAULT ''",
+        'reviewer_org': "TEXT NOT NULL DEFAULT ''",
+        'review_limitations': "TEXT NOT NULL DEFAULT ''",
+    }
+    for name, definition in additions.items():
+        if name not in columns:
+            conn.execute(f'ALTER TABLE talent_submissions ADD COLUMN {name} {definition}')
+
+
+def _baseline_history(conn):
+    for row in conn.execute('''SELECT s.id FROM talent_submissions s WHERE NOT EXISTS
+            (SELECT 1 FROM talent_work_history h WHERE h.submission_id=s.id)''').fetchall():
+        _record_history(conn, row['id'], 'baseline_imported', None,
+                        note='Снимок при подключении истории. Прошлые версии не восстановлены; '
+                             'новые сведения о проверяющем и защите не добавлены задним числом.')
+
+
 def init():
     """Create only additive tables and seed fictional examples once, atomically."""
     with db.connect() as conn:
@@ -136,14 +162,36 @@ def init():
         CREATE UNIQUE INDEX IF NOT EXISTS talent_one_active_invitation
             ON talent_invitations(buyer_id, student_id) WHERE status IN ('pending','accepted');
         CREATE TABLE IF NOT EXISTS talent_meta(key TEXT PRIMARY KEY, value TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS talent_defenses(
+            id INTEGER PRIMARY KEY, submission_id INTEGER NOT NULL REFERENCES talent_submissions(id),
+            work_revision INTEGER NOT NULL, version INTEGER NOT NULL DEFAULT 1,
+            question TEXT NOT NULL, change_request TEXT NOT NULL,
+            answer TEXT NOT NULL DEFAULT '', change_description TEXT NOT NULL DEFAULT '',
+            evidence_url TEXT NOT NULL DEFAULT '', source_version TEXT NOT NULL DEFAULT '',
+            status TEXT NOT NULL DEFAULT 'requested'
+                CHECK(status IN ('requested','answered','confirmed','needs_clarification')),
+            observations TEXT NOT NULL DEFAULT '', reviewer_name TEXT NOT NULL DEFAULT '',
+            reviewer_role TEXT NOT NULL DEFAULT '', reviewer_org TEXT NOT NULL DEFAULT '',
+            limitations TEXT NOT NULL DEFAULT '', created TEXT NOT NULL,
+            answered_at TEXT, assessed_at TEXT);
+        CREATE TABLE IF NOT EXISTS talent_work_history(
+            id INTEGER PRIMARY KEY, submission_id INTEGER NOT NULL REFERENCES talent_submissions(id),
+            event TEXT NOT NULL, created TEXT NOT NULL, actor_id INTEGER REFERENCES talent_people(id),
+            actor_name TEXT NOT NULL, snapshot TEXT NOT NULL);
+        CREATE TRIGGER IF NOT EXISTS talent_history_no_update BEFORE UPDATE ON talent_work_history
+            BEGIN SELECT RAISE(ABORT, 'History snapshots are immutable'); END;
+        CREATE TRIGGER IF NOT EXISTS talent_history_no_delete BEFORE DELETE ON talent_work_history
+            BEGIN SELECT RAISE(ABORT, 'History snapshots are immutable'); END;
         ''')
         conn.execute('BEGIN IMMEDIATE')
+        _migrate_verification(conn)
         if not conn.execute("SELECT 1 FROM talent_meta WHERE key='seed_v1'").fetchone():
             # Never replace existing imported or manually created talent data.
             if not conn.execute('SELECT 1 FROM talent_people LIMIT 1').fetchone():
                 _seed(conn)
                 conn.execute("INSERT INTO talent_meta VALUES('seed_v1','done')")
         _migrate_demo(conn)
+        _baseline_history(conn)
 
 
 def people(role):
@@ -196,6 +244,64 @@ _SUBMISSION_SELECT = '''SELECT s.*, c.title AS challenge_title, c.skill, c.crite
     JOIN talent_people p ON p.id=s.student_id JOIN talent_people b ON b.id=c.buyer_id'''
 
 
+def _understanding(conn, submission_id, work_revision):
+    row = conn.execute('''SELECT status FROM talent_defenses
+        WHERE submission_id=? AND work_revision=? ORDER BY id DESC LIMIT 1''',
+        (submission_id, work_revision)).fetchone()
+    return row['status'] if row else 'not_requested'
+
+
+def _decode_submission(conn, row):
+    item = dict(row)
+    for key in ('ratings', 'criteria', 'criterion_evidence'):
+        item[key] = json.loads(item[key])
+    item['understanding_status'] = _understanding(conn, item['id'], item['work_revision'])
+    return item
+
+
+def _submission(conn, submission_id):
+    row = conn.execute(_SUBMISSION_SELECT + ' WHERE s.id=?', (submission_id,)).fetchone()
+    if not row:
+        raise ValueError('Работа не найдена.')
+    return _decode_submission(conn, row)
+
+
+def _defenses(conn, submission_id):
+    return [dict(row) for row in conn.execute('''SELECT * FROM talent_defenses
+        WHERE submission_id=? ORDER BY id''', (submission_id,))]
+
+
+def _record_history(conn, submission_id, event, actor_id, note=''):
+    snapshot = _submission(conn, submission_id)
+    snapshot['defense_rounds'] = _defenses(conn, submission_id)
+    if note:
+        snapshot['history_note'] = note
+    actor = conn.execute('SELECT name FROM talent_people WHERE id=?', (actor_id,)).fetchone() if actor_id else None
+    conn.execute('''INSERT INTO talent_work_history
+        (submission_id,event,created,actor_id,actor_name,snapshot) VALUES(?,?,?,?,?,?)''',
+        (submission_id, event, db.now(), actor_id, actor['name'] if actor else 'Импорт существующего состояния',
+         json.dumps(snapshot, ensure_ascii=False)))
+
+
+def _view_work(conn, submission_id, viewer_id):
+    work = _submission(conn, submission_id)
+    viewer = conn.execute('SELECT role FROM talent_people WHERE id=?', (viewer_id,)).fetchone()
+    if not viewer:
+        raise ValueError('Демопрофиль не найден.')
+    if viewer['role'] == 'student' and work['student_id'] == viewer_id:
+        return work
+    if viewer['role'] == 'buyer' and (work['buyer_id'] == viewer_id
+            or (work['status'] == 'approved' and _visible(conn, work['student_id']))):
+        return work
+    raise ValueError('История и защита этой работы недоступны для профиля.')
+
+
+def _reviewer(name, role, limits):
+    return (_text(name, 'Имя демопроверяющего', 3, 120),
+            _text(role, 'Роль проверяющего', 3, 120),
+            _text(limits, 'Ограничения проверки', 0, 2000))
+
+
 def _submissions(conn, student_id=None, buyer_id=None, approved_only=False):
     conditions, args = [], []
     if student_id is not None:
@@ -209,10 +315,7 @@ def _submissions(conn, student_id=None, buyer_id=None, approved_only=False):
     sql = _SUBMISSION_SELECT + (' WHERE ' + ' AND '.join(conditions) if conditions else '')
     result = []
     for row in conn.execute(sql + ' ORDER BY s.id DESC', args):
-        item = dict(row)
-        item['ratings'] = json.loads(item['ratings'])
-        item['criteria'] = json.loads(item['criteria'])
-        result.append(item)
+        result.append(_decode_submission(conn, row))
     return result
 
 
@@ -226,15 +329,17 @@ def submissions(student_id=None, buyer_id=None):
         return _submissions(conn, student_id, buyer_id)
 
 
-def submit_work(challenge_id, student_id, evidence_url, description, reflection):
+def submit_work(challenge_id, student_id, evidence_url, description, reflection, source_version='', *, _conn=None):
     url = _text(evidence_url, 'Ссылка на результат', 8, 2000)
     if not db.valid_url(url):
         raise ValueError('Нужна корректная http/https-ссылка на результат.')
     description = _text(description, 'Описание результата', 20, 6000)
     reflection = _text(reflection, 'Рефлексия', 20, 4000)
+    source_version = _text(source_version, 'Версия исходников', 0, 200)
     stamp = db.now()
-    with db.connect() as conn:
-        conn.execute('BEGIN IMMEDIATE')
+    with (nullcontext(_conn) if _conn is not None else db.connect()) as conn:
+        if _conn is None:
+            conn.execute('BEGIN IMMEDIATE')
         _role(conn, student_id, 'student')
         challenge = conn.execute('SELECT * FROM talent_challenges WHERE id=?', (challenge_id,)).fetchone()
         if not challenge:
@@ -248,28 +353,38 @@ def submit_work(challenge_id, student_id, evidence_url, description, reflection)
                 raise ValueError('Повторная сдача доступна только после запроса доработки.')
             conn.execute('''UPDATE talent_submissions SET evidence_url=?,description=?,reflection=?,
                 status='pending',ratings='[]',feedback='',total=0,reviewed_at=NULL,
+                source_version=?,criterion_evidence='[]',reviewer_name='',reviewer_role='',
+                reviewer_org='',review_limitations='',work_revision=work_revision+1,
                 version=version+1,updated=? WHERE id=?''',
-                (url, description, reflection, stamp, existing['id']))
+                (url, description, reflection, source_version, stamp, existing['id']))
+            _record_history(conn, existing['id'], 'resubmitted', student_id)
             return existing['id']
-        return conn.execute('''INSERT INTO talent_submissions
-            (challenge_id,student_id,evidence_url,description,reflection,created,updated)
-            VALUES(?,?,?,?,?,?,?)''',
-            (challenge_id, student_id, url, description, reflection, stamp, stamp)).lastrowid
+        submission_id = conn.execute('''INSERT INTO talent_submissions
+            (challenge_id,student_id,evidence_url,description,reflection,source_version,created,updated)
+            VALUES(?,?,?,?,?,?,?,?)''',
+            (challenge_id, student_id, url, description, reflection, source_version, stamp, stamp)).lastrowid
+        _record_history(conn, submission_id, 'submitted', student_id)
+        return submission_id
 
 
-def review_work(submission_id, buyer_id, expected_version, ratings, feedback, approve):
+def review_work(submission_id, buyer_id, expected_version, ratings, feedback, approve, *,
+                criterion_evidence, reviewer_name, reviewer_role, review_limits=''):
     if (not isinstance(ratings, list) or len(ratings) != 3
             or any(type(rating) is not int or rating not in range(5) for rating in ratings)):
         raise ValueError('Оцените каждый из трёх критериев целым числом от 0 до 4.')
     if type(approve) is not bool or type(expected_version) is not int:
         raise ValueError('Некорректные параметры проверки.')
     feedback = _text(feedback, 'Обратная связь', 10, 4000)
+    if not isinstance(criterion_evidence, list) or len(criterion_evidence) != 3:
+        raise ValueError('Укажите наблюдаемые свидетельства по каждому из трёх критериев.')
+    evidence = [_text(item, 'Свидетельство по критерию', 20, 2000) for item in criterion_evidence]
+    reviewer_name, reviewer_role, review_limits = _reviewer(reviewer_name, reviewer_role, review_limits)
     total = _total(ratings)
     if approve and (total < PASS_SCORE or min(ratings) < 2):
         raise ValueError('Для зачёта нужны минимум 70 баллов и минимум 2 по каждому критерию.')
     with db.connect() as conn:
         conn.execute('BEGIN IMMEDIATE')
-        _role(conn, buyer_id, 'buyer')
+        buyer = _role(conn, buyer_id, 'buyer')
         row = conn.execute('''SELECT s.*, c.buyer_id FROM talent_submissions s
             JOIN talent_challenges c ON c.id=s.challenge_id WHERE s.id=?''', (submission_id,)).fetchone()
         if not row or row['buyer_id'] != buyer_id or row['student_id'] == buyer_id:
@@ -278,11 +393,123 @@ def review_work(submission_id, buyer_id, expected_version, ratings, feedback, ap
             raise ValueError('Работа уже изменена. Обновите страницу перед проверкой.')
         if row['status'] != 'pending':
             raise ValueError('Эта версия работы уже проверена.')
+        understanding = _understanding(conn, submission_id, row['work_revision'])
+        if approve and understanding in ('requested', 'answered', 'needs_clarification'):
+            raise ValueError('Завершите запрос защиты и оцените наблюдения до принятия результата.')
         stamp = db.now()
         conn.execute('''UPDATE talent_submissions SET status=?,ratings=?,feedback=?,total=?,
+            criterion_evidence=?,reviewer_name=?,reviewer_role=?,reviewer_org=?,review_limitations=?,
             version=version+1,reviewed_at=?,updated=? WHERE id=? AND version=?''',
             ('approved' if approve else 'changes_requested', json.dumps(ratings), feedback,
-             total, stamp, stamp, submission_id, expected_version))
+             total, json.dumps(evidence, ensure_ascii=False), reviewer_name, reviewer_role, buyer['name'],
+             review_limits, stamp, stamp, submission_id, expected_version))
+        _record_history(conn, submission_id, 'approved' if approve else 'changes_requested', buyer_id)
+
+
+def request_defense(submission_id, buyer_id, expected_version, question, change_request):
+    """Request one concrete explanation and reproducible modification of this revision."""
+    question = _text(question, 'Вопрос по работе', 20, 2000)
+    change_request = _text(change_request, 'Небольшое проверяемое изменение', 20, 2000)
+    if type(expected_version) is not int:
+        raise ValueError('Некорректная версия работы.')
+    with db.connect() as conn:
+        conn.execute('BEGIN IMMEDIATE')
+        _role(conn, buyer_id, 'buyer')
+        work = _submission(conn, submission_id)
+        if work['buyer_id'] != buyer_id or work['student_id'] == buyer_id:
+            raise ValueError('Запрашивать защиту может только заказчик задания.')
+        if work['version'] != expected_version:
+            raise ValueError('Работа уже изменена. Обновите страницу.')
+        if work['status'] != 'pending':
+            raise ValueError('Защита запрашивается только для ожидающей проверки работы.')
+        if work['understanding_status'] in ('requested', 'answered'):
+            raise ValueError('Предыдущий запрос защиты ещё не завершён.')
+        stamp = db.now()
+        defense_id = conn.execute('''INSERT INTO talent_defenses
+            (submission_id,work_revision,question,change_request,created) VALUES(?,?,?,?,?)''',
+            (submission_id, work['work_revision'], question, change_request, stamp)).lastrowid
+        conn.execute('UPDATE talent_submissions SET version=version+1,updated=? WHERE id=?', (stamp, submission_id))
+        _record_history(conn, submission_id, 'defense_requested', buyer_id)
+        return defense_id
+
+
+def defense_rounds(submission_id, viewer_id):
+    with db.connect() as conn:
+        _view_work(conn, submission_id, viewer_id)
+        return _defenses(conn, submission_id)
+
+
+def _mutable_defense(conn, defense_id, expected_version):
+    if type(expected_version) is not int:
+        raise ValueError('Некорректная версия раунда защиты.')
+    row = conn.execute('SELECT * FROM talent_defenses WHERE id=?', (defense_id,)).fetchone()
+    if not row:
+        raise ValueError('Запрос защиты не найден.')
+    if row['version'] != expected_version:
+        raise ValueError('Запрос защиты уже изменён. Обновите страницу.')
+    work = _submission(conn, row['submission_id'])
+    if work['status'] != 'pending' or work['work_revision'] != row['work_revision']:
+        raise ValueError('Защита относится к завершённой или предыдущей версии работы.')
+    return row, work
+
+
+def answer_defense(defense_id, student_id, expected_version, answer, change_description,
+                   evidence_url, source_version=''):
+    answer = _text(answer, 'Ответ на вопрос', 20, 4000)
+    change_description = _text(change_description, 'Что изменено и как проверить', 20, 4000)
+    evidence_url = _text(evidence_url, 'Ссылка на изменённый результат', 8, 2000)
+    if not db.valid_url(evidence_url):
+        raise ValueError('Нужна корректная http/https-ссылка на результат защиты.')
+    source_version = _text(source_version, 'Версия исходников защиты', 0, 200)
+    with db.connect() as conn:
+        conn.execute('BEGIN IMMEDIATE')
+        _role(conn, student_id, 'student')
+        row, work = _mutable_defense(conn, defense_id, expected_version)
+        if work['student_id'] != student_id:
+            raise ValueError('Ответить может только участник, отправивший работу.')
+        if row['status'] != 'requested':
+            raise ValueError('Ответ уже зафиксирован; нужен новый запрос для уточнения.')
+        stamp = db.now()
+        conn.execute('''UPDATE talent_defenses SET answer=?,change_description=?,evidence_url=?,
+            source_version=?,status='answered',version=version+1,answered_at=? WHERE id=?''',
+            (answer, change_description, evidence_url, source_version, stamp, defense_id))
+        conn.execute('UPDATE talent_submissions SET version=version+1,updated=? WHERE id=?', (stamp, work['id']))
+        _record_history(conn, work['id'], 'defense_answered', student_id)
+
+
+def assess_defense(defense_id, buyer_id, expected_version, understood, observations,
+                   reviewer_name, reviewer_role, limitations=''):
+    if type(understood) is not bool:
+        raise ValueError('Укажите решение по пониманию конкретной работы.')
+    observations = _text(observations, 'Конкретные наблюдения проверяющего', 30, 4000)
+    reviewer_name, reviewer_role, limitations = _reviewer(reviewer_name, reviewer_role, limitations)
+    with db.connect() as conn:
+        conn.execute('BEGIN IMMEDIATE')
+        buyer = _role(conn, buyer_id, 'buyer')
+        row, work = _mutable_defense(conn, defense_id, expected_version)
+        if work['buyer_id'] != buyer_id or work['student_id'] == buyer_id:
+            raise ValueError('Оценить защиту может только заказчик этого задания.')
+        if row['status'] != 'answered':
+            raise ValueError('Для оценки нужен ещё не оценённый ответ участника.')
+        stamp = db.now()
+        conn.execute('''UPDATE talent_defenses SET status=?,observations=?,reviewer_name=?,reviewer_role=?,
+            reviewer_org=?,limitations=?,version=version+1,assessed_at=? WHERE id=?''',
+            ('confirmed' if understood else 'needs_clarification', observations, reviewer_name,
+             reviewer_role, buyer['name'], limitations, stamp, defense_id))
+        conn.execute('UPDATE talent_submissions SET version=version+1,updated=? WHERE id=?', (stamp, work['id']))
+        _record_history(conn, work['id'], 'defense_assessed', buyer_id)
+
+
+def history(submission_id, viewer_id):
+    with db.connect() as conn:
+        _view_work(conn, submission_id, viewer_id)
+        result = []
+        for row in conn.execute('''SELECT * FROM talent_work_history
+                WHERE submission_id=? ORDER BY id''', (submission_id,)):
+            event = dict(row)
+            event['snapshot'] = json.loads(event['snapshot'])
+            result.append(event)
+        return result
 
 
 def set_visibility(student_id, share_profile, guardian_consent):

@@ -5,6 +5,11 @@ from pathlib import Path
 from zipfile import ZipFile
 import streamlit as st
 import talent_store as store
+import personal_projects
+from personal_projects_ui import render as render_projects
+from talent_evidence_ui import (
+    evidence_summary, defense_record, history_panel, student_defense, buyer_defense, passport_report,
+)
 
 ROOT = Path(__file__).resolve().parent
 STATUS = {'pending': 'Ожидает проверки', 'changes_requested': 'Нужны доработки', 'approved': 'Результат принят'}
@@ -84,11 +89,11 @@ def landing():
     st.info('Демонстрационный стенд: все профили и результаты вымышлены. Переключение роли — не авторизация. '
             'Используйте только тестовые данные и ссылки.')
     with st.expander('Как устроено доверие'):
-        st.write('Компания проверяет работу по трём критериям, оставляет оценки и комментарий. В паспорте видны '
-                 'задание, доказательства и кто принял результат. Это не независимая сертификация личности или авторства '
-                 'и не автоматическая AI-проверка.')
-        st.write('Без компании школьнику доступны учебные задания, критерии и шаблон самопроверки. До проверки '
-                 'работа остаётся заявленной, а не подтверждённой.')
+        st.write('Компания оценивает работу по трём критериям и указывает основания каждой оценки. По запросу '
+                 'школьник объясняет решение и вносит небольшое изменение. В паспорте видны доказательства, '
+                 'наблюдения проверяющего и границы проверки. Оценка результата и проверка понимания показаны отдельно.')
+        st.write('Без компании можно сохранить свой проект, описать вклад, пройти самопроверку и скачать отчёт. '
+                 'Он обозначен как самооценка. Передача компании происходит отдельным действием.')
 
 
 def rubric(criteria):
@@ -128,6 +133,12 @@ def show_work(work, include_student=False):
         st.markdown('**Обратная связь заказчика**')
         st.write(work['feedback'])
         st.caption(f'Проверил: {work["buyer_name"]} · {work["reviewed_at"] or ""} · Демо-проверка')
+    evidence_summary(work)
+    viewer_id = st.session_state.get('tt_current_person')
+    if viewer_id:
+        if work['status'] != 'pending' or st.session_state.get('tt_role') == 'student':
+            defense_record(work, viewer_id)
+        history_panel(work, viewer_id)
 
 
 def challenge_catalog(student_id):
@@ -164,13 +175,16 @@ def challenge_catalog(student_id):
                                                max_chars=6000, key=f'tt_description_{cid}')
                     reflection = st.text_area('Мой вклад, инструменты и чему я научился', value=prior['reflection'] if prior else '',
                                               max_chars=4000, key=f'tt_reflection_{cid}')
+                    source_version = st.text_input('Коммит или версия результата', value=prior.get('source_version', '') if prior else '',
+                                                   max_chars=200, key=f'tt_source_version_{cid}',
+                                                   help='Укажите конкретную версию, которую передаёте на проверку. Это сведения автора; сервис не проверяет коммит автоматически.')
                     consent = st.checkbox('Отправляю тестовую работу этой компании для проверки', key=f'tt_submit_consent_{cid}')
                     send = st.form_submit_button('Отправить на проверку', type='primary')
                 if send:
                     if not consent:
                         st.error('Подтвердите передачу тестовой работы компании.')
                     else:
-                        action(lambda: store.submit_work(cid, student_id, url, description, reflection),
+                        action(lambda: store.submit_work(cid, student_id, url, description, reflection, source_version=source_version),
                                'Работа отправлена. Статус можно посмотреть в «Мои работы».')
     with st.expander('Начать самостоятельно: шаблон отчёта'):
         st.write('Опишите задачу, рабочий сценарий, личный вклад, инструменты, результаты проверки и ограничения.')
@@ -186,6 +200,7 @@ def student_works(student_id):
     for work in works:
         with st.container(border=True):
             show_work(work)
+            student_defense(work, student_id)
             if work['status'] == 'changes_requested':
                 st.button('Перейти к доработке', key=f'tt_revise_{work["id"]}', on_click=navigate, args=('catalog',))
 
@@ -197,10 +212,11 @@ def portfolio(student_id):
     st.write(f'{pupil["region"]} · {pupil["grade"]} класс · {pupil["focus"]}')
     public = pupil['share_profile'] and pupil['guardian_consent']
     tag('Видно компаниям при наличии принятой работы' if public else 'Закрыто для каталога компаний', public)
-    st.caption('В каталоге доступны псевдоним, регион, класс, направление и принятые работы. Телефон, адрес, школа '
+    st.caption('В каталоге доступны псевдоним, регион, класс, направление, принятые работы и история их версий, '
+               'включая прежние доработки, ответы на защиту и наблюдения проверяющего. Телефон, адрес, школа '
                'и контакты не собираются. Ссылки и текст работ тоже видны: используйте только тестовые данные.')
     with st.form(f'tt_visibility_{student_id}'):
-        share = st.checkbox('Я согласен показать тестовый профиль и принятые работы компаниям',
+        share = st.checkbox('Я согласен показать компаниям тестовый профиль, принятые работы, историю их версий и материалы защиты',
                             value=pupil['share_profile'], key='tt_share_profile')
         guardian = st.checkbox('Согласие законного представителя получено — моделирование для демо',
                                value=pupil['guardian_consent'], key='tt_guardian_consent')
@@ -217,11 +233,7 @@ def portfolio(student_id):
     for work in works:
         with st.container(border=True):
             show_work(work)
-            report = (f'# Паспорт работы — ДЕМО\n\n{work["challenge_title"]}\n\nПрофиль: {pupil["name"]}\n\n'
-                      f'Результат: {work["evidence_url"]}\n\n{work["description"]}\n\nВклад: {work["reflection"]}\n\n'
-                      f'Проверил: {work["buyer_name"]}\nДата: {work["reviewed_at"]}\n\n')
-            report += '\n'.join(f'- {c["label"]}: {r}/4 (вес {c["weight"]}%)' for c, r in zip(work['criteria'], work['ratings']))
-            report += f'\n\nИтог: {work["total"]:g}/100\n\nКомментарий: {work["feedback"]}\n\nВсе данные синтетические. Это оценка работы, не сертификат авторства.\n'
+            report = passport_report(work, pupil, student_id)
             st.download_button('Скачать паспорт работы', report, f'work-{work["id"]}.md', mime='text/markdown', key=f'tt_download_{work["id"]}')
 
 
@@ -257,14 +269,25 @@ def buyer_review(buyer_id):
             show_work(work, include_student=True)
             if work['status'] != 'pending':
                 continue
+            buyer_defense(work, buyer_id)
             st.caption('Оценивайте наблюдаемый результат. Личность и авторство этой проверкой не удостоверяются.')
             with st.expander('Критерии задания', expanded=True):
                 rubric(work['criteria'])
             wid = work['id']
             with st.form(f'tt_review_{wid}_{work["version"]}'):
-                ratings = [st.select_slider(c['label'], options=list(RATINGS), value=0, format_func=lambda n: RATINGS[n],
-                                           key=f'tt_score_{wid}_{i}_{work["version"]}') for i, c in enumerate(work['criteria'])]
+                ratings, evidence = [], []
+                for i, c in enumerate(work['criteria']):
+                    ratings.append(st.select_slider(c['label'], options=list(RATINGS), value=0, format_func=lambda n: RATINGS[n],
+                                                     key=f'tt_score_{wid}_{i}_{work["version"]}'))
+                    evidence.append(st.text_area('Свидетельство: ' + c['label'], max_chars=2000,
+                                                  placeholder='Укажите фрагмент, тест, экран или ответ и объясните, что он показывает.',
+                                                  key=f'tt_evidence_{wid}_{i}_{work["version"]}'))
                 feedback = st.text_area('Обратная связь с примерами из работы', max_chars=4000, key=f'tt_feedback_{wid}_{work["version"]}')
+                reviewer_name = st.text_input('Имя проверяющего (демо)', max_chars=120, key=f'tt_reviewer_name_{wid}_{work["version"]}')
+                reviewer_role = st.text_input('Роль и компетенция проверяющего', max_chars=120, key=f'tt_reviewer_role_{wid}_{work["version"]}')
+                limits = st.text_area('Ограничения проведённой проверки', max_chars=2000, key=f'tt_review_limits_{wid}_{work["version"]}')
+                if work.get('understanding_status') in ('requested', 'answered', 'needs_clarification'):
+                    st.caption('Защита ещё не завершена успешно: сначала получите и оцените ответ либо верните работу на доработку.')
                 checked = st.checkbox('Я открыл результат и проверил его по критериям (демо)', key=f'tt_checked_{wid}_{work["version"]}')
                 a, b = st.columns(2)
                 approve = a.form_submit_button('Принять работу', type='primary')
@@ -273,7 +296,9 @@ def buyer_review(buyer_id):
                 if not checked:
                     st.error('Подтвердите проверку результата перед решением.')
                 else:
-                    action(lambda: store.review_work(wid, buyer_id, work['version'], ratings, feedback, approve),
+                    action(lambda: store.review_work(wid, buyer_id, work['version'], ratings, feedback, approve,
+                                                      criterion_evidence=evidence, reviewer_name=reviewer_name,
+                                                      reviewer_role=reviewer_role, review_limits=limits),
                            'Результат принят. Паспорт доступен школьнику.' if approve else 'Обратная связь отправлена. Можно доработать результат.')
 
 
@@ -343,7 +368,21 @@ def about():
             'и отбор участников. Цена и спрос ещё не подтверждены интервью.')
     st.subheader('Как появляется паспорт работы')
     rubric(store.CRITERIA)
-    st.write('Решение принимает заказчик вручную. В паспорте сохраняются ссылка, описание, критерии, оценки, комментарий и проверяющая компания.')
+    st.write('Решение принимает заказчик вручную. Каждая оценка опирается на описанное свидетельство. '
+             'Можно запросить объяснение и небольшое изменение решения, затем сохранить наблюдения проверяющего. '
+             'Паспорт отдельно показывает оценку результата и статус проверки понимания; история сохраняет версии и решения.')
+    st.subheader('Польза без компании')
+    st.write('В разделе «Мой проект» школьник оформляет существующую работу, описывает вклад и помощь, '
+             'проходит самопроверку и скачивает отчёт. Внешняя проверка такого отчёта не заявляется. '
+             'Позже можно явно передать копию проекта компании по подходящему заданию.')
+    with st.expander('Сценарий демонстрации для жюри'):
+        st.write('1. Школьник → София Т. → «Мои работы»: исходная работа по расписанию уже ждёт проверки.\n\n'
+                 '2. Компания → Qadam IT Education → «Проверка работ»: запросите объяснение границ интервалов и изменение с учётом кабинета.\n\n'
+                 '3. Школьник → София Т. → «Мои работы»: отправьте ответ и тестовый результат изменения.\n\n'
+                 '4. Компания → сохраните наблюдения, выставьте оценки со свидетельствами и примите работу.\n\n'
+                 '5. Школьник → «Моё портфолио»: откройте паспорт и историю, включите оба демонстрационных согласия.\n\n'
+                 '6. Компания → «Каталог работ»: отправьте приглашение; школьник отвечает в «Приглашениях».\n\n'
+                 '7. Покажите «Мой проект»: частный отчёт самооценки доступен сразу, без проверки компанией.')
     st.subheader('Что предстоит проверить')
     st.write('15 ответов школьников и 2 интервью покупателей, готовность платить и каналы набора первых 100 участников. '
              'Демонстрационные данные не являются результатами исследования.')
@@ -357,6 +396,7 @@ def main():
     html(f'<style>{(ROOT / "assets" / "talent.css").read_text(encoding="utf-8")}</style>')
     try:
         store.init()
+        personal_projects.init_projects()
     except (OSError, store.db.sqlite3.Error):
         st.error('Не удалось открыть демонстрационную базу. Проверьте доступ к каталогу data.')
         st.stop()
@@ -365,7 +405,7 @@ def main():
         landing()
         return
     by_id = {p['id']: p for p in store.people(role)}
-    pages = ({'catalog': 'Задания', 'works': 'Мои работы', 'portfolio': 'Моё портфолио', 'invitations': 'Приглашения', 'about': 'О проекте'}
+    pages = ({'catalog': 'Задания', 'projects': 'Мой проект', 'works': 'Мои работы', 'portfolio': 'Моё портфолио', 'invitations': 'Приглашения', 'about': 'О проекте'}
              if role == 'student' else {'review': 'Проверка работ', 'challenges': 'Мои задания', 'discovery': 'Каталог работ',
                                         'invitations': 'Приглашения', 'about': 'О проекте'})
     with st.sidebar:
@@ -394,6 +434,6 @@ def main():
     elif page == 'invitations':
         invitations(person_id, role)
     elif role == 'student':
-        {'catalog': challenge_catalog, 'works': student_works, 'portfolio': portfolio}.get(page, challenge_catalog)(person_id)
+        {'catalog': challenge_catalog, 'projects': render_projects, 'works': student_works, 'portfolio': portfolio}.get(page, challenge_catalog)(person_id)
     else:
         {'review': buyer_review, 'challenges': buyer_challenges, 'discovery': discovery}.get(page, buyer_review)(person_id)
