@@ -1,264 +1,130 @@
-# TaskUp · Kuskon AI
+# TaskUp Talent · Kuskon AI
 
-**Live demo:** https://taskup-kuskon-ai.streamlit.app/
+**Результат работы и понимание решения видны отдельно.** MVP для трека HackHub «Талант до вуза» на Gambit Hackathon 2026. Выбранный разрыв — **доверие**: проверяем гипотезу, что координатору корпоративной проектной IT-программы нужны понятные свидетельства навыков и личного вклада школьника для отбора участников.
 
-TaskUp is an AI Sana hackathon MVP that helps a business turn a raw need into a structured task card, improve its readiness score, publish it to an open catalogue, receive student-team proposals, and manually choose one, several, or no teams.
+Школьник 9–11 класса из Актюбинской области, примерно 14–17 лет, с интересом к IT оформляет собственный проект либо выполняет мини-задание. Покупатель — координатор программы с отбором по навыкам — проверяет результат, при необходимости запрашивает объяснение и небольшое изменение, затем собирает список кандидатов. Школьник пользуется продуктом бесплатно; личный отчёт доступен даже без покупателя.
 
-## Open the site
+**Статус:** демонстрационный прототип на синтетических данных. Подтверждённых интервью, оплат и партнёрств пока нет. Это переработка предыдущего MVP TaskUp: прежний сценарий сохранён в `legacy_app.py`.
 
-For judges and demo users, no installation is required.
+Изменения для просмотра: [черновой PR №1](https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy/pull/1), ветка `codex/hackhub-talent`. Цель размещения — собственный аккаунт команды в Streamlit Community Cloud; публичную ссылку добавляют после проверки развёрнутой версии.
 
-1. Open **https://taskup-kuskon-ai.streamlit.app/**
-2. Choose the interface language: **Қазақша / English / Русский**.
-3. Choose a demo role:
-   - **Business representative** — create and improve tasks, publish them, review proposals, and manually choose teams.
-   - **Student / team** — browse the catalogue, open tasks, and submit proposals.
-4. Use **Change role** at any time to return to the role-selection screen.
+## Основной сценарий
 
-If Streamlit has put the app to sleep after inactivity, the first opening can take a little longer while the app wakes up.
+1. Школьник выбирает задание, изучает фиксированную шкалу и отправляет ссылку, версию исходников, описание результата и личного вклада.
+2. Покупатель открывает результат. Для каждого критерия записывает наблюдаемое свидетельство, оценку, своё имя/роль и ограничения проверки.
+3. При необходимости возвращает работу на доработку. Школьник отправляет новую версию; прежняя остаётся в истории, новая оценка начинается заново.
+4. Для проверки понимания покупатель задаёт вопрос и небольшое изменение. Школьник объясняет решение и прикладывает результат изменения; проверяющий сохраняет наблюдения и отдельный вывод по пониманию.
+5. После принятия результата школьник видит паспорт: оценки и свидетельства, проверяющий, статус понимания, ограничения и история версий.
+6. Школьник включает два демонстрационных согласия на видимость. Покупатель находит доступный профиль и отправляет приглашение внутри приложения.
+7. Школьник принимает или отклоняет приглашение. Внешние сообщения не отправляются.
 
-## Core flow
+Пошаговый проход обеих ролей — в [сценарии демонстрации](docs/demo-walkthrough.md).
 
-1. Business enters a raw description.
-2. The system detects missing information and asks 3–5 clarifying questions.
-3. A task card is built and remains editable.
-4. The business confirms the fields.
-5. A transparent readiness score from 0 to 100 is calculated.
-6. The task is published to the shared catalogue.
-7. A student team independently submits an idea, plan, timeline, and prototype/repository link.
-8. The business manually selects or rejects proposals.
-9. A selected team may submit one result milestone; the business can confirm it and award demo progress points.
+## Что именно подтверждает паспорт
 
-The AI never assigns a team automatically.
+**Оценка результата** отвечает на вопрос, соответствует ли конкретная работа критериям задания. **Проверка понимания** показывает, как участник объяснил решение и выполнил запрошенное изменение. Эти статусы не подменяют друг друга: результат может быть принят без защиты, но паспорт тогда прямо сообщает, что понимание не проверялось. Если защита уже запрошена, принять работу нельзя до успешного завершения этой проверки; можно вернуть её на доработку.
 
-## Readiness score
+У каждой оценки есть отдельное текстовое свидетельство по критерию. Сохраняются имя, роль, организация проверяющего, дата и ограничения. В демо эти сведения вводятся вручную и не удостоверяют личность эксперта. Защита сохраняет вопрос, запрос изменения, ответ, ссылку, версию результата и наблюдения проверяющего. Она не является прокторингом или универсальным доказательством авторства.
 
-The MVP uses the hackathon rubric:
+История сохраняет снимки отправок, доработок, оценок и защиты; прежние снимки нельзя переписать через интерфейс приложения. При новой сдаче старые оценки и вывод защиты не переносятся на новую версию. Ссылки ведут на внешние материалы: указанный commit/номер версии — записанное значение, а не автоматически проверенный хеш или архив исходников. Старые демоданные не получают вымышленные сведения о проверяющем задним числом.
 
-- Context and need — 20
-- Data and materials — 20
-- Expected outcome — 15
-- Success criteria — 15
-- Constraints — 10
-- Users — 10
-- Business communication — 10
+Паспорт относится к конкретной работе и проверке. Он не удостоверяет личность, исключительное авторство кода или универсальный уровень таланта. ИИ не подтверждает достижения и не выбирает участников.
 
-Total: **100**
+## «Мой проект» без покупателя
 
-Readiness levels:
+Школьник сохраняет существующую учебную работу, описывает личный вклад, инструменты и помощь, отмечает пункты самопроверки и скачивает Markdown-отчёт. Для черновика достаточно названия. Отчёт всегда помечен **«Самооценка. Внешняя проверка не проводилась»**; чекбоксы не дают баллов или статуса принятой работы.
 
-- 0–39 — Draft
-- 40–69 — Working
-- 70–89 — Ready
-- 90–100 — Priority
+Личный черновик не входит в каталог покупателей. Для передачи школьник выбирает подходящее задание и отдельно подтверждает отправку копии. Нужны ссылка, описание результата и вклада; последующие изменения личного проекта не меняют отправленную версию. Подробнее — [личные проекты](docs/independent-projects.md).
 
-A low score does not hide a published task and does not block proposals.
+## Как считается оценка
 
-## Languages
+Три критерия оцениваются человеком от 0 до 4. Их веса — 40%, 35% и 25%; формула: `балл = (оценка_1 × 40 + оценка_2 × 35 + оценка_3 × 25) / 4`.
 
-The UI supports:
+Условия подтверждения: итог **не ниже 70/100** и **ни один критерий не ниже 2/4**. Критерии и их веса известны до отправки работы; нельзя менять шкалу после получения результата. При отрицательном решении остаётся обратная связь. Балл оценивает работу по конкретному заданию, а не сравнивает все школьные достижения между собой.
 
-- Қазақша
-- English
-- Русский
+## Данные и ограничения демо
 
-The user chooses a language on the landing screen and may switch it later from the sidebar. New AI/fallback clarification questions follow the selected interface language.
+- Все участники, работы, оценки и организации в начальных данных вымышлены.
+- Переключатель ролей — демонстрация сценария, **не авторизация**. Не вводите реальные персональные данные.
+- Видимость подтверждённого паспорта требует двух демонстрационных согласий: школьника и законного представителя. Интерфейс перечисляет область показа: принятые работы, прежние версии, ответы защиты и наблюдения проверяющего. Переключатели не являются юридически действительным сбором согласий или проверкой родителя.
+- Покупателю показываются только доступные в демо сведения о профиле и работе. Сырые телефоны, email и адреса несовершеннолетних не нужны; приглашения остаются внутри приложения.
+- SQLite хранит состояние локально. При размещении на хостинге с временным диском данные могут быть потеряны; для реального запуска нужны авторизация, проверка согласий и внешняя БД.
+- До пилота с настоящими школьниками требуется отдельная подготовка доступа, обработки данных и процесса экспертной проверки. Этот прототип не готов к публичному сбору данных детей.
 
-### Content translation
+## Бизнес-гипотеза
 
-When an OpenAI API key is configured, TaskUp automatically translates task-card content into the selected interface language (Kazakh, Russian or English). The translated fields are `title`, `context`, `need`, `data`, `access`, `result`, `success`, `constraints`, `users`, `interaction`, and `feedback`.
+**100 000 ₸ за 30-дневный пилот** — непроверенная цена для одного корпоративного координатора. Предложение: рабочее пространство одной кампании, задания, процесс оценки и список кандидатов с доказательствами работ и разрешённой видимостью. Покупатель оплачивает организацию отбора; персональные данные школьников не продаются.
 
-The original task remains the source of truth:
+Цена и объём пилота должны быть проверены на интервью. План первого запуска и допущения описаны в [Lean Canvas](docs/lean-canvas.md) и [плане на 30 дней](docs/launch-plan.md).
 
-- the SQLite data is never replaced by translated text;
-- readiness scoring uses the original confirmed task card;
-- contacts stay original;
-- company names, team names, URLs, numbers, code and known technologies are protected;
-- the UI can show the original text;
-- if translation is unavailable, the original text is displayed.
+## Запуск
 
-Translations are cached separately under `.cache/translations/` so identical content does not need a new API request on every rerun.
+Целевая версия для локального запуска и деплоя — **Python 3.12**. Для нового сценария ключи API не требуются.
 
-## Roles
-
-The first screen requires a demo role choice:
-
-- **Business representative** — create/edit tasks, review proposals, manually select/reject teams.
-- **Student / team** — browse the open catalogue, submit proposals, and submit a milestone after selection.
-
-A **Change role** button always returns to the role-selection screen.
-
-This is a hackathon demo identity switch, not production authentication.
-
-## Stack
-
-- Python
-- Streamlit
-- SQLite
-- OpenAI Responses API (optional; local fallback is available)
-- python-dotenv
-- custom CSS / Streamlit UI helpers
-
-## Run locally
-
-### 1. Clone the repository
-
-```powershell
-git clone https://github.com/BAITC-Hacks/hack-acae0008-kuskon-ai.git
-cd hack-acae0008-kuskon-ai
-```
-
-### 2. Create a virtual environment
-
-```powershell
+```bash
+git clone https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy.git
+cd taskup-kuskon-ai-deploy
+git switch codex/hackhub-talent
 python -m venv .venv
 ```
 
-If `python` is not available from PATH, select an installed Python interpreter in VS Code and create a Venv from **Python: Create Environment**.
-
-### 3. Install dependencies
+Windows PowerShell:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
-
-### 4. Configure the optional OpenAI API key
-
-Copy:
-
-```text
-.streamlit/secrets.toml.example
-```
-
-to:
-
-```text
-.streamlit/secrets.toml
-```
-
-Then put the local secret in that file:
-
-```toml
-OPENAI_API_KEY = "YOUR_REAL_KEY"
-# Optional:
-OPENAI_MODEL = "YOUR_SUPPORTED_MODEL"
-```
-
-Never commit `.streamlit/secrets.toml`. It is excluded by `.gitignore`.
-
-The app can also read `OPENAI_API_KEY` / `OPENAI_MODEL` from a local `.env` file or environment variables.
-
-### 5. Start Streamlit
-
-```powershell
 .\.venv\Scripts\python.exe -m streamlit run app.py
 ```
 
-Then open:
+macOS/Linux:
 
-```text
-http://localhost:8501
+```bash
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m streamlit run app.py
 ```
 
-## Deploy to Streamlit Community Cloud
+Откройте `http://localhost:8501`. Если скачан архив подготовленной версии, пропустите клонирование и переключение ветки, откройте терминал в папке проекта.
 
-The current public deployment is:
-
-**https://taskup-kuskon-ai.streamlit.app/**
-
-To deploy another copy:
-
-1. Push the latest code to a GitHub repository where the deploying account has sufficient access.
-2. Open Streamlit Community Cloud.
-3. Create a new app.
-4. Select the repository and branch.
-5. Set the main file to:
-   ```text
-   app.py
-   ```
-6. Open **Advanced settings → Secrets** and add:
-   ```toml
-   OPENAI_API_KEY = "YOUR_REAL_KEY"
-   OPENAI_MODEL = "YOUR_SUPPORTED_MODEL"
-   ```
-7. Choose an available `*.streamlit.app` subdomain.
-8. Deploy.
-
-### If the hackathon organization repository is not visible
-
-The official repository belongs to the `BAITC-Hacks` organization. If Streamlit Community Cloud cannot access that private organization repository, keep the official repository as `origin` and use a personal deployment mirror:
+Проверки в Windows PowerShell:
 
 ```powershell
-git remote add streamlit https://github.com/YOUR_GITHUB_USERNAME/YOUR_DEPLOY_REPO.git
-git push streamlit main
+.\.venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-For later updates:
+В macOS/Linux: `.venv/bin/python -m unittest discover -s tests -v`.
 
-```powershell
-git switch main
-git pull origin main
-git push streamlit main
-```
+Для размещения в собственном Streamlit Community Cloud выберите репозиторий `mcjuba1996-sudo/taskup-kuskon-ai-deploy`, ветку `codex/hackhub-talent`, входной файл `app.py` и Python **3.12**. Секреты API для нового сценария не нужны. После развёртывания пройдите обе роли по [сценарию](docs/demo-walkthrough.md) и только затем укажите публичный URL. Существующий адрес предыдущего TaskUp не считается проверенным адресом новой версии.
 
-The deployment mirror is only for hosting; the hackathon repository remains the primary source repository.
+## Проверяемые демонстрационные работы
 
-## AI safety / grounding
+Начальные профили используют общие синтетические материалы команды, подготовленные с Codex. Они не приписываются реальным школьникам:
 
-The AI is instructed to extract only information that already exists in the user's original description. Unknown fields remain empty. The returned structured card is validated before use, and the user must review and confirm the card before publication.
+- [Анализ посещаемости](demo_evidence/attendance.md): CSV, воспроизводимые расчёты и две текстовые диаграммы; `python demo_evidence/analyze_attendance.py`.
+- [Конфликты расписания](demo_evidence/schedule.md): Python-решение и 9 автоматических тестов; `python demo_evidence/schedule.py`.
+- [Запись на встречу](demo_evidence/signup.md): самодостаточный [HTML-прототип](demo_evidence/signup.html) трёх состояний, открывается локально в браузере.
 
-If the AI API fails, times out, returns malformed output, or violates the extraction constraints, TaskUp keeps the original text and falls back to the local clarification flow.
+Все примеры работают без API и сетевых данных. Исследования интерфейса с реальными пользователями не проводились. Отчёт и исходные файлы позволяют покупателю в демо проверить артефакт перед оценкой.
 
-Translation requests are display-only and use additional guards for contacts, URLs, quantities, technologies and protected names.
+## Прежний MVP
 
-## Data
+`python -m streamlit run legacy_app.py` запускает прежний сценарий постановки бизнес-задач и предложений студенческих команд. Его русский, казахский и английский интерфейсы сохранены. Новый основной интерфейс — русский.
 
-SQLite persists task cards, versions, scores, proposals, decisions, and result milestones while the application instance is running.
+Прежний сценарий поддерживает необязательные функции OpenAI и локальный режим без API. Новый TaskUp Talent работает без OpenAI. Старые таблицы SQLite сохранены; новый сценарий использует дополнительные таблицы.
 
-On first run the app seeds synthetic hackathon data:
+## Команда и инструменты
 
-- at least 5 draft examples
-- at least 5 published task cards
-- 5 team profiles
-- 5 proposals
+**Команда: Kuskon AI.** Имена участников, роли и контакты для заявки пока не предоставлены; их нужно добавить перед сдачей.
 
-Database files under `data/` are excluded from Git.
+Использованы Python, Streamlit, SQLite, python-dotenv, HTML/CSS и Git/GitHub. Codex использован при адаптации кода, подготовке документации и проверках. В прежнем MVP есть необязательная интеграция OpenAI Responses API для структурирования/перевода; в основном сценарии она не вызывается. Сторонние источники для рыночного контекста приведены в [обзоре источников и альтернатив](docs/sources-market.md).
 
-**Streamlit Community Cloud note:** local filesystem data is not intended as durable production storage. For this hackathon MVP the seeded demo data is enough. A production version should move persistence to an external managed database.
+## Материалы хакатона
 
-## Repository structure
+- [Проблема и гипотезы](docs/problem-hypotheses.md): конкретная ситуация отбора, стороны, предполагаемые последствия и условия опровержения; без вымышленных интервью.
+- [Lean Canvas](docs/lean-canvas.md): пользователь, покупатель, предложение, экономика и риски.
+- [План запуска](docs/launch-plan.md): первые 100 школьников и первый платящий клиент.
+- [Исследовательский набор](docs/research-kit.md): вопросы и пустые таблицы для реальных ответов.
+- [Сценарий демонстрации](docs/demo-walkthrough.md): личный проект, доработка, защита, паспорт и приглашение.
+- [План презентации и демо](docs/pitch-outline.md): 9 слайдов и сценарий видео на 2–3 минуты.
+- [Источники рынка и альтернативы](docs/sources-market.md).
+- [Чеклист сдачи](docs/submission-checklist.md): что подготовлено и что ещё требуется.
 
-```text
-app.py                    Streamlit application and navigation
-ai_service.py             AI interview, schema validation, fallback
-translation_service.py    Display-only translation and translation cache
-database.py               SQLite persistence and state transitions
-scoring.py                Deterministic 0–100 readiness score
-seed_data.py              Synthetic demo data
-i18n.py                   RU / KZ / EN interface text
-ui.py                     Escaped presentation helpers
-assets/taskup.css         TaskUp visual theme and responsive layout
-tests/                    Core, UI and translation tests
-.streamlit/config.toml     Streamlit theme
-```
-
-## 5-minute demo script
-
-1. Open **https://taskup-kuskon-ai.streamlit.app/**
-2. Select **Business representative**.
-3. Create a weak task description.
-4. Run AI analysis and show at least 3 clarifying questions.
-5. Fill missing fields and confirm the card.
-6. Show the readiness score increasing and explain the score breakdown.
-7. Publish the task.
-8. Use **Change role** and select **Student / team**.
-9. Find the published task in the catalogue and submit a proposal.
-10. Switch back to the business role and manually select or reject the team.
-
-Optional multilingual moment for the demo: switch the interface between **Қазақша / English / Русский**, show automatic task translation, and then use **Show original**.
-
-## Important hackathon principle
-
-TaskUp gamifies the quality of the business task, not the popularity of the company. A clearer, more complete and confirmed task receives a higher readiness score and a stronger position in the catalogue.
-
-Students choose tasks themselves. The AI may assist with clarification and translation, but it does **not** automatically assign teams or choose a winner for the business.
+Основание требований — предоставленный кейс `HackHub_Case_Talent_do_vuza.pdf`. Указанный в нём срок сдачи: **12 ноября 2026, 23:59, Актобе, UTC+5**. Наличие кода и документов не заменяет 15 ответов школьников, 2 интервью покупателей, готовую презентацию и видео.
