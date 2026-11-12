@@ -28,8 +28,12 @@ journeys remain passing, including evidence-required reviews and stale forms.
 
 PASS: Python compilation of app, modules and tests.
 Local browser: all eight entry points visible; university cabinet opens its own
-profile and pending university challenge. Public deployment verification follows
-publishing this tested revision.
+profile and pending university challenge.
+PASS: public deployment https://taskup-kuskon-ai.streamlit.app/ after merge PR #2
+(main merge commit 436db5e). Browser verified all eight entry points, the
+university profile and its pending challenge, parent view limited to linked
+pupil A-106 with independent consent, and school roster/issuer statement form.
+Public browser inspection is a smoke check; full transitions were tested by AppTest.
 
 Unchanged example artifacts retain their earlier successful checks: schedule.py
 9 tests; attendance 24 events, 17 present, 7 absent (70.83%).

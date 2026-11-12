@@ -8,7 +8,7 @@
 
 **Статус:** демонстрационный прототип на синтетических данных. Подтверждённых интервью, оплат и партнёрств пока нет. Это переработка предыдущего MVP TaskUp: прежний сценарий сохранён в `legacy_app.py`.
 
-Рабочее демо: [taskup-kuskon-ai.streamlit.app](https://taskup-kuskon-ai.streamlit.app/). Streamlit подключён к ветке `main`; изменения подготавливаются в `codex/hackhub-talent`. Предыдущая версия уже объединена через [PR №1](https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy/pull/1). Результаты проверки текущей редакции — в [TEST_REPORT.txt](TEST_REPORT.txt).
+Рабочее демо: [taskup-kuskon-ai.streamlit.app](https://taskup-kuskon-ai.streamlit.app/). Streamlit подключён к ветке `main`; восемь кабинетов опубликованы через [PR №2](https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy/pull/2). Главный экран, кабинет вуза, родителя и школы проверены на публичном сайте. Результаты 123 автоматических тестов и границы браузерной проверки — в [TEST_REPORT.txt](TEST_REPORT.txt).
 
 ## Участники рынка
 
@@ -85,7 +85,7 @@
 ```bash
 git clone https://github.com/mcjuba1996-sudo/taskup-kuskon-ai-deploy.git
 cd taskup-kuskon-ai-deploy
-git switch codex/hackhub-talent
+git switch main
 python -m venv .venv
 ```
 
@@ -113,7 +113,7 @@ macOS/Linux:
 
 В macOS/Linux: `.venv/bin/python -m unittest discover -s tests -v`.
 
-Для размещения в собственном Streamlit Community Cloud выберите репозиторий `mcjuba1996-sudo/taskup-kuskon-ai-deploy`, ветку `codex/hackhub-talent`, входной файл `app.py` и Python **3.12**. Секреты API для нового сценария не нужны. После обновления пройдите кабинеты по [сценарию](docs/demo-walkthrough.md) и только затем укажите публичный URL этой редакции. Сообщение о работе прежнего деплоя не заменяет проверку новых сценариев.
+Для повторного размещения в Streamlit Community Cloud выберите репозиторий `mcjuba1996-sudo/taskup-kuskon-ai-deploy`, ветку `main`, входной файл `app.py` и Python **3.12**. Секреты API для нового сценария не нужны. Рабочая публикация уже использует эти настройки. Перед показом жюри пройдите кабинеты по [сценарию](docs/demo-walkthrough.md).
 
 ## Проверяемые демонстрационные работы
 
