@@ -22,6 +22,24 @@ BUYER_CABINETS = {'company': 'Кабинет компании', 'university': '�
                   'agency': 'Кабинет образовательного агентства', 'fund': 'Кабинет фонда'}
 BUYER_INVITES = {'company': 'в образовательную или CSR-программу', 'university': 'в проектную школу или программу для абитуриентов',
                  'agency': 'на консультацию по образовательной траектории', 'fund': 'на отбор в грантовую программу'}
+ROLE_ICONS = {
+    'student': '<circle cx="12" cy="7" r="3"/><path d="M5 21v-3a7 7 0 0 1 14 0v3"/>',
+    'parent': '<circle cx="8" cy="8" r="3"/><circle cx="17" cy="10" r="2"/><path d="M2 21v-2a6 6 0 0 1 12 0v2m1-6a5 5 0 0 1 7 5v1"/>',
+    'university': '<path d="m3 8 9-5 9 5H3Zm0 13h18M5 18v-7m7 7v-7m7 7v-7"/>',
+    'buyer': '<rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12l9 4 9-4m-9 2v4"/>',
+    'fund': '<path d="M12 21 4 13C-1 8 6 1 12 7c6-6 13 1 8 6l-8 8Z"/>',
+    'agency': '<circle cx="12" cy="12" r="9"/><path d="m16 8-2 6-6 2 2-6 6-2Z"/>',
+    'school': '<path d="M12 6C9 3 5 3 2 4v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-3-1-7-1-10 2Zm0 0v15"/>',
+    'organizer': '<circle cx="12" cy="8" r="5"/><path d="m8 12-2 10 6-3 6 3-2-10"/>',
+}
+
+
+def role_visual(key):
+    category, style = ('ТАЛАНТ И СЕМЬЯ', 'family') if key in ('student', 'parent') else (
+        ('ИСТОЧНИК СВЕДЕНИЙ', 'source') if key in ('school', 'organizer') else ('ПОКУПАТЕЛЬ', 'buyer'))
+    html(f'<div class="tt-role-meta {style}"><span class="tt-role-icon"><svg viewBox="0 0 24 24" '
+         f'fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" '
+         f'aria-hidden="true">{ROLE_ICONS[key]}</svg></span>{category}</div>')
 
 
 def html(value):
@@ -68,13 +86,14 @@ def landing():
     st.caption('Kuskon AI · HackHub 2026 · Талант до вуза')
     left, right = st.columns([1.4, 1], gap='large')
     with left:
-        html('<div class="tt-kicker">РЕАЛЬНАЯ РАБОТА → ДОВЕРИЕ</div><h1 class="tt-hero-title">Твой талант.<br>'
+        html('<div class="tt-kicker tt-hero-kicker">РЕАЛЬНАЯ РАБОТА → ДОВЕРИЕ</div><h1 class="tt-hero-title">Твой талант.<br>'
              '<em>Твои доказательства.</em></h1><p class="tt-lead">Сделай небольшой IT-проект. Получи разбор от вуза или другой организации. '
              'Покажи, что умеешь, через результат работы.</p>')
         tag('Для школьников 8–11 классов Актюбинской области')
+        html('<a class="tt-hero-cta" href="#vyberite-svoy-kabinet">Найти свой кабинет <span>→</span></a>')
     with right:
         html('<div class="tt-proof"><div class="tt-proof-top">ПАСПОРТ РАБОТЫ <span>ДЕМО</span></div>'
-             '<h3>Дашборд школьного клуба</h3><p>Участник A-103 · Актобе · Аналитика</p>'
+             '<h3>Учебный анализ данных</h3><p>Участник A-101 · Актобе · Аналитика</p>'
              '<div class="tt-proof-result">✓ Результат принят заказчиком</div>'
              '<div class="tt-proof-row"><span>Работа и исходники</span><b>Приложены</b></div>'
              '<div class="tt-proof-row"><span>Критерии и обратная связь</span><b>Открыты</b></div>'
@@ -84,6 +103,7 @@ def landing():
          '<div><b>02</b><strong>Покажи результат</strong><span>Ссылка, подход и личный вклад</span></div>'
          '<div><b>03</b><strong>Получи признание</strong><span>Разбор и паспорт принятой работы</span></div></div>')
     st.subheader('Выберите свой кабинет')
+    st.caption('Практика, поддержка и новые возможности — у каждого участника своя роль.')
     cards = [
         ('student', None, 'student', 'Я школьник', 'Практика, личные проекты, обратная связь и портфолио. Бесплатно.', 'Выбрать задание →'),
         ('parent', None, 'parent', 'Я родитель', 'Результаты ребёнка, следующий шаг и согласие на показ профиля.', 'Открыть кабинет родителя →'),
@@ -96,7 +116,8 @@ def landing():
     ]
     for start in range(0, len(cards), 2):
         for col, (role, kind, key, title, description, button) in zip(st.columns(2, gap='large'), cards[start:start + 2]):
-            with col, st.container(border=True):
+            with col, st.container(border=True, key=f'tt_role_card_{key}'):
+                role_visual(key)
                 st.subheader(title)
                 st.write(description)
                 st.button(button, key=f'tt_enter_{key}', type='primary' if role == 'student' else 'secondary',
@@ -401,8 +422,9 @@ def about():
     st.write('Школьник 8–11 класса из Актюбинской области получает практику, обратную связь и портфолио. '
              'Вузы, образовательные агентства, компании и фонды создают задания, проверяют результаты и приглашают участников. '
              'Школы и организаторы конкурсов дают сведения о достижениях, а родители видят результаты своего ребёнка и управляют согласием.')
-    st.info('Гипотеза цены: 100 000 ₸ за 30-дневный пилот для одной компании. Платят за рабочее пространство программы '
-            'и отбор участников. Цена и спрос ещё не подтверждены интервью.')
+    st.info('Гипотеза цены: 100 000 ₸ за одну 30-дневную кампанию компании: одно задание, до 100 регистраций '
+            'и до 25 работ на проверке. Экспертов предоставляет покупатель. Платят за организацию процесса отбора; '
+            'число участников и приглашений не гарантируется. Цена, спрос и окупаемость ещё не подтверждены интервью.')
     st.subheader('Как появляется паспорт работы')
     rubric(store.CRITERIA)
     st.write('Решение принимает заказчик вручную. Каждая оценка опирается на описанное свидетельство. '
