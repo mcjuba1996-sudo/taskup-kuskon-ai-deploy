@@ -43,7 +43,7 @@ class TranslationUIFlowTests(unittest.TestCase):
         self.fake = patch('translation_service.translate_texts', side_effect=fake_translations)
         self.translator = self.fake.start()
         self.addCleanup(self.fake.stop)
-        self.app = AppTest.from_file(str(ROOT / 'app.py'), default_timeout=20).run()
+        self.app = AppTest.from_file(str(ROOT / 'legacy_app.py'), default_timeout=20).run()
         self.assert_healthy()
         self.before = self.snapshot()
         self.task = next(task for task in db.tasks(published=True) if task['score'] == 100)

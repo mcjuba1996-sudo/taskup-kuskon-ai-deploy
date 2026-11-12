@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Демо: встреча с наставником · TaskUp Talent</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eff6f5;color:#153735;font:17px/1.6 system-ui,sans-serif}
+main{max-width:620px;margin:6vh auto;padding:24px}article{padding:30px;background:white;border:1px solid #cbdcd8;border-radius:22px}
+h1{font-size:30px;line-height:1.2;margin:12px 0}h2{font-size:23px}p{margin:14px 0}.tag{font-size:13px;letter-spacing:.06em;font-weight:700;color:#395f58}
+label{display:block;margin:20px 0 8px}select,button{font:inherit;border-radius:10px;padding:12px 16px;width:100%}
+select{border:1px solid #7c9d95;background:white}button{cursor:pointer;background:#125e50;color:white;border:0;font-weight:650;margin-top:16px}
+button.secondary{background:#edf3f1;color:#153735;border:1px solid #7c9d95}button:focus-visible,select:focus-visible{outline:3px solid #be590f;outline-offset:4px}
+.note{font-size:14px;color:#49605a}.details{background:#edf6f1;padding:12px 16px;border-radius:10px}[hidden]{display:none!important}
+@media(max-width:480px){main{margin:12px auto;padding:12px}article{padding:22px}h1{font-size:26px}}
+</style>
+<main>
+  <p class="tag">TASKUP TALENT / СИНТЕТИЧЕСКИЙ ПРОТОТИП</p>
+  <article>
+    <section id="signup">
+      <h1 tabindex="-1">Встреча с наставником</h1>
+      <p>Разберём, как начать небольшой IT-проект и объяснить свой вклад.</p>
+      <p class="details">Демо-встреча · 30 минут · бесплатно<br>Все детали вымышлены, реальная встреча не назначается.</p>
+      <form id="signup-form">
+        <label for="slot">Выберите удобное время (Актобе, UTC+5)</label>
+        <select id="slot" required>
+          <option value="">Выберите один вариант</option>
+          <option value="Суббота, 11:00">Суббота, 11:00</option>
+          <option value="Суббота, 15:00">Суббота, 15:00</option>
+        </select>
+        <button type="submit">Показать подтверждение записи</button>
+      </form>
+      <p class="note">Ничего не отправляется. Не вводите личные данные: здесь нет полей для имени и контактов.</p>
+    </section>
+    <section id="confirmation" hidden>
+      <h1 tabindex="-1">Демо-запись подтверждена</h1>
+      <p id="chosen-slot" class="details"></p>
+      <p>В настоящем продукте здесь были бы дальнейшие шаги. В этом прототипе запись существует только до перезагрузки страницы.</p>
+      <button id="cancel" class="secondary" type="button">Отменить демо-запись</button>
+    </section>
+    <section id="cancellation" hidden>
+      <h1 tabindex="-1">Демо-запись отменена</h1>
+      <p>Причину объяснять не нужно. Вы можете вернуться и выбрать другое время.</p>
+      <button id="restart" type="button">Записаться заново</button>
+    </section>
+    <p id="status" class="note" aria-live="polite"></p>
+  </article>
+  <p class="note">Общий артефакт вымышленных профилей. Подготовлен Kuskon AI с Codex; не приписывается реальному подростку. Без сети, cookies и постоянного хранения.</p>
+</main>
+<script>
+const states = ['signup', 'confirmation', 'cancellation'];
+const form = document.getElementById('signup-form');
+function showState(active, message) {
+  for (const id of states) document.getElementById(id).hidden = id !== active;
+  document.getElementById('status').textContent = message;
+  document.querySelector('#' + active + ' h1').focus();
+}
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  document.getElementById('chosen-slot').textContent = document.getElementById('slot').value + ' · 30 минут · Актобе, UTC+5';
+  showState('confirmation', 'Показано подтверждение. Данные никуда не отправлены.');
+});
+document.getElementById('cancel').addEventListener('click', () => {
+  form.reset();
+  document.getElementById('chosen-slot').textContent = '';
+  showState('cancellation', 'Запись отменена в демонстрации.');
+});
+document.getElementById('restart').addEventListener('click', () => showState('signup', 'Выберите время ещё раз.'));
+</script>
+</html>

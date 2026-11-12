@@ -33,7 +33,7 @@ class UIFlowTests(unittest.TestCase):
         translator = patch('translation_service.urlopen', side_effect=TimeoutError('Offline UI test'))
         translator.start()
         self.addCleanup(translator.stop)
-        self.app = AppTest.from_file(str(ROOT / 'app.py'), default_timeout=20).run()
+        self.app = AppTest.from_file(str(ROOT / 'legacy_app.py'), default_timeout=20).run()
         self.assert_healthy()
 
     def assert_healthy(self):
